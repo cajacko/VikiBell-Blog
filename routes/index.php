@@ -30,9 +30,89 @@ while($count < 100) {
   $count++;
 }
 
+$nav = array(
+  array(
+    'url' => '/',
+    'title' => 'Viki Bell',
+    'internal' => true,
+  ),
+  array(
+    'url' => '/about',
+    'title' => 'About',
+    'icon' => 'female',
+    'internal' => true,
+    'subNav' => array(
+      array(
+        'url' => '/about',
+        'title' => 'About',
+        'internal' => true,
+      ),
+      array(
+        'url' => '/contact',
+        'title' => 'Contact',
+        'internal' => true,
+      ),
+    ),
+  ),
+  array(
+    'url' => '/category/life',
+    'title' => 'Life',
+    'icon' => 'female',
+    'internal' => true,
+  ),
+  array(
+    'url' => '/category/life',
+    'title' => 'Events',
+    'icon' => 'female',
+    'internal' => true,
+  ),
+  array(
+    'url' => '/category/life',
+    'title' => 'Travel',
+    'icon' => 'female',
+    'internal' => true,
+  ),
+  array(
+    'url' => '/about',
+    'title' => 'Food',
+    'icon' => 'female',
+    'internal' => true,
+    'subNav' => array(
+      array(
+        'url' => '/about',
+        'title' => 'Recipes',
+        'internal' => true,
+      ),
+      array(
+        'url' => '/contact',
+        'title' => 'Resturants',
+        'internal' => true,
+      ),
+    ),
+  ),
+);
+
+$social_nav = array(
+  array(
+    'url' => '/',
+    'icon' => 'instagram',
+  ),
+  array(
+    'url' => '/',
+    'icon' => 'twitter',
+  ),
+);
+
+$global_vars = array(
+  'config' => $config,
+  'nav' => $nav,
+  'socialNav' => $social_nav,
+  'bunting' => $bunting,
+);
+
 
 $template = $twig->loadTemplate('templates/home.twig');
 
 // gzip compress content
 ob_start("ob_gzhandler");
-  echo $template->render(array('config' => $config, 'bunting' => $bunting));
+  echo $template->render(array('global' => $global_vars));
