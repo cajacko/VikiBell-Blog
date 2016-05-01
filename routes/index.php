@@ -1,4 +1,7 @@
 <?php
 
 $template = $twig->loadTemplate('templates/home.twig');
-echo $template->render(array('the' => 'variables', 'go' => 'here'));
+
+// gzip compress content
+ob_start("ob_gzhandler");
+  echo $template->render(array('config' => $config));
