@@ -1,0 +1,44 @@
+<article>
+  <header>
+    <time datetime="{{ post.date.datetime }}">{{ post.date.title }}</time>
+
+    {% if post.image %}
+      <div>
+        <img class="" src="{{ post.image.src }}" alt="{{ post.image.alt }}">
+      </div>
+    {% endif %}
+
+    <h1>{{ post.title }}</h1>
+  </header>
+
+  <div>
+  {% if post.excerpt %}
+    {{ post.excerpt|raw }}
+  {% else %}
+    {{ post.content|raw }}
+  {% endif %}
+  </div>
+
+  {% if post.isSingle %}
+    <footer>
+      <span>Share this post on:</span>
+      <ul>
+        <li>
+          <a href="https://twitter.com/intent/tweet?url={{ post.tweet.url }}&text={{ post.tweet.text }}&via={{ post.tweet.via }}" target="_blank">
+            <i class="fa fa-twitter"></i><i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ post.facebook.url }}" target="_blank">
+            <i class="fa fa-facebook"></i><i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:?subject={{ post.email.subject }}&body={{ post.email.content }}">
+            <i class="fa fa-envelope"></i><i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+      </ul>
+    </footer>
+  {% endif %}
+</article>

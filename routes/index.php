@@ -110,9 +110,60 @@ $global_vars = array(
   'bunting' => $bunting,
 );
 
+$posts = array(
+  array(
+    'date' => array(
+      'title' => '26.04',
+      'datetime' => '2016-04-01 12:00:00',
+    ),
+    'image' => array(
+      'src' => '',
+      'alt' => '',
+    ),
+    'title' => 'How to survive a zombie apolalypse',
+    'content' => '<p>Hello there</p>',
+  ),
+  array(
+    'date' => array(
+      'title' => '26.04',
+      'datetime' => '2016-04-01 12:00:00',
+    ),
+    'image' => array(
+      'src' => '',
+      'alt' => '',
+    ),
+    'title' => 'How to survive a zombie apolalypse',
+    'content' => '<p>Hello there</p>',
+  ),
+  array(
+    'date' => array(
+      'title' => '26.04',
+      'datetime' => '2016-04-01 12:00:00',
+    ),
+    'image' => array(
+      'src' => '',
+      'alt' => '',
+    ),
+    'title' => 'How to survive a zombie apolalypse',
+    'content' => '<p>Hello there</p>',
+  ),
+  array(
+    'date' => array(
+      'title' => '26.04',
+      'datetime' => '2016-04-01 12:00:00',
+    ),
+    'image' => array(
+      'src' => '',
+      'alt' => '',
+    ),
+    'title' => 'How to survive a zombie apolalypse',
+    'content' => '<p>Hello there</p>',
+  ),
+);
+
 
 $template = $twig->loadTemplate('templates/home.twig');
 
 // gzip compress content
 ob_start("ob_gzhandler");
-  echo $template->render(array('global' => $global_vars));
+  echo $template->render(array('global' => $global_vars, 'posts' => $posts));
