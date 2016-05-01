@@ -9,24 +9,27 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var ini = require('ini');
+var fs = require('fs');
+var config = ini.parse(fs.readFileSync('./config.ini', 'utf-8'));
 
 /********************************************************
 * SASS                                                  *
 ********************************************************/
 gulp.task('sass', function() {
-  var stylesheetExport = './public/styles';
+  var stylesExport = '.' + config.styles.export;
 
-  return gulp.src('./styles/import.scss')
+  return gulp.src('.' + config.styles.import)
     .pipe(sass().on('error', sass.logError))
-    .pipe(rename('style.css'))
+    .pipe(rename(config.styles.main))
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(gulp.dest(stylesheetExport))
-    .pipe(rename('style.min.css'))
+    .pipe(gulp.dest(stylesExport))
+    .pipe(rename(config.styles.min))
     .pipe(minifyCss())
-    .pipe(gulp.dest(stylesheetExport))
+    .pipe(gulp.dest(stylesExport))
     .pipe(browserSync.stream());
 });
 
@@ -34,14 +37,14 @@ gulp.task('sass', function() {
 * SCRIPTS                                               *
 ********************************************************/
 gulp.task('scripts', function() {
-  var javascriptsExport = './public/js';
+  var javascriptsExport = '.' + config.javascripts.export;
 
-  return browserify('./javascripts/import.js')
+  return browserify('.' + config.javascripts.import)
     .bundle() // Compile the js
-    .pipe(source('script.js')) //Pass desired output filename to vinyl-source-stream
+    .pipe(source(config.javascripts.main)) //Pass desired output filename to vinyl-source-stream
     .pipe(gulp.dest(javascriptsExport)) // Output the file
     .pipe(buffer()) // convert from streaming to buffered vinyl file object
-    .pipe(rename('script.min.js')) // Rename the minified version
+    .pipe(rename(config.javascripts.min)) // Rename the minified version
     .pipe(uglify()) // Minify the file
     .pipe(gulp.dest(javascriptsExport)); // Output the minified file
 });
@@ -51,21 +54,32 @@ gulp.task('scripts', function() {
 ********************************************************/
 gulp.task('browsersync', function() {
   browserSync.init(null, {
-    server: {
-      baseDir: "./public"
-    }
+    proxy: config.environment.url,
+    files: ['.' + config.dirs.public + '/**/*.*'],
   });
 });
+
+// create a task that ensures the `js` task is complete before
+// reloading browsers
+gulp.task('scripts-watch', ['scripts'], browserSync.reload);
 
 /********************************************************
 * WATCH TASKS                                           *
 ********************************************************/
 gulp.task('watch', function() {
-  gulp.watch(['./styles/**/*.scss'], ['sass']);
-  gulp.watch(['./javascripts/**/*.js'], ['scripts']);
-  // gulp.watch(['./javascripts/**/*.js'], ['scripts']); // Reload when function and twig files change
-  // Reload when styles or js changes
-  // gulp.watch("app/*.html").on('change', browserSync.reload);
+  gulp.watch(['.' + config.styles.dir + '/**/*.scss'], ['sass']);
+  gulp.watch(['.' + config.javascripts.dir + '/**/*.js'], ['scripts-watch']);
+  gulp.watch([
+    '.' + config.dirs.models + '/**/*',
+    '.' + config.dirs.views + '/**/*',
+    '.' + config.dirs.helpers + '/**/*',
+    '.' + config.dirs.routes + '/**/*',
+    '.' + config.dirs.media + '/**/*',
+    '.' + config.dirs.public + '/*',
+    '.' + config.dirs.public + '/.*',
+    './app.php',
+    './config.ini',
+  ]).on('change', browserSync.reload);
 });
 
 /********************************************************
