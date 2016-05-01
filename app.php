@@ -1,5 +1,25 @@
 <?php
 
-require_once('config.php'); // Get the config details
-require_once('models/database.php'); // Load the database
-require_once('routes/index.php'); // Route the current request
+// Setup config
+$config = parse_ini_file('config.ini', true);
+
+$project_root = __DIR__; // Get the root dir
+
+// For each directory in the config replace it with it's absolute path
+foreach($config['dirs'] as $dir_name => $dir_path) {
+  $config['dirs'][$dir_name] = $project_root . $dir_path;
+}
+
+$config['dirs']['root'] = $project_root; // Add the absolute path to the dirs
+
+// Get composer dependencies
+require_once('vendor/autoload.php'); 
+
+// Load twig templating engine
+Twig_Autoloader::register();
+
+$loader = new Twig_Loader_Filesystem($config['dirs']['views']);
+$twig = new Twig_Environment($loader);
+
+// Route the request
+require_once($config['dirs']['routes'] . '/index.php');
