@@ -352,3 +352,28 @@ table {
 td,
 th {
   padding: 0; }
+
+.Banner {
+  max-height: 350px;
+  min-height: 200px;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  overflow: hidden;
+  display: block; }
+  .no-js .Banner.Banner--image1 {
+    background-image: url("/media/banner1.jpg"); }
+  .Banner:after {
+    content: '';
+    display: block;
+    padding-bottom: 18%; }
+
+.Banner-image {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: auto; }
+  .no-js .Banner-image {
+    display: none; }

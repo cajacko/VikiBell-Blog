@@ -1,2 +1,13 @@
+// Vars
+@import 'modules/variables';
+@import 'modules/mixins';
+
+// Imports
 @import '../node_modules/sass-mq/mq';
 @import '../node_modules/normalize.css/normalize';
+
+// Structure
+@import 'modules/general';
+
+// Components
+@import 'modules/banner';

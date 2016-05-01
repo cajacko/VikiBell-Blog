@@ -1,0 +1,42 @@
+.Banner {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  max-height: 350px;
+  min-height: 200px;
+  overflow: hidden;
+  position: relative;
+
+  .no-js & {
+    &.Banner--image1 {
+      background-image: url('/media/banner1.jpg');
+    }
+
+    &.Banner--image2 {
+      background-image: url('/media/banner2.jpg');
+    }
+
+    &.Banner--image3 {
+      background-image: url('/media/banner3.jpg');
+    }
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: 18%;
+  }
+}
+
+.Banner-image {
+  height: auto;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  .no-js & {
+    display: none;
+  }
+}
