@@ -1,0 +1,9 @@
+#########################
+## Sample Sass Lint File
+#########################
+# Rule Configuration
+rules:
+  class-name-format:
+    - 2
+    -
+      convention: ^[\-A-Za-z0-9]+$
