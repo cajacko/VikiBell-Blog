@@ -1,0 +1,25 @@
+<section>
+  <div>
+    <img class="" src="" alt="">
+    <ul>
+      {% for profile in sidebar.profile %}
+        <li data-image-src="" data-image-alt=""></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <ul>
+    <li><a><i class="fa fa-twitter"></i></a></li>
+    <li><a><i class="fa fa-instagram"></i></a></li>
+    <li><a><i class="fa fa-pinterest"></i></a></li>
+  </ul>
+
+  <form>
+    <label></label>
+    <input type="text" placeholder="Search">
+  </form>
+
+  {% include 'sublayouts/twitter.twig' %}
+
+  <a href="#SiteHeader"><i class="fa fa-chevron-up"></i></a>
+</section>
