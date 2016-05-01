@@ -10,6 +10,7 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="shortcut icon" href="/media/favicon/favicon.ico" />
     <link rel="pingback" href="">
+    <link rel="stylesheet" href="{% if config.environment.dev %}{{ config.styles.publicDir }}/font-awesome.min.css{% else %}https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css{% endif %}">
     <link rel="stylesheet" href="{{ config.styles.publicDir }}/{% if config.environment.dev %}{{ config.styles.main }}{% else %}{{ config.styles.min }}{% endif %}">
     <meta name="description" content="Life on the planet Viki continues..."/>
     <meta name="robots" content="noodp"/>
