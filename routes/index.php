@@ -1,169 +1,85 @@
 <?php
 
-$bunting = array();
-    
-$count = 1;
+// Temp functions for loading dummy data during dev
+require_once('../models/temp.php'); 
 
-while($count < 100) {
-  $bunting_item = array('colour' => '', 'dots' => array());
-    
-  if( $count % 5 == 0 ) {
-    $colour = 1;
-  } elseif( $count % 4 == 0 ) {
-    $colour = 2;
-  } elseif( $count % 3 == 0 ) {
-    $colour = 3;
-  } elseif( $count % 2 == 0 ) {
-    $colour = 4;
-  } else {
-    $colour = 5;
-  }
-
-  $bunting_item['colour'] = $colour;
-    
-  for($i = 1; $i < 9; $i++) {
-    $bunting_item['dots'][] = $i;
-  }
-
-  $bunting[] = $bunting_item;
-  
-  $count++;
+// Setup the redirect home url depending on our local environment
+if($config['environment']['dev']) {
+  $redirect_base = 'localhost:3000/';
+} else {
+  $redirect_base = $redirect = $config['environment']['url'] . '/';
 }
 
-$nav = array(
-  array(
-    'url' => '/',
-    'title' => 'Viki Bell',
-    'internal' => true,
-  ),
-  array(
-    'url' => '/about',
-    'title' => 'About',
-    'icon' => 'female',
-    'internal' => true,
-    'subNav' => array(
-      array(
-        'url' => '/about',
-        'title' => 'About',
-        'internal' => true,
-      ),
-      array(
-        'url' => '/contact',
-        'title' => 'Contact',
-        'internal' => true,
-      ),
-    ),
-  ),
-  array(
-    'url' => '/category/life',
-    'title' => 'Life',
-    'icon' => 'female',
-    'internal' => true,
-  ),
-  array(
-    'url' => '/category/life',
-    'title' => 'Events',
-    'icon' => 'female',
-    'internal' => true,
-  ),
-  array(
-    'url' => '/category/life',
-    'title' => 'Travel',
-    'icon' => 'female',
-    'internal' => true,
-  ),
-  array(
-    'url' => '/about',
-    'title' => 'Food',
-    'icon' => 'female',
-    'internal' => true,
-    'subNav' => array(
-      array(
-        'url' => '/about',
-        'title' => 'Recipes',
-        'internal' => true,
-      ),
-      array(
-        'url' => '/contact',
-        'title' => 'Resturants',
-        'internal' => true,
-      ),
-    ),
-  ),
-);
+// Explode the query into an array
+if(isset($_GET['url'])) {
+  $request = explode('/', $_GET['url']);
+  $request = array_filter($request); // Nedded, as explode will create an array item for trailing slash, this removes it.
+} else {
+  $request = array();
+}
 
-$social_nav = array(
-  array(
-    'url' => '/',
-    'icon' => 'instagram',
-  ),
-  array(
-    'url' => '/',
-    'icon' => 'twitter',
-  ),
-);
+// Get the global data
+require_once('../models/site_navigation.php');
+require_once('../models/social_navigation.php');
+require_once('../helpers/bunting.php');
 
-$global_vars = array(
+// Setup the variables to pass to the view
+$vars = array(
   'config' => $config,
-  'nav' => $nav,
-  'socialNav' => $social_nav,
+  'nav' => $site_navigation,
+  'socialNav' => $social_navigation,
   'bunting' => $bunting,
 );
 
-$posts = array(
-  array(
-    'date' => array(
-      'title' => '26.04',
-      'datetime' => '2016-04-01 12:00:00',
-    ),
-    'image' => array(
-      'src' => '',
-      'alt' => '',
-    ),
-    'title' => 'How to survive a zombie apolalypse',
-    'content' => '<p>Hello there</p>',
-  ),
-  array(
-    'date' => array(
-      'title' => '26.04',
-      'datetime' => '2016-04-01 12:00:00',
-    ),
-    'image' => array(
-      'src' => '',
-      'alt' => '',
-    ),
-    'title' => 'How to survive a zombie apolalypse',
-    'content' => '<p>Hello there</p>',
-  ),
-  array(
-    'date' => array(
-      'title' => '26.04',
-      'datetime' => '2016-04-01 12:00:00',
-    ),
-    'image' => array(
-      'src' => '',
-      'alt' => '',
-    ),
-    'title' => 'How to survive a zombie apolalypse',
-    'content' => '<p>Hello there</p>',
-  ),
-  array(
-    'date' => array(
-      'title' => '26.04',
-      'datetime' => '2016-04-01 12:00:00',
-    ),
-    'image' => array(
-      'src' => '',
-      'alt' => '',
-    ),
-    'title' => 'How to survive a zombie apolalypse',
-    'content' => '<p>Hello there</p>',
-  ),
-);
+$template_path = 'templates/';
 
+// Define which page of results we are getting
+if(isset($_GET['page']) && is_numeric($_GET['page'])) {
+  $pagination = $_GET['page'];
+} else {
+  $pagination = 0;
+}
 
-$template = $twig->loadTemplate('templates/home.twig');
+// Route the request
+if(isset($request[0])) {
+  switch ($request[0]) {
+    case 'category':
+      require_once('category.php');
+      break;
 
-// gzip compress content
+    case 'categories':
+      require_once('categories.php');
+      break;
+
+    case 'tag':
+      require_once('tag.php');
+      break;
+
+    case 'tags':
+      require_once('tags.php');
+      break;
+
+    case 'post':
+      require_once('post.php');
+      break;
+
+    case 'search':
+      require_once('search.php');
+      break;
+    
+    default:
+      require_once('page.php');
+      break;
+  }
+} else {
+  require_once('home.php');
+}
+
+// Get the template
+$template = $twig->loadTemplate($template_path . '.twig');
+
+// gzip compress the content for optimization
 ob_start("ob_gzhandler");
-  echo $template->render(array('global' => $global_vars, 'posts' => $posts));
+
+// Render the template
+echo $template->render(array('vars' => $vars));

@@ -10,8 +10,8 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="shortcut icon" href="/media/favicon/favicon.ico" />
     <link rel="pingback" href="">
-    <link rel="stylesheet" href="{% if global.config.environment.dev %}{{ global.config.styles.publicDir }}/font-awesome.min.css{% else %}https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css{% endif %}">
-    <link rel="stylesheet" href="{{ global.config.styles.publicDir }}/{% if global.config.environment.dev %}{{ global.config.styles.main }}{% else %}{{ global.config.styles.min }}{% endif %}">
+    <link rel="stylesheet" href="{% if vars.config.environment.dev %}{{ vars.config.styles.publicDir }}/font-awesome.min.css{% else %}https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css{% endif %}">
+    <link rel="stylesheet" href="{{ vars.config.styles.publicDir }}/{% if vars.config.environment.dev %}{{ vars.config.styles.main }}{% else %}{{ vars.config.styles.min }}{% endif %}">
     <meta name="description" content="Life on the planet Viki continues..."/>
     <meta name="robots" content="noodp"/>
     <link rel="canonical" href="http://vikibell.com" />

@@ -3,7 +3,7 @@
     <ul>
       <li><a href="/">Viki Bell</a></li>
       
-      {% for socialNavItem in global.socialNav %}
+      {% for socialNavItem in vars.socialNav %}
         <li><a href="{{ socialNavItem.url }}"><i class="fa fa-{{ socialNavItem.icon }}"></i></a></li>
       {% endfor %}
 
@@ -11,7 +11,7 @@
         <a id="mobile-nav-dropdown-icon"><i class="fa fa-bars"></i></a>
 
         <ul>
-          {% for navItem in global.nav %}
+          {% for navItem in vars.nav %}
             <li>
               <a href="{{ navItem.url }}">
                 {% if navItem.icon %}
