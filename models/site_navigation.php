@@ -2,11 +2,6 @@
 
 $site_navigation = array(
   array(
-    'url' => '/',
-    'title' => 'Viki Bell',
-    'internal' => true,
-  ),
-  array(
     'url' => '/about',
     'title' => 'About',
     'icon' => 'female',
@@ -27,25 +22,25 @@ $site_navigation = array(
   array(
     'url' => '/category/life',
     'title' => 'Life',
-    'icon' => 'female',
+    'icon' => 'leaf',
     'internal' => true,
   ),
   array(
     'url' => '/category/life',
     'title' => 'Events',
-    'icon' => 'female',
+    'icon' => 'calendar',
     'internal' => true,
   ),
   array(
     'url' => '/category/life',
     'title' => 'Travel',
-    'icon' => 'female',
+    'icon' => 'plane',
     'internal' => true,
   ),
   array(
     'url' => '/about',
     'title' => 'Food',
-    'icon' => 'female',
+    'icon' => 'cutlery',
     'internal' => true,
     'subNav' => array(
       array(

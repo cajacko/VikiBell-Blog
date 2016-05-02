@@ -1,0 +1,87 @@
+$SiteNav--fontSize: 1.5em;
+$SiteNav-link--padding: .75em;
+$SiteNav-title--fontSize: .75em; 
+$SiteNav-zIndex: 1;
+
+.SiteNav {
+  background: $blue;
+  font-size: $SiteNav--fontSize;
+  line-height: 1;
+  text-align: center;
+  z-index: $SiteNav-zIndex;
+
+  a {
+    color: $white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+  }
+}
+
+.SiteNav-item--mobile {
+  display: none;
+}
+
+.MobileDropdownIcon {
+  display: none;
+}
+
+.SiteNav-item {
+  float: left;
+  position: relative;
+  width: 16.6666666%;
+}
+
+.SiteNav-link {
+  display: block;
+  padding: $SiteNav-link--padding 0;
+
+  &:hover {
+    .SiteNav-title {
+      display: block;
+    }
+
+    .SiteNav-icon {
+      display: none;
+    }
+  }
+}
+
+.SiteNav-title {
+  display: none;
+  font-size: $SiteNav-title--fontSize;
+  margin-top: (1 - $SiteNav-link--padding) / 2;
+
+}
+
+@mixin SiteNav--borderProps {
+  border-color: $white;
+  border-width: 2px;
+}
+
+.SiteNav-subNav {
+  @include SiteNav--borderProps;
+
+  background: $blue;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  // display: none;
+  position: absolute;
+  width: 100%;
+  z-index: $SiteNav-zIndex + 1;
+
+}
+
+.SiteNav-subItem {  
+  font-size: 1rem;
+}

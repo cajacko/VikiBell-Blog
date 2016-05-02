@@ -7,3 +7,7 @@ rules:
     - 2
     -
       convention: ^[\-A-Za-z0-9]+$
+  variable-name-format:
+    - 0
+  mixin-name-format:
+    - 0

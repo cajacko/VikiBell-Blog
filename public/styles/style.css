@@ -353,6 +353,25 @@ td,
 th {
   padding: 0; }
 
+html {
+  font-size: 16px;
+  line-height: 1.5; }
+
+a {
+  cursor: pointer; }
+
+.u-clearFix:before, .u-clearFix:after {
+  content: ' ';
+  display: table; }
+
+.u-clearFix:after {
+  clear: both; }
+
+.u-wrap {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1050px; }
+
 .Banner {
   display: block;
   max-height: 350px;
@@ -382,3 +401,58 @@ th {
   width: 100%; }
   .Banner--backgroundImage .Banner-image {
     display: none; }
+
+.SiteNav {
+  background: #6991ac;
+  font-size: 1.5em;
+  line-height: 1;
+  text-align: center;
+  z-index: 1; }
+  .SiteNav a {
+    color: #fff;
+    text-decoration: none; }
+    .SiteNav a:hover {
+      text-decoration: underline; }
+  .SiteNav ul {
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0; }
+
+.SiteNav-item--mobile {
+  display: none; }
+
+.MobileDropdownIcon {
+  display: none; }
+
+.SiteNav-item {
+  float: left;
+  position: relative;
+  width: 16.6666666%; }
+
+.SiteNav-link {
+  display: block;
+  padding: 0.75em 0; }
+  .SiteNav-link:hover .SiteNav-title {
+    display: block; }
+  .SiteNav-link:hover .SiteNav-icon {
+    display: none; }
+
+.SiteNav-title {
+  display: none;
+  font-size: 0.75em;
+  margin-top: 0.125em; }
+
+.SiteNav-subNav {
+  border-color: #fff;
+  border-width: 2px;
+  background: #6991ac;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  position: absolute;
+  width: 100%;
+  z-index: 2; }
+
+.SiteNav-subItem {
+  font-size: 1rem; }

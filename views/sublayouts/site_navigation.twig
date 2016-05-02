@@ -1,29 +1,29 @@
 <div>
-  <nav>
-    <ul>
-      <li><a href="/">Viki Bell</a></li>
+  <nav class="SiteNav">
+    <ul class="u-clearFix u-wrap">
+      <li class="SiteNav-item"><a class="SiteNav-link" href="/">Viki Bell</a></li>
       
       {% for socialNavItem in vars.socialNav %}
-        <li><a href="{{ socialNavItem.url }}"><i class="fa fa-{{ socialNavItem.icon }}"></i></a></li>
+        <li class="SiteNav-item SiteNav-item--mobile"><a class="SiteNav-link" href="{{ socialNavItem.url }}"><i class="fa fa-{{ socialNavItem.icon }}"></i></a></li>
       {% endfor %}
 
-      <li>
-        <a id="mobile-nav-dropdown-icon"><i class="fa fa-bars"></i></a>
+      <li class="">
+        <a class="MobileDropdownIcon"><i class="fa fa-bars"></i></a>
 
-        <ul>
+        <ul class="u-clearFix">
           {% for navItem in vars.nav %}
-            <li>
-              <a href="{{ navItem.url }}">
+            <li class="SiteNav-item">
+              <a class="SiteNav-link" href="{{ navItem.url }}">
                 {% if navItem.icon %}
-                  <i class="fa fa-{{ navItem.icon }}"></i>
+                  <i class="SiteNav-icon fa fa-{{ navItem.icon }}"></i>
                 {% endif %}
-                {{ navItem.title }}
+                <span class="SiteNav-title">{{ navItem.title }}</span>
               </a>
 
               {% if navItem.subNav %}
-                <ul>
+                <ul class="SiteNav-subNav">
                   {% for subNavItem in navItem.subNav %}
-                    <li><a href="{{ subNavItem.url }}">{{ subNavItem.title }}</a></li>
+                    <li class="SiteNav-subItem"><a class="SiteNav-link SiteNav-sublink" href="{{ subNavItem.url }}">{{ subNavItem.title }}</a></li>
                   {% endfor %}
                 </ul>
               {% endif %}

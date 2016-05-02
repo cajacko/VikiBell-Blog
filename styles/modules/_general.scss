@@ -1,0 +1,16 @@
+html {
+  font-size: $baseFontSize;
+  line-height: 1.5;
+}
+
+a {
+  cursor: pointer;
+}
+
+.u-clearFix {
+  @include clearfix;
+}
+
+.u-wrap {
+  @include wrap;
+}
