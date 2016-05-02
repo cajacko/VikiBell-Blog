@@ -1,35 +1,37 @@
 <div>
   <nav>
     <ul>
-      <li><a id="mobile-nav-dropdown-icon"><i class="fa fa-bars"></i></a></li>
-
+      <li><a href="/">Viki Bell</a></li>
+      
       {% for socialNavItem in global.socialNav %}
         <li><a href="{{ socialNavItem.url }}"><i class="fa fa-{{ socialNavItem.icon }}"></i></a></li>
       {% endfor %}
 
-      <li><a href="/">Viki Bell</a></li>
-    </ul>
-    
-    <ul>
-      {% for navItem in global.nav %}
-        <li>
-          <a href="{{ navItem.url }}">
-            {% if navItem.icon %}
-              <i class="fa fa-{{ navItem.icon }}"></i>
-            {% endif %}
-            {{ navItem.title }}
-          </a>
+      <li>
+        <a id="mobile-nav-dropdown-icon"><i class="fa fa-bars"></i></a>
 
-          {% if navItem.subNav %}
-            <ul>
-              {% for subNavItem in navItem.subNav %}
-                <li><a href="{{ subNavItem.url }}">{{ subNavItem.title }}</a></li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
+        <ul>
+          {% for navItem in global.nav %}
+            <li>
+              <a href="{{ navItem.url }}">
+                {% if navItem.icon %}
+                  <i class="fa fa-{{ navItem.icon }}"></i>
+                {% endif %}
+                {{ navItem.title }}
+              </a>
+
+              {% if navItem.subNav %}
+                <ul>
+                  {% for subNavItem in navItem.subNav %}
+                    <li><a href="{{ subNavItem.url }}">{{ subNavItem.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>   
   </nav>
 
   {% include 'sublayouts/bunting.twig' %}
