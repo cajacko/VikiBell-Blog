@@ -354,20 +354,21 @@ th {
   padding: 0; }
 
 .Banner {
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: block;
   max-height: 350px;
   min-height: 200px;
   overflow: hidden;
   position: relative; }
-  .no-js .Banner.Banner--image1 {
-    background-image: url("/media/banner1.jpg"); }
-  .no-js .Banner.Banner--image2 {
-    background-image: url("/media/banner2.jpg"); }
-  .no-js .Banner.Banner--image3 {
-    background-image: url("/media/banner3.jpg"); }
+  .Banner.Banner--backgroundImage {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover; }
+    .Banner.Banner--backgroundImage.Banner--image1 {
+      background-image: url("/media/banner1.jpg"); }
+    .Banner.Banner--backgroundImage.Banner--image2 {
+      background-image: url("/media/banner2.jpg"); }
+    .Banner.Banner--backgroundImage.Banner--image3 {
+      background-image: url("/media/banner3.jpg"); }
   .Banner:after {
     content: '';
     display: block;
@@ -379,5 +380,5 @@ th {
   position: absolute;
   top: 0;
   width: 100%; }
-  .no-js .Banner-image {
+  .Banner--backgroundImage .Banner-image {
     display: none; }

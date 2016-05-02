@@ -4,6 +4,7 @@ var rename = require('gulp-rename');
 var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var modernizr = require('gulp-modernizr');
 var browserSync = require('browser-sync');
 var autoprefixer = require('gulp-autoprefixer');
 var browserify = require('browserify');
@@ -12,6 +13,22 @@ var buffer = require('vinyl-buffer');
 var ini = require('ini');
 var fs = require('fs');
 var config = ini.parse(fs.readFileSync('./config.ini', 'utf-8'));
+
+// Module wide vars
+var sassFiles = '.' + config.styles.dir + '/**/*';
+var jsFiles = '.' + config.javascripts.dir + '/**/*';
+var javascriptsExport = '.' + config.javascripts.export;
+
+/********************************************************
+* MODERNIZR                                             *
+********************************************************/
+
+gulp.task('modernizr', function() {
+  gulp.src([sassFiles, jsFiles])
+    .pipe(modernizr())
+    .pipe(uglify()) // Minify the file
+    .pipe(gulp.dest(javascriptsExport));
+});
 
 /********************************************************
 * SASS                                                  *
@@ -37,8 +54,6 @@ gulp.task('sass', function() {
 * SCRIPTS                                               *
 ********************************************************/
 gulp.task('scripts', function() {
-  var javascriptsExport = '.' + config.javascripts.export;
-
   return browserify('.' + config.javascripts.import)
     .bundle() // Compile the js
     .pipe(source(config.javascripts.main)) //Pass desired output filename to vinyl-source-stream
@@ -67,8 +82,8 @@ gulp.task('scripts-watch', ['scripts'], browserSync.reload);
 * WATCH TASKS                                           *
 ********************************************************/
 gulp.task('watch', function() {
-  gulp.watch(['.' + config.styles.dir + '/**/*.scss'], ['sass']);
-  gulp.watch(['.' + config.javascripts.dir + '/**/*.js'], ['scripts-watch']);
+  gulp.watch([sassFiles], ['sass']);
+  gulp.watch([jsFiles], ['scripts-watch']);
   gulp.watch([
     '.' + config.dirs.models + '/**/*',
     '.' + config.dirs.views + '/**/*',

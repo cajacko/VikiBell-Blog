@@ -1,14 +1,15 @@
-.Banner {
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
+.Banner {  
   display: block;
   max-height: 350px;
   min-height: 200px;
   overflow: hidden;
   position: relative;
 
-  .no-js & {
+  &.Banner--backgroundImage {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
     &.Banner--image1 {
       background-image: url('/media/banner1.jpg');
     }
@@ -36,7 +37,7 @@
   top: 0;
   width: 100%;
 
-  .no-js & {
+  .Banner--backgroundImage & {
     display: none;
   }
 }
