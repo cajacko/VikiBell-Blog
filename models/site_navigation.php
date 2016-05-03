@@ -7,15 +7,18 @@ $site_navigation = array(
     'icon' => 'female',
     'internal' => true,
     'subNav' => array(
-      array(
-        'url' => '/about',
-        'title' => 'About',
-        'internal' => true,
-      ),
-      array(
-        'url' => '/contact',
-        'title' => 'Contact',
-        'internal' => true,
+       'id' => 'SiteNav-subNav--1',
+      'items' => array(
+        array(
+          'url' => '/about',
+          'title' => 'About',
+          'internal' => true,
+        ),
+        array(
+          'url' => '/contact',
+          'title' => 'Contact',
+          'internal' => true,
+        ),
       ),
     ),
   ),
@@ -43,15 +46,18 @@ $site_navigation = array(
     'icon' => 'cutlery',
     'internal' => true,
     'subNav' => array(
-      array(
-        'url' => '/about',
-        'title' => 'Recipes',
-        'internal' => true,
-      ),
-      array(
-        'url' => '/contact',
-        'title' => 'Resturants',
-        'internal' => true,
+      'id' => 'SiteNav-subNav--2',
+      'items' => array(
+        array(
+          'url' => '/about',
+          'title' => 'Recipes',
+          'internal' => true,
+        ),
+        array(
+          'url' => '/contact',
+          'title' => 'Resturants',
+          'internal' => true,
+        ),
       ),
     ),
   ),
