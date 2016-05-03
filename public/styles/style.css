@@ -404,28 +404,31 @@ a {
 
 .SiteNav {
   background: #6991ac;
-  font-size: 24px;
   line-height: 1;
+  position: relative;
   text-align: center;
   z-index: 1; }
   @media (max-width: 46.875em) {
     .SiteNav {
       padding-left: 20px;
       padding-right: 20px; } }
-  .SiteNav a {
-    color: #fff;
-    text-decoration: none; }
-    .SiteNav a:hover {
-      text-decoration: underline; }
-  .SiteNav ul {
-    list-style: none;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding: 0; }
+
+.SiteNav-list {
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0; }
 
 @media (max-width: 46.875em) {
-  .SiteNav-list {
-    display: none; } }
+  .SiteNavMain {
+    background: #6991ac;
+    display: none;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 60px;
+    z-index: 2; } }
 
 .SiteNav-item {
   float: left;
@@ -433,12 +436,20 @@ a {
   width: 16.66667%; }
 
 @media (max-width: 46.875em) {
-  .SiteTitle {
-    text-align: left;
-    width: calc(100% - (55px * 3)); } }
+  .SiteNavMain-item {
+    border-top: rgba(255, 255, 255, 0.2) 1px solid;
+    float: none;
+    width: 100%; } }
+
+.SiteTitle {
+  font-size: 24px; }
+  @media (max-width: 46.875em) {
+    .SiteTitle {
+      text-align: left;
+      width: calc(100% - (55px * 3)); } }
 
 @media (max-width: 46.875em) {
-  .SiteTitle .SiteNav-link {
+  .SiteTitle-link {
     display: inline-block; } }
 
 .SiteNav-item--mobile {
@@ -450,12 +461,31 @@ a {
       width: 55px; } }
 
 .SiteNav-link {
+  color: #fff;
   display: block;
-  padding: 18px 0; }
-  .SiteNav-link:hover .SiteNav-title {
-    display: block; }
-  .SiteNav-link:hover .SiteNav-icon {
-    display: none; }
+  padding: 18px 0;
+  text-decoration: none; }
+  .SiteNav-link:hover {
+    text-decoration: underline; }
+    @media (max-width: 46.875em) {
+      .SiteNav-link:hover {
+        text-decoration: none; } }
+    .SiteNav-link:hover .SiteNav-title {
+      display: block; }
+      @media (max-width: 46.875em) {
+        .SiteNav-link:hover .SiteNav-title {
+          display: inline-block; } }
+    .SiteNav-link:hover .SiteNav-icon {
+      display: none; }
+      @media (max-width: 46.875em) {
+        .SiteNav-link:hover .SiteNav-icon {
+          display: inline-block; } }
+
+@media (max-width: 46.875em) {
+  .SiteNavMain-link {
+    padding: 20px; }
+    .SiteNavMain-link:hover {
+      background: #2c4150; } }
 
 .SiteNav-icon,
 .SiteNav-title {
@@ -463,10 +493,20 @@ a {
   display: block;
   height: 24px; }
 
+.SiteNav-icon {
+  font-size: 24px; }
+  @media (max-width: 46.875em) {
+    .SiteNav-icon {
+      display: inline-block; } }
+
 .SiteNav-title {
   display: none;
   font-size: 18px;
   padding: 3px 0; }
+  @media (max-width: 46.875em) {
+    .SiteNav-title {
+      display: inline-block;
+      margin-left: 20px; } }
 
 .SiteNav-subNav {
   border-color: #fff;
@@ -478,10 +518,20 @@ a {
   display: none;
   position: absolute;
   width: 100%;
-  z-index: 2; }
+  z-index: 3; }
+  @media (max-width: 46.875em) {
+    .SiteNav-subNav {
+      background: #2c4150;
+      border: 0;
+      position: relative; } }
 
-.SiteNav-subItem {
-  font-size: 1rem; }
+@media (max-width: 46.875em) {
+  .SiteNav-subItem {
+    border-top: rgba(255, 255, 255, 0.2) 1px solid; } }
+
+@media (max-width: 46.875em) {
+  .SiteNav-sublink:hover {
+    background: #1a272f; } }
 
 .Bunting {
   border-color: #fff;

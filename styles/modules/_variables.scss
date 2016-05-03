@@ -2,6 +2,11 @@
 $blue: #6991ac;
 $white: #fff;
 
+// Modified colours
+$blue--dark: darken($blue, 30%);
+$blue--darker: darken($blue, 40%);
+$white--translucent: rgba($white, .2);
+
 // Font sizes
 $baseFontSize: 16px;
 

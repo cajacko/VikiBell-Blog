@@ -1,19 +1,19 @@
 <div>
   <nav class="SiteNav">
-    <ul class="u-clearFix u-wrap">
-      <li class="SiteTitle SiteNav-item"><a class="SiteNav-link" href="/">Viki Bell</a></li>
+    <ul class="SiteNav-list u-clearFix u-wrap">
+      <li class="SiteTitle SiteNav-item"><a class="SiteTitle-link SiteNav-link" href="/">Viki Bell</a></li>
       
       {% for socialNavItem in vars.socialNav %}
-        <li class="SiteNav-item SiteNav-item--mobile"><a class="SiteNav-link" href="{{ socialNavItem.url }}"><i class="fa fa-{{ socialNavItem.icon }}"></i></a></li>
+        <li class="SiteNav-item SiteNav-item--mobile"><a class="SiteNav-link" href="{{ socialNavItem.url }}"><i class="SiteNav-icon fa fa-{{ socialNavItem.icon }}"></i></a></li>
       {% endfor %}
 
       <li class="">
-        <div id="MobileDropdownIcon" class="SiteNav-item SiteNav-item--mobile"><a class="SiteNav-link"><i class="fa fa-bars"></i></a></div>
+        <div class="SiteNav-item SiteNav-item--mobile"><a id="MobileDropdownIcon" class="SiteNav-link" aria-controls=""><i class="SiteNav-icon fa fa-bars"></i></a></div>
 
-        <ul class="SiteNav-list u-clearFix">
+        <ul id="MobileNav" class="SiteNavMain SiteNav-list u-clearFix">
           {% for navItem in vars.nav %}
-            <li class="SiteNav-item">
-              <a class="SiteNav-link" href="{{ navItem.url }}">
+            <li class="SiteNav-item SiteNavMain-item">
+              <a class="SiteNavMain-link SiteNav-link" href="{{ navItem.url }}">
                 {% if navItem.icon %}
                   <i class="SiteNav-icon fa fa-{{ navItem.icon }}"></i>
                 {% endif %}
@@ -21,9 +21,9 @@
               </a>
 
               {% if navItem.subNav %}
-                <ul class="SiteNav-subNav">
+                <ul class="SiteNav-subNav SiteNav-list">
                   {% for subNavItem in navItem.subNav %}
-                    <li class="SiteNav-subItem"><a class="SiteNav-link SiteNav-sublink" href="{{ subNavItem.url }}">{{ subNavItem.title }}</a></li>
+                    <li class="SiteNav-subItem"><a class="SiteNavMain-link SiteNav-link SiteNav-sublink" href="{{ subNavItem.url }}">{{ subNavItem.title }}</a></li>
                   {% endfor %}
                 </ul>
               {% endif %}
