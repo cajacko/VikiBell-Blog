@@ -55,7 +55,11 @@ gulp.task('sass', function() {
 ********************************************************/
 gulp.task('scripts', function() {
   return browserify('.' + config.javascripts.import)
-    .bundle() // Compile the js
+    .bundle()
+    .on('error', function(err) {
+      console.log(err.message);
+      this.emit('end');
+    })
     .pipe(source(config.javascripts.main)) //Pass desired output filename to vinyl-source-stream
     .pipe(gulp.dest(javascriptsExport)) // Output the file
     .pipe(buffer()) // convert from streaming to buffered vinyl file object
