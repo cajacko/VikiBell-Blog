@@ -649,8 +649,14 @@ h6 {
   left: -.1em;
   top: -.5em; }
 
+.PostLoop {
+  margin: 0 auto;
+  max-width: 500px; }
+
 .Post {
   background: #fff;
+  border: 1px solid gainsboro;
+  border-radius: 3px;
   margin-bottom: 64px; }
   .Post img,
   .Post iframe {

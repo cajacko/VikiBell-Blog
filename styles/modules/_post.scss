@@ -19,6 +19,8 @@ $Post-content--h3--fontSize: 22px;
 
 .Post {
   background: $white;
+  border: 1px solid $gray;
+  border-radius: 3px;
   margin-bottom: $Post--marginBottom;
 
   img, 
