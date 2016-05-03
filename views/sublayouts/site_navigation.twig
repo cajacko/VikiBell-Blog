@@ -1,16 +1,16 @@
 <div>
   <nav class="SiteNav">
     <ul class="u-clearFix u-wrap">
-      <li class="SiteNav-item"><a class="SiteNav-link" href="/">Viki Bell</a></li>
+      <li class="SiteTitle SiteNav-item"><a class="SiteNav-link" href="/">Viki Bell</a></li>
       
       {% for socialNavItem in vars.socialNav %}
         <li class="SiteNav-item SiteNav-item--mobile"><a class="SiteNav-link" href="{{ socialNavItem.url }}"><i class="fa fa-{{ socialNavItem.icon }}"></i></a></li>
       {% endfor %}
 
       <li class="">
-        <a class="MobileDropdownIcon"><i class="fa fa-bars"></i></a>
+        <div id="MobileDropdownIcon" class="SiteNav-item SiteNav-item--mobile"><a class="SiteNav-link"><i class="fa fa-bars"></i></a></div>
 
-        <ul class="u-clearFix">
+        <ul class="SiteNav-list u-clearFix">
           {% for navItem in vars.nav %}
             <li class="SiteNav-item">
               <a class="SiteNav-link" href="{{ navItem.url }}">

@@ -15,3 +15,8 @@
   margin-right: auto;
   max-width: 1050px;
 }
+
+@mixin SiteNav--borderProps {
+  border-color: $white;
+  border-width: 2px;
+}

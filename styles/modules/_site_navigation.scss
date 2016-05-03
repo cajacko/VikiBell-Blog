@@ -1,6 +1,11 @@
-$SiteNav--fontSize: 1.5em;
-$SiteNav-link--padding: .75em;
-$SiteNav-title--fontSize: .75em; 
+$SiteNav--fontSize: 24px;
+$SiteNav--mobileBreakpoint: 750px;
+$SiteNav--mobilePadding: 20px;
+$SiteNav-item--mobile--count: 3;
+$SiteNav-item--mobile--width: 55px;
+$SiteNav-item--width: 16.6666666%;
+$SiteNav-link--padding: 18px;
+$SiteNav-title--fontSize: 18px; 
 $SiteNav-zIndex: 1;
 
 .SiteNav {
@@ -9,6 +14,11 @@ $SiteNav-zIndex: 1;
   line-height: 1;
   text-align: center;
   z-index: $SiteNav-zIndex;
+
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    padding-left: $SiteNav--mobilePadding;
+    padding-right: $SiteNav--mobilePadding;
+  }
 
   a {
     color: $white;
@@ -27,18 +37,39 @@ $SiteNav-zIndex: 1;
   }
 }
 
-.SiteNav-item--mobile {
-  display: none;
-}
-
-.MobileDropdownIcon {
-  display: none;
+.SiteNav-list {
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    display: none;
+  }
 }
 
 .SiteNav-item {
   float: left;
   position: relative;
-  width: 16.6666666%;
+  width: $SiteNav-item--width;
+}
+
+.SiteTitle {
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    text-align: left;
+    width: calc(100% - (#{$SiteNav-item--mobile--width} * #{$SiteNav-item--mobile--count}));
+  }
+
+  .SiteNav-link {
+    @include mq($until: $SiteNav--mobileBreakpoint) {
+      display: inline-block;
+    }
+  }
+}
+
+.SiteNav-item--mobile {
+  display: none;
+
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    display: block;
+    text-align: right;
+    width: $SiteNav-item--mobile--width;
+  }
 }
 
 .SiteNav-link {
@@ -56,16 +87,17 @@ $SiteNav-zIndex: 1;
   }
 }
 
+.SiteNav-icon,
+.SiteNav-title {
+  box-sizing: border-box;
+  display: block;
+  height: $SiteNav--fontSize;
+}
+
 .SiteNav-title {
   display: none;
   font-size: $SiteNav-title--fontSize;
-  margin-top: (1 - $SiteNav-link--padding) / 2;
-
-}
-
-@mixin SiteNav--borderProps {
-  border-color: $white;
-  border-width: 2px;
+  padding: (($SiteNav--fontSize - $SiteNav-title--fontSize) / 2) 0;
 }
 
 .SiteNav-subNav {
@@ -75,7 +107,7 @@ $SiteNav-zIndex: 1;
   border-bottom-style: solid;
   border-left-style: solid;
   border-right-style: solid;
-  // display: none;
+  display: none;
   position: absolute;
   width: 100%;
   z-index: $SiteNav-zIndex + 1;
