@@ -27,6 +27,7 @@ else {
   if($post) {
     $vars['post'] = $post;
     $vars['relatedPosts'] = get_related_post($post['id']);
+    $vars['isSingle'] = true;
     $template_path .= 'single_post';
   } else {
     require_once('404.php');

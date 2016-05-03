@@ -16,6 +16,7 @@ if(isset($page['redirect'])) {
 // Otherwise, if the page exists then show it
 elseif($page) {
   $vars['page'] = $page;
+  $vars['isSingle'] = true;
   $template_path .= 'page';
 } 
 // Otherwise route to 404

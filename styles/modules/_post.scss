@@ -1,0 +1,89 @@
+$Post-date--size: 4 * $baseFontSize;
+$Post-date--borderWidth: $Post-date--size / 25;
+$Post-date--marginBottom: $Post-date--size / 4;
+$Post-date--marginTop: -$Post-date--size / 2;
+$Post-date--shadowColour: #989898;
+$Post-date--shadowSize: $Post-date--size / 15;
+$Post-date--fontSize: $baseFontSize;
+$Post-date--zIndex: 2;
+
+$Post--marginBetween: -$Post-date--marginTop;
+$Post--marginBottom: -$Post-date--marginTop + $Post--marginBetween;
+$Post--padding: 20px;
+$Post-p--margin: 20px;
+
+$Post-title--fontSize: 28px;
+$Post-content--h1--fontSize: 26px;
+$Post-content--h2--fontSize: 24px;
+$Post-content--h3--fontSize: 22px;
+
+.Post {
+  background: $white;
+  margin-bottom: $Post--marginBottom;
+
+  img, 
+  iframe {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
+  p {
+    margin: $Post-p--margin 0;
+  }
+}
+
+.Post-date {
+  background: $orange; 
+  border: $Post-date--borderWidth solid $white;
+  border-radius: 50%;
+  box-shadow: 0 0 $Post-date--shadowSize $Post-date--shadowColour;
+  box-sizing: border-box;
+  color: $white;
+  display: block;
+  font-size: $Post-date--fontSize;
+  height: $Post-date--size;
+  line-height: 1;
+  margin: $Post-date--marginTop auto $Post-date--marginBottom;
+  padding-top: (($Post-date--size - $Post-date--fontSize) / 2) - $Post-date--borderWidth;
+  position: relative;
+  text-align: center;
+  width: $Post-date--size;
+  z-index: $Post-date--zIndex;
+}
+
+.Post-headerLink {
+  display: block;
+}
+
+.Post-featuredImage {
+  margin-top: $Post-date--marginTop - $Post-date--marginBottom;
+}
+
+.Post-title {
+  font-size: $Post-title--fontSize;
+  margin: 0;
+  padding: $Post--padding;
+}
+
+.Post-content {
+  padding: 0 $Post--padding;
+
+  > * {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.Post-content--h1 {
+  font-size: $Post-content--h1--fontSize;
+}
+
+.Post-content--h2 {
+  font-size: $Post-content--h2--fontSize;
+}
+
+.Post-content--h3 {
+  font-size: $Post-content--h3--fontSize;
+}

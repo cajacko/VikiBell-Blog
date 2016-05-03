@@ -1,10 +1,41 @@
+* {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
 html {
+  background: $gray--light; 
+  color: $black;
   font-size: $baseFontSize;
   line-height: 1.5;
 }
 
 a {
+  color: $orange;
   cursor: pointer;
+
+  &:hover {
+    color: $orange--dark;
+    text-decoration: underline;
+  }
+}
+
+h1, 
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $blue-light;
+  font-size: $baseFontSize;
+  line-height: 1.25;
+  margin: 0;
+  padding: 0;
+
+  a & {
+    color: inherit;
+  }
 }
 
 .u-clearFix {

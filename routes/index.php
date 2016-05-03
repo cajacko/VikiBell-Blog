@@ -29,6 +29,7 @@ $vars = array(
   'nav' => $site_navigation,
   'socialNav' => $social_navigation,
   'bunting' => $bunting,
+  'isSingle' => false,
 );
 
 $template_path = 'templates/';

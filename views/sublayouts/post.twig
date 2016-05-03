@@ -1,17 +1,19 @@
-<article>
+<article class="Post u-clearFix">
   <header>
-    <time datetime="{{ post.date.datetime }}">{{ post.date.title }}</time>
+    <time class="Post-date" datetime="{{ post.date.datetime }}">{{ post.date.title }}</time>
 
     {% if post.image %}
-      <div>
-        <img class="" src="{{ post.image.src }}" alt="{{ post.image.alt }}">
-      </div>
+      <a class="Post-headerLink">
+        <img class="Post-featuredImage" src="http://vikibell.com/wp-content/uploads/{{ post.image.src }}" alt="{{ post.image.alt }}">
+      </a>
     {% endif %}
 
-    <h1>{{ post.title }}</h1>
+    <a class="Post-headerLink">
+      <{% if vars.isSingle %}h1{% else %}h2{% endif %} class="Post-title">{{ post.title }}</h1>
+    </a>
   </header>
 
-  <div>
+  <div class="Post-content">
   {% if post.excerpt %}
     {{ post.excerpt|raw }}
   {% else %}
@@ -19,7 +21,7 @@
   {% endif %}
   </div>
 
-  {% if post.isSingle %}
+  {% if vars.isSingle %}
     <footer>
       <span>Share this post on:</span>
       <ul>
