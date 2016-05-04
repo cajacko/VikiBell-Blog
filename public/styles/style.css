@@ -1,7 +1,4 @@
 @charset "UTF-8";
-* {
-  fill: black; }
-
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -492,9 +489,12 @@ h6 {
 .u-wrap {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1050px;
+  max-width: 1020px;
   padding-left: 20px;
   padding-right: 20px; }
+
+.u-hide {
+  display: none; }
 
 .Content--wrap {
   position: relative; }
@@ -818,6 +818,9 @@ h6 {
   top: 0;
   width: calc(100% - 600px); }
 
+.Sidebar-wrap {
+  background: #fff; }
+
 .Profile {
   list-style: none; }
 
@@ -827,5 +830,147 @@ h6 {
     display: block; }
 
 .Profile-image {
+  display: block;
   height: auto;
   max-width: 100%; }
+
+.Sidebar-social {
+  font-size: 24px;
+  line-height: 1;
+  list-style: none;
+  text-align: center; }
+
+.Sidebar-socialItem {
+  float: left;
+  width: 33.3333%; }
+
+.Sidebar-socialLink {
+  color: #fff;
+  display: block;
+  padding: 20px; }
+  .Sidebar-socialLink:hover {
+    color: #fff; }
+  .Sidebar-socialItem--twitter .Sidebar-socialLink {
+    background: #4099ff; }
+    .Sidebar-socialItem--twitter .Sidebar-socialLink:hover {
+      background: #0d7eff; }
+  .Sidebar-socialItem--instagram .Sidebar-socialLink {
+    background: #125688; }
+    .Sidebar-socialItem--instagram .Sidebar-socialLink:hover {
+      background: #0c3a5b; }
+  .Sidebar-socialItem--pinterest .Sidebar-socialLink {
+    background: #c8232c; }
+    .Sidebar-socialItem--pinterest .Sidebar-socialLink:hover {
+      background: #9d1b22; }
+
+.SearchForm {
+  border-top: 2px solid gainsboro;
+  padding: 20px; }
+
+.SearchForm-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: block;
+  padding: 5px;
+  width: 100%; }
+
+.TweetLoop {
+  border-top: 2px solid gainsboro; }
+
+.TweetLoop-headerLink {
+  color: #4099ff;
+  display: block;
+  font-size: 30px;
+  line-height: 1;
+  padding: 20px;
+  text-align: center; }
+  .TweetLoop-headerLink:hover {
+    color: #0d7eff; }
+
+.Tweet {
+  border-bottom: 2px solid gainsboro;
+  margin: 20px;
+  padding-bottom: 20px; }
+  .Tweet:first-child {
+    margin-top: 0; }
+  .Tweet:last-child {
+    border-bottom: 0;
+    margin-bottom: 0; }
+
+.Tweet-dateLink {
+  color: #8f8f8f;
+  float: right;
+  font-size: 12px;
+  text-decoration: none; }
+  .Tweet-dateLink:hover {
+    color: #8f8f8f; }
+
+.Tweet-imageLink {
+  border-radius: 5px;
+  float: left;
+  margin-right: 10px;
+  overflow: hidden; }
+  .Tweet-imageLink:hover {
+    opacity: 0.9; }
+
+.Tweet-image {
+  display: block; }
+
+.Tweet-nameLink {
+  color: #000;
+  display: block;
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none; }
+  .Tweet-nameLink:hover {
+    color: #000; }
+
+.Tweet-usernameLink {
+  color: #8f8f8f;
+  display: block;
+  font-size: 12px;
+  line-height: 1;
+  margin-top: 5px;
+  text-decoration: none; }
+  .Tweet-usernameLink:hover {
+    color: #8f8f8f; }
+
+.Tweet-content {
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 10px; }
+  .Tweet-content a {
+    color: #4099ff;
+    text-decoration: none; }
+    .Tweet-content a:hover {
+      color: #0d7eff; }
+
+.Tweet-contentImageLink {
+  display: block;
+  margin-top: 10px; }
+  .Tweet-contentImageLink:hover {
+    opacity: 0.9; }
+
+.Tweet-contentImage {
+  display: block;
+  height: auto;
+  width: 100%; }
+
+.TweetLoop-follow {
+  background: #4099ff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #fff;
+  display: block;
+  margin: 0 20px 20px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none; }
+  .TweetLoop-follow:hover {
+    background: #0d7eff;
+    color: #fff;
+    text-decoration: none; }

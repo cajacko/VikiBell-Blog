@@ -8,22 +8,30 @@ $blue-light: #6991ac;
 
 // Modified colours
 $gray: darken($gray--light, 10%);
+$gray--dark: darken($gray, 30%);
 $blue--dark: darken($blue, 30%);
 $blue--darker: darken($blue, 40%);
 $orange--dark: darken($orange, 20%);
 $white--translucent: rgba($white, .2);
 
+// Brand colours
+$Twitter--colour: #4099ff;
+$Instagram--colour: #125688;
+$Pinterest--colour: #c8232c;
+
+// Modified brand colours
+$Twitter--colour-dark: darken($Twitter--colour, 10%);
+$Instagram--colour-dark: darken($Instagram--colour, 10%);
+$Pinterest--colour-dark: darken($Pinterest--colour, 10%);
+
 // Font sizes
 $baseFontSize: 16px;
+$iconFontSize: 24px;
 
 // Widths
-$wrapWidth: 1050px;
+$wrapWidth: 1020px;
 
 // Padding
 $padding: 20px;
 
 $Main--maxWidth: 600px;
-
-* {
-    fill: black;
-}

@@ -1,5 +1,5 @@
 // Module specific vars and overrides
-$SiteNav--fontSize: 24px;
+$SiteNav--fontSize: $iconFontSize;
 $SiteNav--mobileBreakpoint: 750px;
 $SiteNav--mobilePadding: 20px;
 $SiteNav-item--mobile--count: 3;
