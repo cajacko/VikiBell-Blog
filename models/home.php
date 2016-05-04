@@ -11,7 +11,7 @@ function get_default_posts($pagination) {
     FROM wp_posts
     WHERE wp_posts.post_status = "publish" AND wp_posts.post_type = "post"
     ORDER BY wp_posts.post_date DESC
-    LIMIT ?, 10;
+    LIMIT ?, 5;
   ';
 
   // prepare and bind

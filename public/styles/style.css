@@ -721,7 +721,7 @@ h6 {
 
 .PostLoop {
   margin: 0 auto;
-  max-width: 500px; }
+  max-width: 600px; }
 
 .Post {
   background: #fff;
@@ -732,7 +732,8 @@ h6 {
   .Post iframe {
     display: block;
     height: auto;
-    max-width: 100%; }
+    max-width: 100%;
+    width: 100%; }
   .Post p {
     margin: 20px 0; }
 
