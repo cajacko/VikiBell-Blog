@@ -37,13 +37,13 @@ $site_navigation = array(
   array(
     'url' => '/category/life',
     'title' => 'Travel',
-    'icon' => 'plane',
+    'icon' => 'flight',
     'internal' => true,
   ),
   array(
     'url' => '/about',
     'title' => 'Food',
-    'icon' => 'cutlery',
+    'icon' => 'food',
     'internal' => true,
     'subNav' => array(
       'id' => 'SiteNav-subNav--2',
