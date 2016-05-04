@@ -8,7 +8,6 @@ var mobileNavButton = $('#MobileDropdownIcon');
 var mobileNav = $('#MobileNav');
 var animationSpeed = 350;
 
-
 function getDropdownId(element) {
   return $(element).attr('aria-controls');
 }
@@ -225,10 +224,8 @@ exports.isMobileNav = function() {
 
 //
 
-$(document).ready(function() {
-  setIfMobileNav();
-  loadResizeMobileNav(); 
-});
+setIfMobileNav();
+loadResizeMobileNav(); 
 
 $(window).resize(function() {
   setIfMobileNav();

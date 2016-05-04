@@ -1,8 +1,14 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-require('./modules/fit_to_parent.jsx');
-require('./modules/site_nav.jsx');
+var $ = require('jquery');
 
-},{"./modules/fit_to_parent.jsx":2,"./modules/site_nav.jsx":3}],2:[function(require,module,exports){
+require('./modules/modernizr');
+require('./modules/google_tag_manager');
+
+$(document).ready(function() {
+    require('./modules/fit_to_parent.jsx');
+    require('./modules/site_nav.jsx');
+});
+},{"./modules/fit_to_parent.jsx":2,"./modules/google_tag_manager":3,"./modules/modernizr":4,"./modules/site_nav.jsx":5,"jquery":6}],2:[function(require,module,exports){
 /**
  * Fit an element to its parent
  */
@@ -98,15 +104,26 @@ function fitAllToParent(load) {
 }
 
 // Initialise the functions
-$(document).ready(function() {
-  fitAllToParent(true);
-});
+fitAllToParent(true);
 
 $(window).resize(function() {
   fitAllToParent(false);
 });
 
-},{"jquery":4}],3:[function(require,module,exports){
+},{"jquery":6}],3:[function(require,module,exports){
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-56806082-1', 'auto');
+
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+},{}],4:[function(require,module,exports){
+/*! modernizr 3.3.1 (Custom Build) | MIT *
+ * http://modernizr.com/download/?-setclasses !*/
+!function(n,e,s){function o(n,e){return typeof n===e}function a(){var n,e,s,a,i,l,r;for(var c in f)if(f.hasOwnProperty(c)){if(n=[],e=f[c],e.name&&(n.push(e.name.toLowerCase()),e.options&&e.options.aliases&&e.options.aliases.length))for(s=0;s<e.options.aliases.length;s++)n.push(e.options.aliases[s].toLowerCase());for(a=o(e.fn,"function")?e.fn():e.fn,i=0;i<n.length;i++)l=n[i],r=l.split("."),1===r.length?Modernizr[r[0]]=a:(!Modernizr[r[0]]||Modernizr[r[0]]instanceof Boolean||(Modernizr[r[0]]=new Boolean(Modernizr[r[0]])),Modernizr[r[0]][r[1]]=a),t.push((a?"":"no-")+r.join("-"))}}function i(n){var e=r.className,s=Modernizr._config.classPrefix||"";if(c&&(e=e.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+s+"no-js(\\s|$)");e=e.replace(o,"$1"+s+"js$2")}Modernizr._config.enableClasses&&(e+=" "+s+n.join(" "+s),c?r.className.baseVal=e:r.className=e)}var t=[],f=[],l={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(n,e){var s=this;setTimeout(function(){e(s[n])},0)},addTest:function(n,e,s){f.push({name:n,fn:e,options:s})},addAsyncTest:function(n){f.push({name:null,fn:n})}},Modernizr=function(){};Modernizr.prototype=l,Modernizr=new Modernizr;var r=e.documentElement,c="svg"===r.nodeName.toLowerCase();a(),i(t),delete l.addTest,delete l.addAsyncTest;for(var u=0;u<Modernizr._q.length;u++)Modernizr._q[u]();n.Modernizr=Modernizr}(window,document);
+},{}],5:[function(require,module,exports){
 /**
  *
  */
@@ -116,7 +133,6 @@ var $ = require('jquery');
 var mobileNavButton = $('#MobileDropdownIcon');
 var mobileNav = $('#MobileNav');
 var animationSpeed = 350;
-
 
 function getDropdownId(element) {
   return $(element).attr('aria-controls');
@@ -334,15 +350,13 @@ exports.isMobileNav = function() {
 
 //
 
-$(document).ready(function() {
-  setIfMobileNav();
-  loadResizeMobileNav(); 
-});
+setIfMobileNav();
+loadResizeMobileNav(); 
 
 $(window).resize(function() {
   setIfMobileNav();
 });
-},{"jquery":4}],4:[function(require,module,exports){
+},{"jquery":6}],6:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.3
  * http://jquery.com/

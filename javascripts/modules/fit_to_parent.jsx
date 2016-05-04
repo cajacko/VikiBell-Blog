@@ -93,9 +93,7 @@ function fitAllToParent(load) {
 }
 
 // Initialise the functions
-$(document).ready(function() {
-  fitAllToParent(true);
-});
+fitAllToParent(true);
 
 $(window).resize(function() {
   fitAllToParent(false);
