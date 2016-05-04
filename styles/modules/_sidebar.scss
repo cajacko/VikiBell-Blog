@@ -1,0 +1,28 @@
+$Sidebar--width: calc(100% - #{$Main--maxWidth});
+$Sidebar--padding: $padding;
+
+.Sidebar {
+  box-sizing: border-box;
+  padding-left: $Sidebar--padding; 
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $Sidebar--width;
+}
+
+.Profile {
+  list-style: none;
+}
+
+.Profile-item {
+  display: none;
+
+  &:first-child {
+    display: block;
+  }
+}
+
+.Profile-image {
+  height: auto;
+  max-width: 100%;
+}

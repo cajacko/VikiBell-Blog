@@ -45,3 +45,15 @@ h6 {
 .u-wrap {
   @include wrap;
 }
+
+.Content {
+
+}
+
+.Content--wrap {
+  position: relative;
+}
+
+.Main {
+  max-width: 600px;
+}

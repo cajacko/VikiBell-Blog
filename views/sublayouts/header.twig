@@ -52,8 +52,9 @@
       {% include 'sublayouts/banner.twig' %}
       {% include 'sublayouts/site_navigation.twig' %}
     </header>
-    <div class="Content">
-        <main class="Main u-wrap">
-            {% if not vars.isSingle %}
-                <h1>Page Title</h1>
-            {% endif %}
+    <div class="Content u-wrap">
+        <div class="Content--wrap">
+            <main class="Main">
+                {% if not vars.isSingle %}
+                    <h1>Page Title</h1>
+                {% endif %}

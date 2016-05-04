@@ -21,6 +21,7 @@ if(isset($_GET['url'])) {
 // Get the global data
 require_once('../models/site_navigation.php');
 require_once('../models/social_navigation.php');
+require_once('../models/sidebar.php');
 require_once('../helpers/bunting.php');
 
 // Setup the variables to pass to the view
@@ -30,6 +31,7 @@ $vars = array(
   'socialNav' => $social_navigation,
   'bunting' => $bunting,
   'isSingle' => false,
+  'sidebar' => $sidebar,
 );
 
 $template_path = 'templates/';

@@ -21,6 +21,38 @@ var sassFiles = '.' + config.styles.dir + '/**/*';
 var jsFiles = '.' + config.javascripts.dir + '/**/*';
 var javascriptsExport = '.' + config.javascripts.export;
 
+var svgstore = require('gulp-svgstore');
+var svgmin = require('gulp-svgmin');
+var replace = require('gulp-replace');
+
+// Strip unnecessary tags from svgs
+gulp.task('svgCombine', function() {
+  return gulp.src('./media/icons/*.svg')
+    .pipe(replace(/<\/*switch>/g, ''))
+    .pipe(replace(/ id=".+?"/g, ''))
+    .pipe(replace(/ class=".+?"/g, ''))
+    .pipe(svgmin({
+      js2svg: {
+        pretty: false
+      },
+      plugins: [{
+        removeDoctype: true,
+      }, {
+        collapseGroups: true,
+      }, {
+        removeDimensions: true,
+      }, {
+        removeStyleElement: true,
+      }, {
+        removeAttrs: 'id',
+      }]
+    }))
+    .pipe(svgstore())
+    .pipe(replace(/<\?xml.+?"\?>/g, ''))
+    .pipe(replace(/<!.+?>/g, ''))
+    .pipe(gulp.dest('./media'));
+});
+
 /********************************************************
 * MODERNIZR                                             *
 ********************************************************/
