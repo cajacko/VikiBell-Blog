@@ -21,6 +21,14 @@ $TweetLoop-follow--marginHorizontal: $Tweet--margin;
   right: 0;
   top: 0;
   width: $Sidebar--width;
+
+  @include mq($until: sidebarCollapse) {
+    width: auto;
+  }
+
+  @include mq($until: sidebarHide) {
+    display: none;
+  }
 }
 
 .Sidebar-wrap {
@@ -29,6 +37,10 @@ $TweetLoop-follow--marginHorizontal: $Tweet--margin;
 
 .Profile {
   list-style: none;
+
+  @include mq($until: sidebarCollapse) {
+    display: none;
+  }
 }
 
 .Profile-item {
@@ -55,6 +67,11 @@ $TweetLoop-follow--marginHorizontal: $Tweet--margin;
 .Sidebar-socialItem {
   float: left;
   width: 33.3333%;
+
+  @include mq($until: sidebarCollapse) {
+    float: none;
+    width: auto;
+  }
 }
 
 .Sidebar-socialLink {
@@ -94,6 +111,10 @@ $TweetLoop-follow--marginHorizontal: $Tweet--margin;
 .SearchForm {
   border-top: $Sidebar-sectionBorder;
   padding: $SearchForm--padding;
+
+  @include mq($until: sidebarCollapse) {
+    display: none;
+  }
 }
 
 .SearchForm-input {
@@ -108,6 +129,10 @@ $TweetLoop-follow--marginHorizontal: $Tweet--margin;
 
 .TweetLoop {
   border-top: $Sidebar-sectionBorder;
+
+  @include mq($until: sidebarCollapse) {
+    display: none;
+  }
 }
 
 .TweetLoop-headerLink {

@@ -496,11 +496,20 @@ h6 {
 .u-hide {
   display: none; }
 
+@media (max-width: 60.615em) {
+  .Content {
+    padding-left: 0;
+    padding-right: 0; } }
+
 .Content--wrap {
   position: relative; }
 
 .Main {
   max-width: 600px; }
+  @media (max-width: 60.615em) {
+    .Main {
+      margin-left: auto;
+      margin-right: auto; } }
 
 .Banner {
   display: block;
@@ -817,12 +826,21 @@ h6 {
   right: 0;
   top: 0;
   width: calc(100% - 600px); }
+  @media (max-width: 60.615em) {
+    .Sidebar {
+      width: auto; } }
+  @media (max-width: 46.865em) {
+    .Sidebar {
+      display: none; } }
 
 .Sidebar-wrap {
   background: #fff; }
 
 .Profile {
   list-style: none; }
+  @media (max-width: 60.615em) {
+    .Profile {
+      display: none; } }
 
 .Profile-item {
   display: none; }
@@ -843,6 +861,10 @@ h6 {
 .Sidebar-socialItem {
   float: left;
   width: 33.3333%; }
+  @media (max-width: 60.615em) {
+    .Sidebar-socialItem {
+      float: none;
+      width: auto; } }
 
 .Sidebar-socialLink {
   color: #fff;
@@ -866,6 +888,9 @@ h6 {
 .SearchForm {
   border-top: 2px solid gainsboro;
   padding: 20px; }
+  @media (max-width: 60.615em) {
+    .SearchForm {
+      display: none; } }
 
 .SearchForm-input {
   -webkit-appearance: none;
@@ -880,6 +905,9 @@ h6 {
 
 .TweetLoop {
   border-top: 2px solid gainsboro; }
+  @media (max-width: 60.615em) {
+    .TweetLoop {
+      display: none; } }
 
 .TweetLoop-headerLink {
   color: #4099ff;

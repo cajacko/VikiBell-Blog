@@ -35,3 +35,9 @@ $wrapWidth: 1020px;
 $padding: 20px;
 
 $Main--maxWidth: 600px;
+
+// Breakpoints
+$mq-breakpoints: (
+  sidebarCollapse: 970px,
+  sidebarHide: 750px
+)
