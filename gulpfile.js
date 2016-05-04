@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+
 var rename = require('gulp-rename');
 var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
@@ -13,6 +14,7 @@ var buffer = require('vinyl-buffer');
 var ini = require('ini');
 var fs = require('fs');
 var config = ini.parse(fs.readFileSync('./config.ini', 'utf-8'));
+var sassImportJson = require('gulp-sass-import-json');
 
 // Module wide vars
 var sassFiles = '.' + config.styles.dir + '/**/*';
@@ -37,6 +39,7 @@ gulp.task('sass', function() {
   var stylesExport = '.' + config.styles.export;
 
   return gulp.src('.' + config.styles.import)
+    .pipe(sassImportJson(true))
     .pipe(sass().on('error', sass.logError))
     .pipe(rename(config.styles.main))
     .pipe(autoprefixer({
