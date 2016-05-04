@@ -1,5 +1,27 @@
 <?php
 
+function get_image_by_url($url) {
+  global $db;
+
+  $query = '
+    SELECT wp_postmeta.*
+    FROM wp_posts
+    INNER JOIN wp_postmeta
+      ON wp_posts.ID = wp_postmeta.post_id
+    WHERE wp_posts.guid = ?
+  ';
+
+  // prepare and bind
+  $stmt = $db->prepare($query);
+  $stmt->bind_param("s", $url);
+  $stmt->execute();
+  $res = $stmt->get_result();
+
+  // TODO: error handling
+
+  return return_image_meta($res);
+}
+
 function get_featured_image($post_id) {
   global $db;
 
@@ -23,18 +45,6 @@ function get_featured_image($post_id) {
   $stmt->bind_param("i", $post_id);
   $stmt->execute();
   $res = $stmt->get_result();
-  
-  $meta = array();
 
-  while($post_meta = $res->fetch_assoc()) {
-    $meta_value = $post_meta['meta_value'];
-
-    if($post_meta['meta_key'] == '_wp_attachment_metadata') {
-      $meta_value = unserialize($meta_value);
-    }
-
-    $meta[$post_meta['meta_key']] = $meta_value;
-  }
-
-  return $meta;
+  return return_image_meta($res);
 }

@@ -13,6 +13,7 @@ foreach($config['dirs'] as $dir_name => $dir_path) {
 $config['dirs']['root'] = $project_root; // Add the absolute path to the dirs
 
 require_once('models/database.php'); 
+require_once('../helpers/process_image_meta.php');
 
 // Get composer dependencies
 require_once('vendor/autoload.php'); 

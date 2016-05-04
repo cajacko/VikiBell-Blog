@@ -1,0 +1,14 @@
+<img 
+  class="{{ image.classes }}" 
+  alt="{{ image.alt }}" 
+  src="http://vikibell.com/wp-content/uploads/{{ image.src }}" 
+  
+  {% if image.sizes %}
+    sizes="(max-width: 40em) 100vw, 37em"       
+    srcset="
+      {% for size, path in image.sizes %}
+        http://vikibell.com/wp-content/uploads/{{ path }} {{ size }}w,
+      {% endfor %}
+    "
+  {% endif %}
+>

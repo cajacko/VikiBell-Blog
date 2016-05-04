@@ -19,8 +19,10 @@ function normalize($content) {
     return $content;
 }
 
+$image_template = $twig->loadTemplate('/sublayouts/image.twig');
+
 function format_post_content($content) {
-  global $vars;
+  global $vars, $twig;
 
   $content = normalize($content);
   $content = preg_replace('/\n/', '</p><p>', $content);
@@ -51,6 +53,19 @@ function format_post_content($content) {
     $content = str_replace('<h1>', '<h3 class="Post-content--h1">', $content);
     $content = str_replace('</h1>', '</h3>', $content);
   }
+
+  $content = preg_replace_callback(
+    '/<img.+?src="(.+?)".+?>/', 
+    function($matches) {
+      global $image_template;
+
+      $meta = get_image_by_url($matches[1]);
+      $meta['classes'] = 'Post-image';
+      $image = $image_template->render(array('image' => $meta));
+      return $image;
+    },
+    $content
+  );
 
   return $content;
 }

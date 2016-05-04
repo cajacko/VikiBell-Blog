@@ -4,7 +4,8 @@
 
     {% if post.image %}
       <a class="Post-headerLink">
-        <img class="Post-featuredImage" src="http://vikibell.com/wp-content/uploads/{{ post.image.src }}" alt="{{ post.image.alt }}">
+        {% set image = post.image %}
+        {% include 'sublayouts/image.twig' %}
       </a>
     {% endif %}
 

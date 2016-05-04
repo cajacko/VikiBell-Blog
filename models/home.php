@@ -34,12 +34,9 @@ function get_default_posts($pagination) {
 
     $featured_image = get_featured_image($post['ID']);
 
-    if(isset($featured_image['_wp_attached_file'])) {
-      $post_array['image']['src'] = $featured_image['_wp_attached_file'];
-    }
-
-    if(isset($featured_image['_wp_attachment_image_alt'])) {
-      $post_array['image']['alt'] = $featured_image['_wp_attachment_image_alt'];
+    if($featured_image) {
+      $post_array['image'] = $featured_image;
+      $post_array['image']['classes'] = 'Post-featuredImage';
     }
 
     $posts[] = $post_array;
