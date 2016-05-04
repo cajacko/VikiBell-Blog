@@ -1,6 +1,9 @@
 <?php
 
+$image_count = 0;
+
 function return_image_meta($res) {
+  global $image_count;
   $meta = array();
   $array = array();
   
@@ -40,6 +43,14 @@ function return_image_meta($res) {
       $array['alt'] = $meta['_wp_attachment_image_alt'];
     }
   }
+
+  if($image_count > 5) {
+    $array['lazyLoad'] = true;
+  } else {
+    $array['lazyLoad'] = false;
+  }
+
+  $image_count++;
   
   return $array;
 }

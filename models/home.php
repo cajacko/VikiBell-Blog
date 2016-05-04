@@ -22,15 +22,9 @@ function get_default_posts($pagination) {
   $posts = array();
 
   while($post = $res->fetch_assoc()) {
-    $post_array = array(
-      'id' => $post['ID'],
-      'date' => array(
-        'title' => format_post_date($post['post_date']),
-        'datetime' => $post['post_date'],
-      ),
-      'title' => format_post_title($post['post_title']),
-      'content' => format_post_content($post['post_content']),
-    );
+    $post_array = array();
+
+    $post_array['id'] = $post['ID'];
 
     $featured_image = get_featured_image($post['ID']);
 
@@ -38,6 +32,14 @@ function get_default_posts($pagination) {
       $post_array['image'] = $featured_image;
       $post_array['image']['classes'] = 'Post-featuredImage';
     }
+
+    $post_array['date'] = array(
+      'title' => format_post_date($post['post_date']),
+      'datetime' => $post['post_date'],
+    );
+
+    $post_array['title'] = format_post_title($post['post_title']);
+    $post_array['content'] = format_post_content($post['post_content']);
 
     $posts[] = $post_array;
   }
