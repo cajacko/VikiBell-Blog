@@ -21,9 +21,9 @@ var sassFiles = '.' + config.styles.dir + '/**/*';
 var jsFiles = '.' + config.javascripts.dir + '/**/*';
 var javascriptsExport = '.' + config.javascripts.export;
 
-var svgstore = require('gulp-svgstore');
-var svgmin = require('gulp-svgmin');
-var replace = require('gulp-replace');
+// var svgstore = require('gulp-svgstore');
+// var svgmin = require('gulp-svgmin');
+// var replace = require('gulp-replace');
 
 // Strip unnecessary tags from svgs
 gulp.task('svgCombine', function() {
@@ -71,7 +71,7 @@ gulp.task('sass', function() {
   var stylesExport = '.' + config.styles.export;
 
   return gulp.src('.' + config.styles.import)
-    .pipe(sassImportJson(true))
+    .pipe(sassImportJson())
     .pipe(sass().on('error', sass.logError))
     .pipe(rename(config.styles.main))
     .pipe(autoprefixer({
