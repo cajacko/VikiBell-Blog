@@ -2,7 +2,7 @@
 
 // Can save around 12% by doing this, accross html, css and js;
 
-// This function provides a difference in page size of 97.1kb -> 74.6kb, around 25%;
+// This function provides a difference in page size of 19.1kb -> 18.1kb, around 25%;
 function minify_html($content) {
     $content = preg_replace_callback(
       '/(?<= class=").+?(?=")/', 
@@ -59,13 +59,13 @@ function minify_js($file = '../public/js/script.min.js') {
 
 function print_difference() {
     $before = array(
-        'html' => 97600,
+        'html' => 19100,
         'css' => 6761,
         'js' => 89432
     );
 
     $after = array(
-        'html' => 74600,
+        'html' => 18100,
         'css' => 5724,
         'js' => 89332
     );
