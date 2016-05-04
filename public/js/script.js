@@ -254,18 +254,20 @@ function temp(element) {
   }
 }
 
+$('.SiteNavMain-item.u-hasDropDown').hover(function() {
+  if(!isMobileNav) {
+    hoverFunction($(this).find('.u-controlsDropdown'), true);
+  }
+}, function() {
+  if(!isMobileNav) {
+    hoverFunction($(this).find('.u-controlsDropdown'), false);
+  }
+});
+
 $(subNavControls).each(function() {
   var dropdownId = getDropdownId(this);
   isAnimating[dropdownId] = false;
   currentStateIsOpen[dropdownId] = false;
-}).hover(function() {
-  if(!isMobileNav) {
-    hoverFunction(this, true);
-  }
-}, function() {
-  if(!isMobileNav) {
-    hoverFunction(this, false);
-  }
 }).click(function(event) {
   if(isMobileNav) {
     event.preventDefault();

@@ -98,6 +98,7 @@ $SiteNavMain--mobileTop: $SiteNav--fontSize + ($SiteNav-link--padding * 2);
   text-decoration: none;
 
   &:hover {
+    color: $white;
     text-decoration: underline;
 
     @include mq($until: $SiteNav--mobileBreakpoint) {

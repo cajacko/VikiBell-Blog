@@ -496,6 +496,7 @@ h6 {
   padding: 18px 0;
   text-decoration: none; }
   .SiteNav-link:hover {
+    color: #fff;
     text-decoration: underline; }
     @media (max-width: 46.875em) {
       .SiteNav-link:hover {

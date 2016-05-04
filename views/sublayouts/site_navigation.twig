@@ -12,7 +12,7 @@
 
         <ul id="MobileNav" class="SiteNavMain SiteNav-list u-clearFix" aria-hidden="false" aria-expanded="true">
           {% for navItem in vars.nav %}
-            <li class="SiteNav-item SiteNavMain-item">
+            <li class="SiteNav-item SiteNavMain-item {% if navItem.subNav %}u-hasDropDown{% endif %}">
               <a class="SiteNavMain-link SiteNav-link {% if navItem.subNav %}u-controlsDropdown{% endif %}" href="{{ navItem.url }}" {% if navItem.subNav %}aria-controls="{{ navItem.subNav.id }}" aria-expanded="false{% endif %}">
                 {% if navItem.icon %}
                   <i class="SiteNav-icon fa fa-{{ navItem.icon }}"></i>
