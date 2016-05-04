@@ -83,4 +83,9 @@ $template = $twig->loadTemplate($template_path . '.twig');
 ob_start("ob_gzhandler");
 
 // Render the template
-echo $template->render(array('vars' => $vars));
+$content = $template->render(array('vars' => $vars));
+
+// require_once('../helpers/minify_classes.php');
+// $content = minify_html($content);
+
+echo $content;
