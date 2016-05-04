@@ -43,8 +43,8 @@
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://vikibell.com/xmlrpc.php?rsd" />
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://vikibell.com/wp-includes/wlwmanifest.xml" /> 
     <link rel='shortlink' href='http://wp.me/3jcBA' />
-    
-    <script src="{{ vars.config.javascripts.publicDir }}/{% if vars.config.environment.dev %}{{ vars.config.javascripts.main }}{% else %}{{ vars.config.javascripts.min }}{% endif %}"></script>
+
+    <script async src="{{ vars.config.javascripts.publicDir }}/{% if vars.config.environment.dev %}{{ vars.config.javascripts.main }}{% else %}{{ vars.config.javascripts.min }}{% endif %}"></script>
   </head>
 
   <body>
