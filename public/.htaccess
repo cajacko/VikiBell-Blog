@@ -1,5 +1,9 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  RewriteCond %{HTTP_USER_AGENT} libwww-perl.* 
+  RewriteRule .* ? [F,L]
+
   RewriteBase /
 
   RewriteCond %{REQUEST_FILENAME} !-f
