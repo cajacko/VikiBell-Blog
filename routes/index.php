@@ -32,6 +32,7 @@ $vars = array(
   'bunting' => $bunting,
   'isSingle' => false,
   'sidebar' => $sidebar,
+  // 'canonical' => 'http://address.com',
   'meta' => array(
     'title' => 'Hello',
     'loop' => array(

@@ -32,7 +32,9 @@
       <meta {{ name|raw }} content="{{ content }}" />
     {% endfor %}
 
-    <link rel="canonical" href="{{ vars.config.environment.url }}" />
+    {% if vars.canonical %}
+      <link rel="canonical" href="{{ vars.config }}" />
+    {% endif %}
     {% if vars.next %}<link rel="next" href="{{ vars.next }}" />{% endif %}
     {% if vars.prev %}<link rel="prev" href="{{ vars.prev }}" />{% endif %}
     <link rel="stylesheet" href="{{ vars.config.styles.publicDir }}/{% if vars.config.environment.dev %}{{ vars.config.styles.main }}{% else %}{{ vars.config.styles.min }}{% endif %}">
