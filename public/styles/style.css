@@ -514,10 +514,9 @@ h6 {
       margin-right: auto; } }
 
 .Title {
-  font-size: 24px;
   background: #fff;
-  padding: 20px;
-  margin-bottom: 50px; }
+  font-size: 24px;
+  padding: 20px; }
 
 .Banner {
   display: block;
@@ -526,15 +525,10 @@ h6 {
   overflow: hidden;
   position: relative; }
   .Banner.Banner--backgroundImage {
+    background-image: url("/media/banner.jpg");
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover; }
-    .Banner.Banner--backgroundImage.Banner--image1 {
-      background-image: url("/media/banner1.jpg"); }
-    .Banner.Banner--backgroundImage.Banner--image2 {
-      background-image: url("/media/banner2.jpg"); }
-    .Banner.Banner--backgroundImage.Banner--image3 {
-      background-image: url("/media/banner3.jpg"); }
   .Banner:after {
     content: '';
     display: block;
@@ -1027,3 +1021,27 @@ h6 {
   margin-top: 20px;
   padding: 10px;
   text-align: center; }
+
+.Breadcrumbs {
+  background: #6991ac;
+  font-size: 14px;
+  line-height: 1;
+  list-style: none;
+  margin-bottom: 50px;
+  padding: 10px 20px; }
+
+.Breadcrumbs-item {
+  display: inline-block; }
+  .Breadcrumbs-item:after {
+    color: rgba(255, 255, 255, 0.5);
+    content: '>';
+    display: inline-block;
+    margin: 0 10px; }
+  .Breadcrumbs-item:last-child:after {
+    display: none; }
+
+.Breadcrumbs-link {
+  color: #fff;
+  text-decoration: none; }
+  .Breadcrumbs-link:hover {
+    color: #fff; }

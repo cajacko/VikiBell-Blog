@@ -34,11 +34,11 @@
                 {% endif %}
 
                 {% if vars.breadcrumbs %}
-                    <ul role="navigation">
+                    <ul class="Breadcrumbs u-clearFix" role="navigation">
                       {% for title, url  in vars.breadcrumbs %}
-                        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                          <a href="{{ url }}" itemprop="url">
-                            <span itemprop="title">{{ title }}</span>
+                        <li class="Breadcrumbs-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                          <a class="Breadcrumbs-link" href="{{ url }}" itemprop="url">
+                            <span class="Breadcrumbs-title" itemprop="title">{{ title }}</span>
                           </a>
                         </li>
                       {% endfor %}
