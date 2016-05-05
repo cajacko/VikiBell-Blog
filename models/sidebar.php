@@ -1,5 +1,9 @@
 <?php
 
 $sidebar = array(
-    'profile' => array(1,2,3),
+    'profile' => array(
+        array('src' => 'http://vikibell.com/wp-content/uploads/2016/04/IMG_9334.jpg', 'alt' => 'Alt text'),
+        array('src' => 'http://vikibell.com/wp-content/uploads/2016/04/IMG_9334.jpg', 'alt' => 'Alt text'),
+        array('src' => 'http://vikibell.com/wp-content/uploads/2016/04/IMG_9334.jpg', 'alt' => 'Alt text'),
+    ),
 );

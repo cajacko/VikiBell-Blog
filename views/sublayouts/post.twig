@@ -1,9 +1,9 @@
-<article class="Post u-clearFix" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="Post u-clearFix" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" itemref="MicroData-person">
   <header>
     <time class="Post-date" datetime="{{ post.date.datetime }}" itemprop="datePublished">{{ post.date.title }}</time>
 
     {% if post.image %}
-      <a class="Post-headerLink" href="{{ post.image.src }}" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+      <a class="Post-headerLink" href="{{ post.url }}" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
         {% set image = post.image %}
         {% include 'sublayouts/image.twig' %}
         <meta itemprop="url" content="{{ post.image.src }}">
@@ -12,12 +12,10 @@
       </a>
     {% endif %}
 
-    <a class="Post-headerLink" href="/" itemprop="mainEntityOfPage">
+    <a class="Post-headerLink" href="{{ post.url }}" itemprop="mainEntityOfPage">
       <{% if vars.isSingle %}h1{% else %}h2{% endif %} class="Post-title" itemprop="headline">{{ post.title }}</h1>
     </a>
   </header>
-
-  <span itemprop="description">A most wonderful article</span>
 
   <div class="Post-content" itemprop="articleBody">
   {% if post.excerpt %}
@@ -28,42 +26,40 @@
   </div>
 
   <footer>
-    <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+    <meta content="{{ post.dateModified }}" itemprop="dateModified">
+    <meta itemprop="description" content="{{ post.description }}">
+
+    <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Viki Bell">
-    </div>
+      <meta itemprop="url" content="{{ vars.config.environment.url }}">
 
-    <meta content="{{ post.date.datetime }}" itemprop="dateModified">
+      {% for socialLink in vars.socialProfiles %}
+        <link itemprop="sameAs" href="{{ socialLink }}" />
+      {% endfor %}
 
-    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
       <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-        <meta itemprop="url" content="{{ post.image.src }}">
-        <meta itemprop="width" content="600">
-        <meta itemprop="height" content="60">
+        <meta itemprop="url" content="{{ vars.organizationLogo.src }}">
+        <meta itemprop="width" content="{{ vars.organizationLogo.width }}">
+        <meta itemprop="height" content="{{ vars.organizationLogo.height }}">
       </div>
-      <meta itemprop="name" content="Viki Bell">
     </div>
-
-    <meta itemprop="description" content="Content of some sort">
-    <meta itemprop="articleSection" content="Category">
-    <meta itemprop="wordCount" content="234">
-    <meta itemprop="keywords" content="blog, article, example">
 
     {% if vars.isSingle %}
       <span>Share this post on:</span>
       <ul>
         <li>
           <a href="https://twitter.com/intent/tweet?url={{ post.tweet.url }}&text={{ post.tweet.text }}&via={{ post.tweet.via }}" target="_blank">
-            <i class="fa fa-twitter"></i><i class="fa fa-share-alt"></i>
+            <i class="fa fa-twitter"></i><i class="icon-share-alt"></i>
           </a>
         </li>
         <li>
           <a href="https://www.facebook.com/sharer/sharer.php?u={{ post.facebook.url }}" target="_blank">
-            <i class="fa fa-facebook"></i><i class="fa fa-share-alt"></i>
+            <i class="fa fa-facebook"></i><i class="icon-share-alt"></i>
           </a>
         </li>
         <li>
           <a href="mailto:?subject={{ post.email.subject }}&body={{ post.email.content }}">
-            <i class="fa fa-envelope"></i><i class="fa fa-share-alt"></i>
+            <i class="fa fa-envelope"></i><i class="icon-share-alt"></i>
           </a>
         </li>
       </ul>

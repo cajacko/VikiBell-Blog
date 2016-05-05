@@ -7,73 +7,31 @@
     </header>
 
     <div>
+    {% for tweet in  vars.tweets %}
         <article class="Tweet">
             <header class="u-clearFix">             
-                <a class="Tweet-dateLink" href="http://twitter.com/Vikiibell" target="_blank">
-                    <span class="Tweet-date">10 hours ago</span>
+                <a class="Tweet-dateLink" href="{{ tweet.tweetLink }}" target="_blank">
+                    <time class="Tweet-date" datetime="{{ tweet.date.dateTime }}">{{ tweet.date.text }}</time>
                 </a>
 
-                <a class="Tweet-imageLink" href="http://twitter.com/Vikiibell" target="_blank">
-                    <img class="Tweet-image" src="http://pbs.twimg.com/profile_images/661179331897593856/2zi234x8_normal.png">
+                <a class="Tweet-imageLink" href="{{ tweet.profile.link }}" target="_blank">
+                    <img class="Tweet-image" src="{{ tweet.profile.image.src }}" alt="{{ tweet.profile.image.alt }}">
                 </a>
 
-                <a class="Tweet-nameLink" href="http://twitter.com/Vikiibell" target="_blank">
-                    <b class="Tweet-name">Viki Bell</b>
+                <a class="Tweet-nameLink" href="{{ tweet.profile.link }}" target="_blank">
+                    <b class="Tweet-name">{{ tweet.profile.name }}</b>
                 </a>
 
-                <a class="Tweet-usernameLink" href="http://twitter.com/Vikiibell" target="_blank">
-                    <span class="Tweet-username">@Vikiibell</span>
+                <a class="Tweet-usernameLink" href="{{ tweet.profile.link }}" target="_blank">
+                    <span class="Tweet-username">{{ tweet.profile.handle }}</span>
                 </a>
             </header>
 
-            <div class="Tweet-content">Being a rebel and walking up both sides of <a href="http://twitter.com/hashtag/Holborn" target="_blank">#Holborn</a> tube escalators! <a href="http://twitter.com/hashtag/dontstopmenow" target="_blank">#dontstopmenow</a></div>
+            <div class="Tweet-content">{{ tweet.content|raw }}</div>
+
+            {% if tweet.featuredImage %}<a class="Tweet-contentImageLink" href=""><img class="Tweet-contentImage" src="{{ tweet.featuredImage.src }}" alt="{{ tweet.featuredImage.alt }}"></a>{% endif %}
         </article>
-
-        <article class="Tweet">
-            <header class="u-clearFix">             
-                <a class="Tweet-dateLink" href="http://twitter.com/Vikiibell" target="_blank">
-                    <span class="Tweet-date">10 hours ago</span>
-                </a>
-
-                <a class="Tweet-imageLink" href="http://twitter.com/Vikiibell" target="_blank">
-                    <img class="Tweet-image" src="http://pbs.twimg.com/profile_images/661179331897593856/2zi234x8_normal.png">
-                </a>
-
-                <a class="Tweet-nameLink" href="http://twitter.com/Vikiibell" target="_blank">
-                    <b class="Tweet-name">Viki Bell</b>
-                </a>
-
-                <a class="Tweet-usernameLink" href="http://twitter.com/Vikiibell" target="_blank">
-                    <span class="Tweet-username">@Vikiibell</span>
-                </a>
-            </header>
-
-            <div class="Tweet-content">Being a rebel and walking up both sides of <a href="http://twitter.com/hashtag/Holborn" target="_blank">#Holborn</a> tube escalators! <a href="http://twitter.com/hashtag/dontstopmenow" target="_blank">#dontstopmenow</a></div>
-        </article>
-
-        <article class="Tweet">
-            <header class="u-clearFix">             
-                <a class="Tweet-dateLink" href="http://twitter.com/Vikiibell" target="_blank">
-                    <span class="Tweet-date">10 hours ago</span>
-                </a>
-
-                <a class="Tweet-imageLink" href="http://twitter.com/Vikiibell" target="_blank">
-                    <img class="Tweet-image" src="http://pbs.twimg.com/profile_images/661179331897593856/2zi234x8_normal.png">
-                </a>
-
-                <a class="Tweet-nameLink" href="http://twitter.com/Vikiibell" target="_blank">
-                    <b class="Tweet-name">Viki Bell</b>
-                </a>
-
-                <a class="Tweet-usernameLink" href="http://twitter.com/Vikiibell" target="_blank">
-                    <span class="Tweet-username">@Vikiibell</span>
-                </a>
-            </header>
-
-            <div class="Tweet-content">Being a rebel and walking up both sides of <a href="http://twitter.com/hashtag/Holborn" target="_blank">#Holborn</a> tube escalators! <a href="http://twitter.com/hashtag/dontstopmenow" target="_blank">#dontstopmenow</a></div>
-
-            <a class="Tweet-contentImageLink" href=""><img class="Tweet-contentImage" src="http://pbs.twimg.com/tweet_video_thumb/ChhspmcWIAEhdpX.jpg"></a>
-        </article>
+    {% endfor %}
     </div>
 
     <footer><a class="TweetLoop-follow" href="http://twitter.com/Vikiibell" target="_blank">Follow @vikibell</a></footer>

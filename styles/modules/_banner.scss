@@ -6,21 +6,10 @@
   position: relative;
 
   &.Banner--backgroundImage {
+    background-image: url('/media/banner.jpg');
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-
-    &.Banner--image1 {
-      background-image: url('/media/banner1.jpg');
-    }
-
-    &.Banner--image2 {
-      background-image: url('/media/banner2.jpg');
-    }
-
-    &.Banner--image3 {
-      background-image: url('/media/banner3.jpg');
-    }
   }
 
   &:after {

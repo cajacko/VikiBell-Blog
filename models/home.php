@@ -4,7 +4,7 @@ require_once('../helpers/post_formatting.php');
 require_once('featured_image.php');
 
 function get_default_posts($pagination) {
-  global $db;
+  global $db, $config;
 
   $query = '
     SELECT *
@@ -40,6 +40,24 @@ function get_default_posts($pagination) {
 
     $post_array['title'] = format_post_title($post['post_title']);
     $post_array['content'] = format_post_content($post['post_content']);
+    $post_array['url'] = $config['environment']['url'] . '/posts/' . $post['post_name'];
+    $post_array['description'] = 'Content to get from db';
+    $post_array['dateModified'] = '2016-01-01 12:12:12';
+
+    $post_array['tweet'] = array(
+      'url' => '',
+      'text' => '',
+      'via' => '',
+    );
+
+    $post_array['facebook'] = array(
+      'url' => '',
+    );
+
+    $post_array['email'] = array(
+      'subject' => '',
+      'content' => '',
+    );
 
     $posts[] = $post_array;
   }

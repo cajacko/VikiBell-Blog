@@ -3,22 +3,22 @@
     <div class="Sidebar-main u-clearFix">
       <ul class="Profile">
         {% for profile in vars.sidebar.profile %}
-          <li class="Profile-item"><img class="Profile-image" src="http://vikibell.com/wp-content/uploads/2016/04/IMG_9334.jpg" alt=""></li>
+          <li class="Profile-item"><img class="Profile-image" src="{{ profile.src }}" alt="{{ profile.alt }}"></li>
         {% endfor %}
       </ul>
 
       <ul class="Sidebar-social u-clearFix">
-        <li class="Sidebar-socialItem--twitter Sidebar-socialItem"><a class="Sidebar-socialLink"><i class="icon-twitter"></i><span class="u-hide">Twitter</span></a></li>
-        <li class="Sidebar-socialItem--instagram Sidebar-socialItem"><a class="Sidebar-socialLink"><i class="icon-instagram"></i><span class="u-hide">Instagram</span></a></li>
-        <li class="Sidebar-socialItem--pinterest Sidebar-socialItem"><a class="Sidebar-socialLink"><i class="icon-pinterest-circled"></i><span class="u-hide">Pinterest</span></a></li>
+        <li class="Sidebar-socialItem--twitter Sidebar-socialItem"><a class="Sidebar-socialLink" href="{{ vars.socialProfiles.twitter }}"><i class="icon-twitter"></i><span class="u-hide">Twitter</span></a></li>
+        <li class="Sidebar-socialItem--instagram Sidebar-socialItem"><a class="Sidebar-socialLink" href="{{ vars.socialProfiles.instagram }}"><i class="icon-instagram"></i><span class="u-hide">Instagram</span></a></li>
+        <li class="Sidebar-socialItem--pinterest Sidebar-socialItem"><a class="Sidebar-socialLink" href="{{ vars.socialProfiles.pinterest }}"><i class="icon-pinterest-circled"></i><span class="u-hide">Pinterest</span></a></li>
       </ul>
 
       <div itemscope itemtype="http://schema.org/WebSite">
-        <meta itemprop="url" content="http://vikibell.com/"/>
-        <form class="SearchForm" action="/search/" method="GET" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
-          <meta itemprop="target" content="http://vikibell.com/search?q={search_term_string}"/>
+        <meta itemprop="url" content="{{ vars.config.environment.url }}"/>
+        <form class="SearchForm" action="/search" method="GET" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
+          <meta itemprop="target" content="{{ vars.config.environment.url }}/search?s={s}"/>
           <label class="u-hide" for="SearchInput">Search</label>
-          <input id="SearchInput" class="SearchForm-input" type="text" placeholder="Search" itemprop="query-input" name="search_term_string" required />
+          <input id="SearchInput" class="SearchForm-input" type="text" placeholder="Search" itemprop="query-input" name="s" required />
           <input class="u-hide" type="submit"/>
         </form>
       </div>

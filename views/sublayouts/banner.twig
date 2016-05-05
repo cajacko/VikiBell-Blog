@@ -1,3 +1,4 @@
-<a class="Banner Banner--image1 Banner--backgroundImage"  href="/">
-  <img class="Banner-image u-fitToParent" src="/media/banner1.jpg" height="400" width="2500" alt="Viki Bell banner image">
+<a class="Banner Banner--backgroundImage" href="/">
+  {% set image = vars.bannerImage %}
+  {% include 'sublayouts/image.twig' %}
 </a>

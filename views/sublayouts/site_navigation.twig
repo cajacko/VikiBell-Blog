@@ -2,17 +2,16 @@
   <nav class="SiteNav">
     <ul class="SiteNav-list u-clearFix u-wrap">
       <li class="SiteTitle SiteNav-item">
-        <a class="SiteTitle-link SiteNav-link" href="/" itemscope itemtype="https://schema.org/Person">
+        <a id="MicroData-person" class="SiteTitle-link SiteNav-link" href="/" itemprop="author" itemscope itemtype="https://schema.org/Person">
           <span itemprop="name">Viki Bell</span>
           <meta itemprop="familyName" content="Bell">
           <meta itemprop="givenName" content="Viki">
           <meta itemprop="gender" content="Female">
           <meta itemprop="nationality" content="British">
-          <link itemprop="url" href="https://vikibell.com">
-          <link itemprop="sameAs" href="https://twitter.com/Vikiibell/" />
-          <link itemprop="sameAs" href="https://www.instagram.com/vikibell/" />
-          <link itemprop="sameAs" href="https://www.pinterest.com/vikiibell/" />
-          <link itemprop="sameAs" href="https://www.linkedin.com/in/vikibell" />
+          <link itemprop="url" href="{{ vars.config.environment.url }}">
+          {% for socialLink in vars.socialProfiles %}
+            <link itemprop="sameAs" href="{{ socialLink }}" />
+          {% endfor %}
         </a>
       </li>
       
