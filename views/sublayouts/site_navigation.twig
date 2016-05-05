@@ -1,7 +1,20 @@
 <div>
   <nav class="SiteNav">
     <ul class="SiteNav-list u-clearFix u-wrap">
-      <li class="SiteTitle SiteNav-item"><a class="SiteTitle-link SiteNav-link" href="/">Viki Bell</a></li>
+      <li class="SiteTitle SiteNav-item">
+        <a class="SiteTitle-link SiteNav-link" href="/" itemscope itemtype="https://schema.org/Person">
+          <span itemprop="name">Viki Bell</span>
+          <meta itemprop="familyName" content="Bell">
+          <meta itemprop="givenName" content="Viki">
+          <meta itemprop="gender" content="Female">
+          <meta itemprop="nationality" content="British">
+          <link itemprop="url" href="https://vikibell.com">
+          <link itemprop="sameAs" href="https://twitter.com/Vikiibell/" />
+          <link itemprop="sameAs" href="https://www.instagram.com/vikibell/" />
+          <link itemprop="sameAs" href="https://www.pinterest.com/vikiibell/" />
+          <link itemprop="sameAs" href="https://www.linkedin.com/in/vikibell" />
+        </a>
+      </li>
       
       {% for socialNavItem in vars.socialNav %}
         <li class="SiteNav-item SiteNav-item--mobile"><a class="SiteNav-link" href="{{ socialNavItem.url }}"><i class="SiteNav-icon icon-{{ socialNavItem.icon }}"></i></a></li>

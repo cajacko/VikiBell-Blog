@@ -13,10 +13,15 @@
         <li class="Sidebar-socialItem--pinterest Sidebar-socialItem"><a class="Sidebar-socialLink"><i class="icon-pinterest-circled"></i><span class="u-hide">Pinterest</span></a></li>
       </ul>
 
-      <form class="SearchForm" action="/search/" method="GET">
-        <label class="u-hide" for="SearchInput">Search</label>
-        <input id="SearchInput" class="SearchForm-input" type="text" placeholder="Search">
-      </form>
+      <div itemscope itemtype="http://schema.org/WebSite">
+        <meta itemprop="url" content="http://vikibell.com/"/>
+        <form class="SearchForm" action="/search/" method="GET" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
+          <meta itemprop="target" content="http://vikibell.com/search?q={search_term_string}"/>
+          <label class="u-hide" for="SearchInput">Search</label>
+          <input id="SearchInput" class="SearchForm-input" type="text" placeholder="Search" itemprop="query-input" name="search_term_string" required />
+          <input class="u-hide" type="submit"/>
+        </form>
+      </div>
 
       {% include 'sublayouts/twitter.twig' %}
     </div>
