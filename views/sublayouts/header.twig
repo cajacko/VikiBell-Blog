@@ -40,6 +40,21 @@
   </head>
 
   <body itemscope itemtype="http://schema.org/WebPage">
+    <div id="MicroData-organization" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Viki Bell">
+      <meta itemprop="url" content="{{ vars.config.environment.url }}">
+
+      {% for socialLink in vars.socialProfiles %}
+        <link itemprop="sameAs" href="{{ socialLink }}" />
+      {% endfor %}
+
+      <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+        <meta itemprop="url" content="{{ vars.organizationLogo.src }}">
+        <meta itemprop="width" content="{{ vars.organizationLogo.width }}">
+        <meta itemprop="height" content="{{ vars.organizationLogo.height }}">
+      </div>
+    </div>
+
     <header id="SiteHeader" class="SiteHeader">
       {% include 'sublayouts/banner.twig' %}
       {% include 'sublayouts/site_navigation.twig' %}
