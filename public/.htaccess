@@ -5,6 +5,9 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+
+  RewriteCond %{HTTP_HOST} ^www\.dev\.vikibell\.com$
+  RewriteRule ^/?$ "http\:\/\/dev\.vikibell\.com\/" [R=301,L]
 </IfModule>
 
 <IfModule mod_expires.c> 
