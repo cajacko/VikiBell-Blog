@@ -1,20 +1,25 @@
-<article class="Post u-clearFix">
+<article class="Post u-clearFix" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
-    <time class="Post-date" datetime="{{ post.date.datetime }}">{{ post.date.title }}</time>
+    <time class="Post-date" datetime="{{ post.date.datetime }}" itemprop="datePublished">{{ post.date.title }}</time>
 
     {% if post.image %}
-      <a class="Post-headerLink">
+      <a class="Post-headerLink" href="{{ post.image.src }}" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
         {% set image = post.image %}
         {% include 'sublayouts/image.twig' %}
+        <meta itemprop="url" content="{{ post.image.src }}">
+        <meta itemprop="width" content="{{ post.image.width }}">
+        <meta itemprop="height" content="{{ post.image.height }}">
       </a>
     {% endif %}
 
-    <a class="Post-headerLink">
-      <{% if vars.isSingle %}h1{% else %}h2{% endif %} class="Post-title">{{ post.title }}</h1>
+    <a class="Post-headerLink" href="/" itemprop="mainEntityOfPage">
+      <{% if vars.isSingle %}h1{% else %}h2{% endif %} class="Post-title" itemprop="headline">{{ post.title }}</h1>
     </a>
   </header>
 
-  <div class="Post-content">
+  <span itemprop="description">A most wonderful article</span>
+
+  <div class="Post-content" itemprop="articleBody">
   {% if post.excerpt %}
     {{ post.excerpt|raw }}
   {% else %}
@@ -22,8 +27,28 @@
   {% endif %}
   </div>
 
-  {% if vars.isSingle %}
-    <footer>
+  <footer>
+    <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+      <meta itemprop="name" content="Viki Bell">
+    </div>
+
+    <meta content="{{ post.date.datetime }}" itemprop="dateModified">
+
+    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+      <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+        <meta itemprop="url" content="{{ post.image.src }}">
+        <meta itemprop="width" content="600">
+        <meta itemprop="height" content="60">
+      </div>
+      <meta itemprop="name" content="Viki Bell">
+    </div>
+
+    <meta itemprop="description" content="Content of some sort">
+    <meta itemprop="articleSection" content="Category">
+    <meta itemprop="wordCount" content="234">
+    <meta itemprop="keywords" content="blog, article, example">
+
+    {% if vars.isSingle %}
       <span>Share this post on:</span>
       <ul>
         <li>
@@ -42,6 +67,6 @@
           </a>
         </li>
       </ul>
-    </footer>
-  {% endif %}
+    {% endif %}
+  </footer>
 </article>

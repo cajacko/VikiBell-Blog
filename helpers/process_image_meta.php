@@ -18,10 +18,11 @@ function return_image_meta($res) {
   }
 
   if(isset($meta['_wp_attached_file'])) {
-    $array['src'] = $meta['_wp_attached_file'];
-    $explode = explode('/', $meta['_wp_attached_file']);
-    $dir = '';
+    $dir = 'http://vikibell.com/wp-content/uploads/';
 
+    $array['src'] = $dir . $meta['_wp_attached_file'];
+    $explode = explode('/', $meta['_wp_attached_file']);
+  
     for($i = 0; $i < (count($explode) - 1); $i++) {
       $dir .= $explode[$i] . '/';
     }
