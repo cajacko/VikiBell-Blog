@@ -496,10 +496,12 @@ h6 {
 .u-hide {
   display: none; }
 
-@media (max-width: 60.615em) {
-  .Content {
-    padding-left: 0;
-    padding-right: 0; } }
+.Content {
+  margin-top: 50px; }
+  @media (max-width: 60.615em) {
+    .Content {
+      padding-left: 0;
+      padding-right: 0; } }
 
 .Content--wrap {
   position: relative; }
@@ -510,6 +512,12 @@ h6 {
     .Main {
       margin-left: auto;
       margin-right: auto; } }
+
+.Title {
+  font-size: 24px;
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 50px; }
 
 .Banner {
   display: block;
@@ -833,8 +841,14 @@ h6 {
     .Sidebar {
       display: none; } }
 
-.Sidebar-wrap {
-  background: #fff; }
+.Sidebar--fixedToBottom {
+  bottom: 0;
+  position: fixed;
+  top: auto; }
+
+.Sidebar-main {
+  background: #fff;
+  border: 1px solid gainsboro; }
 
 .Profile {
   list-style: none; }
@@ -1002,3 +1016,14 @@ h6 {
     background: #0d7eff;
     color: #fff;
     text-decoration: none; }
+
+.ToTop {
+  background: #fff;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  display: block;
+  font-size: 24px;
+  line-height: 1;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center; }

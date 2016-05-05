@@ -13,6 +13,7 @@ $Tweet-imageLink--marginRight: 10px;
 $Tweet-content--marginTop: $Tweet-imageLink--marginRight;
 $Tweet-image--opacity--hover: .9;
 $TweetLoop-follow--marginHorizontal: $Tweet--margin;
+$Sidebar--border: 1px solid $gray;
 
 .Sidebar {
   box-sizing: border-box;
@@ -31,8 +32,15 @@ $TweetLoop-follow--marginHorizontal: $Tweet--margin;
   }
 }
 
-.Sidebar-wrap {
+.Sidebar--fixedToBottom {
+  bottom: 0;
+  position: fixed;
+  top: auto;
+}
+
+.Sidebar-main {
   background: $white;
+  border: $Sidebar--border;
 }
 
 .Profile {
@@ -260,4 +268,16 @@ $TweetLoop-follow--marginHorizontal: $Tweet--margin;
     color: $white;
     text-decoration: none;
   }
+}
+
+.ToTop {
+  background: $white;
+  border: $Sidebar--border;
+  border-radius: 5px; 
+  display: block;
+  font-size: 24px;
+  line-height: 1;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
 }
