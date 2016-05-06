@@ -151,6 +151,10 @@ if(isset($request[0])) {
       require_once('post.php');
       break;
 
+    case 'action':
+      require_once('action.php');
+      break;
+
     case 'search':
       require_once('search.php');
       break;
