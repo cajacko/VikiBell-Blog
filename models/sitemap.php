@@ -6,7 +6,7 @@ function return_sitemap_item($title, $url, $lastmod, $changefreq, $priority) {
   date_default_timezone_set('Europe/London');
 
   $url = $config['environment']['url'] . '/' . $url;
-  $lastmod = date('Y-m-d\TH:i:s', strtotime($lastmod));
+  $lastmod = date(DATE_W3C, strtotime($lastmod));
 
   return array(
       'title' => $title,
