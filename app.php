@@ -12,6 +12,12 @@ foreach($config['dirs'] as $dir_name => $dir_path) {
 
 $config['dirs']['root'] = $project_root; // Add the absolute path to the dirs
 
+if($config['environment']['dev']) {
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
+}
+
 require_once('models/database.php'); 
 
 if($config['cdn']['enabled']) {
