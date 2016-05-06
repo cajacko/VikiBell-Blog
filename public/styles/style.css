@@ -524,11 +524,6 @@ h6 {
   min-height: 200px;
   overflow: hidden;
   position: relative; }
-  .Banner.Banner--backgroundImage {
-    background-image: url("/media/banner.jpg");
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover; }
   .Banner:after {
     content: '';
     display: block;
