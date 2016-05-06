@@ -14,12 +14,12 @@ $config['dirs']['root'] = $project_root; // Add the absolute path to the dirs
 
 require_once('models/database.php'); 
 
-if($config['environment']['dev']) {
-  $static_public = '';
-  $static_uploads = $config['environment']['localUploads'];
-} else { 
+if($config['cdn']['enabled']) {
   $static_public = $config['cdn']['staticContent'] . $config['cdn']['staticPublic'];
   $static_uploads = $config['cdn']['staticContent'] . $config['cdn']['staticUploads'];
+} else {
+  $static_public = '';
+  $static_uploads = $config['environment']['localUploads'];
 }
 
 require_once('../helpers/process_image_meta.php');
