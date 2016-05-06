@@ -2,7 +2,7 @@
 
 $site_navigation = array(
   array(
-    'url' => '/about',
+    'url' => '',
     'title' => 'About',
     'icon' => 'female',
     'internal' => true,
@@ -23,25 +23,25 @@ $site_navigation = array(
     ),
   ),
   array(
-    'url' => '/category/life',
+    'url' => '/categories/life',
     'title' => 'Life',
     'icon' => 'leaf',
     'internal' => true,
   ),
   array(
-    'url' => '/category/life',
+    'url' => '/categories/events',
     'title' => 'Events',
     'icon' => 'calendar',
     'internal' => true,
   ),
   array(
-    'url' => '/category/life',
+    'url' => '/categories/travel',
     'title' => 'Travel',
     'icon' => 'flight',
     'internal' => true,
   ),
   array(
-    'url' => '/about',
+    'url' => '',
     'title' => 'Food',
     'icon' => 'food',
     'internal' => true,
@@ -49,13 +49,13 @@ $site_navigation = array(
       'id' => 'SiteNav-subNav--2',
       'items' => array(
         array(
-          'url' => '/about',
+          'url' => '/categories/recipes',
           'title' => 'Recipes',
           'internal' => true,
         ),
         array(
-          'url' => '/contact',
-          'title' => 'Resturants',
+          'url' => '/categories/restaurants',
+          'title' => 'Restaurants',
           'internal' => true,
         ),
       ),
