@@ -4,6 +4,7 @@ function return_sitemap_item($title, $url, $lastmod, $changefreq, $priority) {
   global $config;
 
   $url = $config['environment']['url'] . '/' . $url;
+  $lastmod = date('Y-m-d\TH:i:s', strtotime($lastmod));
 
   return array(
       'title' => $title,
