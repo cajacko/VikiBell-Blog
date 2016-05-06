@@ -19,6 +19,7 @@ if($config['environment']['dev']) {
   error_reporting(E_ALL);
 }
 
+require_once('models/global.php'); 
 require_once('models/database.php'); 
 
 if($config['cdn']['enabled']) {

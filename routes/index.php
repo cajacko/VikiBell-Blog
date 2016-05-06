@@ -131,24 +131,16 @@ if(isset($_GET['page']) && is_numeric($_GET['page'])) {
 // Route the request
 if(isset($request[0])) {
   switch ($request[0]) {
-    case 'category':
-      require_once('category.php');
-      break;
-
     case 'categories':
       require_once('categories.php');
-      break;
-
-    case 'tag':
-      require_once('tag.php');
       break;
 
     case 'tags':
       require_once('tags.php');
       break;
 
-    case 'post':
-      require_once('post.php');
+    case 'posts':
+      require_once('posts.php');
       break;
 
     case 'action':
@@ -157,6 +149,10 @@ if(isset($request[0])) {
 
     case 'search':
       require_once('search.php');
+      break;
+
+    case 'sitemap':
+      require_once('sitemap.php');
       break;
     
     default:
@@ -175,6 +171,18 @@ ob_start("ob_gzhandler");
 
 /*
 
+description
+title
+type
+image
+imagetype
+imagewidth
+imageheight
+modified
+published
+twittercard
+imagealt
+
 <meta name="description" content="Life on the planet Viki continues..."/>
 
 <meta name="og:title" content="Viki Bell - Life on the planet Viki continues..." />
@@ -192,8 +200,6 @@ ob_start("ob_gzhandler");
 <meta name="og:article:modified_time" content="website" />
 <meta name="og:article:published_time" content="website" />
 <meta name="og:article:publisher" content="website" />
-<meta name="og:article:section" content="category" />
-<meta name="og:article:tag" content="website" />
 
 <meta name="twitter:card" content="summary/summary_large_image"/>
 <meta name="twitter:site" content="@VikiiBell"/>
