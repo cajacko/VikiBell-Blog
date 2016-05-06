@@ -5,7 +5,17 @@
 
 // If no post slug is defined then route to 404
 if(!isset($request[1])) {
-  require_once('404.php');
+  require_once('../models/home.php');
+
+  $vars['posts'] = get_default_posts($pagination);
+  $template_path .= 'loop';
+
+  $vars['breadcrumbs'] = array(
+    'Home' => '/',
+    'Posts' => '/posts/',
+  );
+
+  $vars['pageTitle'] = 'Posts';
 } 
 /** 
  * Otherwise, if there is any additional url parameters then redirect 
@@ -21,7 +31,7 @@ elseif(isset($request[2])) {
 // Query is good so get the post if it exists
 else {
   require_once('../models/post.php');
-  $post = get_single_post($request[1]); // Get the post based on the slug
+  $post = get_single_post($request[1])[0]; // Get the post based on the slug
 
   // If the post exists then show it, otherwise route to 404
   if($post) {
@@ -29,6 +39,16 @@ else {
     $vars['relatedPosts'] = get_related_post($post['id']);
     $vars['isSingle'] = true;
     $template_path .= 'single_post';
+
+    $vars['breadcrumbs'] = array(
+      'Home' => '/',
+      'Posts' => '/posts/',
+      $post['title'] => '/posts/' . $post['slug'],
+    );
+
+    $vars['pageTitle'] = $post['title'];
+
+
   } else {
     require_once('404.php');
   }

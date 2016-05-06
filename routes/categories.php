@@ -12,7 +12,7 @@ if(!isset($request[1])) {
 
   $vars['breadcrumbs'] = array(
     'Home' => '/',
-    'Posts' => '/categories/',
+    'Categories' => '/categories/',
   );
 
   $vars['pageTitle'] = 'Categories';
