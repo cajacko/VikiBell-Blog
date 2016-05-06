@@ -76,13 +76,13 @@ $vars = array(
         'name' => 'Viki Bell',
         'handle' => '@vikiibell',
         'image' => array(
-          'src' => 'http://pbs.twimg.com/profile_images/661179331897593856/2zi234x8_normal.png',
+          'src' => 'https://pbs.twimg.com/profile_images/661179331897593856/2zi234x8_normal.png',
           'alt' => 'Viki bell twitter image',
         )
       ),
       'content' => 'Being a rebel and walking up both sides of <a href="http://twitter.com/hashtag/Holborn" target="_blank">#Holborn</a> tube escalators! <a href="http://twitter.com/hashtag/dontstopmenow" target="_blank">#dontstopmenow</a>',
       'featuredImage' => array(
-        'src' => 'http://pbs.twimg.com/tweet_video_thumb/ChhspmcWIAEhdpX.jpg',
+        'src' => 'https://pbs.twimg.com/tweet_video_thumb/ChhspmcWIAEhdpX.jpg',
         'alt' => 'Featured image',
       ),
     ),
@@ -94,7 +94,7 @@ $vars = array(
         'name' => 'Viki Bell',
         'handle' => '@vikiibell',
         'image' => array(
-          'src' => 'http://pbs.twimg.com/profile_images/661179331897593856/2zi234x8_normal.png',
+          'src' => 'https://pbs.twimg.com/profile_images/661179331897593856/2zi234x8_normal.png',
           'alt' => 'Viki bell twitter image',
         )
       ),
@@ -108,7 +108,7 @@ $vars = array(
         'name' => 'Viki Bell',
         'handle' => '@vikiibell',
         'image' => array(
-          'src' => 'http://pbs.twimg.com/profile_images/661179331897593856/2zi234x8_normal.png',
+          'src' => 'https://pbs.twimg.com/profile_images/661179331897593856/2zi234x8_normal.png',
           'alt' => 'Viki bell twitter image',
         )
       ),
