@@ -86,6 +86,26 @@ function return_sitemap() {
   return $sitemap;
 }
 
+function sitemap_page() {
+  $sitenav = return_sitemap();
+  $return = array();
+
+  foreach($sitenav as $item) {
+    $url = $item['url'];
+
+    $explode = explode('/', $url);
+
+    if(isset($explode[4])) {
+      $return[$explode[3]]['subLevel'][] = array('link' => '/' . $explode[3] . '/' . $explode[4] . '/', 'title' => $item['title']);
+    } else {
+      $return[$explode[3]]['title'] = $item['title'];
+      $return[$explode[3]]['link'] = '/' . $explode[3] . '/';
+    }
+  }
+
+  return $return;
+}
+
 function create_robots_file() {
   global $config;
 

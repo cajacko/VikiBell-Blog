@@ -3,7 +3,7 @@
 require_once('../helpers/post_meta.php');
 
 function get_page($request) {
-    global $db, $config, $global_queries;
+  global $db, $config, $global_queries;
 
   $query = '
     SELECT *
@@ -19,5 +19,9 @@ function get_page($request) {
   $res = $stmt->get_result();
   $posts = post_meta($res);
 
-  return $posts[0];
+  if(isset($posts[0])) {
+    return $posts[0];
+  } else {
+    return false;
+  } 
 }

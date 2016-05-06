@@ -1,5 +1,19 @@
 {% spaceless %}
   {% include 'sublayouts/header.twig' %}
-  <h1>Sitemap</h1>
+  <ul>
+    {% for topLevel in vars.sitemap %}
+      <li>
+        <a href="{{ topLevel.link }}">{{ topLevel.title }}</a>
+        {% if topLevel.subLevel %}
+          <ul>
+            {% for subLevel in topLevel.subLevel %}
+              <li><a href="{{ subLevel.link }}">{{ subLevel.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
   {% include 'sublayouts/footer.twig' %}
+  }
 {% endspaceless %}
