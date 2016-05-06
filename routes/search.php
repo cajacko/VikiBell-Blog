@@ -42,4 +42,11 @@ else {
   $vars['posts'] = $posts;
   $vars['search'] = array('query' => $search_query);
   $template_path .= 'loop';
+
+  $vars['breadcrumbs'] = array(
+    'Home' => '/',
+    'Search' => '/search',
+  );
+
+  $vars['pageTitle'] = 'Search for: ' . $search_query;
 }
