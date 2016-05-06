@@ -20,6 +20,14 @@ else {
     $vars['posts'] = $posts;
     $vars['taxonomy'] = array('type' => 'category', 'details' => $category);
     $template_path .= 'loop';
+
+    $vars['breadcrumbs'] = array(
+      'Home' => '/',
+      'Categories' => '/categories/',
+      $category['name'] => '/categories/' . $category['slug'],
+    );
+
+    $vars['pageTitle'] = 'Category: ' . $category['name'];
   } else {
     require_once('404.php');
   }
