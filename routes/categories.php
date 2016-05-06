@@ -9,6 +9,13 @@ require_once('../models/categories.php');
 if(!isset($request[1])) {
   $vars['categories'] = get_categories();
   $template_path .= 'categories';
+
+  $vars['breadcrumbs'] = array(
+    'Home' => '/',
+    'Posts' => '/categories/',
+  );
+
+  $vars['pageTitle'] = 'Categories';
 } 
 // Otherwise show the category loop
 else {
