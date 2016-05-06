@@ -26,6 +26,7 @@ require_once('../helpers/bunting.php');
 
 // Setup the variables to pass to the view
 $vars = array(
+  'staticPublic' => $static_public,
   'config' => $config,
   'nav' => $site_navigation,
   'socialNav' => $social_navigation,
@@ -57,7 +58,7 @@ $vars = array(
   'bannerImage' => array(
     'classes' => 'Banner-image u-fitToParent',
     'alt' => 'Viki Bell Banner Image',
-    'src' => '/media/banner.jpg',
+    'src' => $static_public . '/media/banner.jpg',
     'height' => 400,
     'width' => 2500,
   ),
@@ -115,6 +116,8 @@ $vars = array(
     ),
   ),
 );
+
+
 
 $template_path = 'templates/';
 
