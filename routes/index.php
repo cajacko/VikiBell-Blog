@@ -135,10 +135,6 @@ if(isset($request[0])) {
       require_once('categories.php');
       break;
 
-    case 'tags':
-      require_once('tags.php');
-      break;
-
     case 'posts':
       require_once('posts.php');
       break;

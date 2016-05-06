@@ -59,11 +59,11 @@ function return_sitemap() {
   }
 
   $query = '
-    SELECT wp_terms.name, wp_terms.slug, wp_term_taxonomy.taxonomy, wp_term_taxonomy.count, wp_term_taxonomy.parent
+    SELECT wp_terms.name, wp_terms.slug, wp_term_taxonomy.count, wp_term_taxonomy.parent
     FROM wp_term_taxonomy
     INNER JOIN wp_terms
       ON wp_terms.term_id = wp_term_taxonomy.term_id
-    WHERE wp_term_taxonomy.count > 0
+    WHERE wp_term_taxonomy.count > 0 AND wp_term_taxonomy.taxonomy = "category"
     ORDER BY wp_term_taxonomy.taxonomy ASC
   ';
 
@@ -74,17 +74,7 @@ function return_sitemap() {
   $posts = array();
 
   while($post = $res->fetch_assoc()) {
-    if('category' == $post['taxonomy']) {
-      $url = 'categories/';
-    } elseif('post_tag' == $post['taxonomy']) {
-      $url = 'tags/';
-    } else {
-      $url = false;
-    }
-
-    if($url) {
-      $sitemap[] = return_sitemap_item($post['name'], $url . $post['slug'], $last_updated_post_date, 'weekly', 0.5);
-    }
+    $sitemap[] = return_sitemap_item($post['name'], 'categories/' . $post['slug'], $last_updated_post_date, 'weekly', 0.5);
   }
 
   $sitemap[] = return_sitemap_item('Home', '', $last_updated_post_date, 'daily', 1);
@@ -92,7 +82,6 @@ function return_sitemap() {
   $sitemap[] = return_sitemap_item('Sitemap', 'sitemap', $last_updated, 'daily', 0.5);
   $sitemap[] = return_sitemap_item('Posts', 'posts', $last_updated, 'daily', 0.5);
   $sitemap[] = return_sitemap_item('Categories', 'categories', $last_updated, 'daily', 0.5);
-  $sitemap[] = return_sitemap_item('Tags', 'tags', $last_updated, 'daily', 0.5);
 
   return $sitemap;
 }
