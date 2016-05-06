@@ -99,6 +99,16 @@ function return_sitemap() {
   return $sitemap;
 }
 
+function create_robots_file() {
+  global $config;
+
+  $content = 'Sitemap: ' . $config['environment']['url'] . '/sitemap.xml
+User-agent: *
+Disallow:';
+
+  file_put_contents('../public/robots.txt', $content);
+}
+
 function create_xml_sitemap() {
   $sitemap = return_sitemap();
 
@@ -111,4 +121,5 @@ function create_xml_sitemap() {
   $content .= '</urlset> ';
 
   file_put_contents('../public/sitemap.xml', $content);
+  create_robots_file();
 }
