@@ -1,6 +1,7 @@
 {% spaceless %}
   {% include 'sublayouts/header.twig' %}
-  {% include 'sublayouts/page.twig' %}
+  {% set post = vars.page %}
+  {% include 'sublayouts/post.twig' %}
   {% include 'sublayouts/sidebar.twig' %}
   {% include 'sublayouts/footer.twig' %}
 {% endspaceless %}

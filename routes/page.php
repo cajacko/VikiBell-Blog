@@ -5,7 +5,7 @@
 
 require_once('../models/page.php');
 
-$page = get_page($page_request);
+$page = get_page($request);
 
 // If there is a redirect url then redirect
 if(isset($page['redirect'])) {
@@ -18,6 +18,9 @@ elseif($page) {
   $vars['page'] = $page;
   $vars['isSingle'] = true;
   $template_path .= 'page';
+
+  unset($vars['breadcrumbs']);
+  unset($vars['pageTitle']);
 } 
 // Otherwise route to 404
 else {

@@ -46,8 +46,7 @@ else {
       $post['title'] => '/posts/' . $post['slug'],
     );
 
-    $vars['pageTitle'] = $post['title'];
-
+    unset($vars['pageTitle']);
 
   } else {
     require_once('404.php');
