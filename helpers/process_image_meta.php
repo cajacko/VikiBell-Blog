@@ -3,7 +3,7 @@
 $image_count = 0;
 
 function return_image_meta($res) {
-  global $image_count;
+  global $image_count, $static_uploads;
   $meta = array();
   $array = array();
   
@@ -18,7 +18,7 @@ function return_image_meta($res) {
   }
 
   if(isset($meta['_wp_attached_file'])) {
-    $dir = 'http://vikibell.com/wp-content/uploads/';
+    $dir = $static_uploads . '/';
 
     $array['src'] = $dir . $meta['_wp_attached_file'];
     $explode = explode('/', $meta['_wp_attached_file']);
