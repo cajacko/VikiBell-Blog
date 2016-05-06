@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Europe/London');
 
 // Setup config
 $config = parse_ini_file('config.ini', true);
