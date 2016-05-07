@@ -454,7 +454,7 @@ h6 {
   line-height: 1;
   position: relative;
   text-align: center;
-  z-index: 1; }
+  z-index: 3; }
   @media (max-width: 46.875em) {
     .SiteNav {
       padding-left: 20px;
@@ -474,7 +474,7 @@ h6 {
     right: 0;
     text-align: left;
     top: 60px;
-    z-index: 2; } }
+    z-index: 4; } }
 
 .SiteNav-item {
   float: left;
@@ -568,7 +568,7 @@ h6 {
   display: none;
   position: absolute;
   width: 100%;
-  z-index: 3; }
+  z-index: 5; }
   @media (max-width: 46.875em) {
     .SiteNav-subNav {
       background: #2c4150;
