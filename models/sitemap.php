@@ -28,6 +28,7 @@ function return_sitemap() {
     FROM  wp_posts
     WHERE post_type =  "post"
     AND post_status =  "publish"
+    ORDER BY post_date DESC
   ';
 
   // prepare and bind
@@ -38,24 +39,6 @@ function return_sitemap() {
 
   while($post = $res->fetch_assoc()) {
     $sitemap[] = return_sitemap_item($post['post_title'], 'posts/' . $post['post_name'], $post['post_date'], 'weekly', 0.75);
-  }
-
-  $query = '
-    SELECT * 
-    FROM  wp_posts
-    WHERE post_type =  "page"
-    AND post_status =  "publish"
-  ';
-
-  // prepare and bind
-  $stmt = $db->prepare($query);
-  $stmt->execute();
-  $res = $stmt->get_result();
-  $posts = array();
-
-  while($post = $res->fetch_assoc()) {
-    // TODO: check for parent
-    $sitemap[] = return_sitemap_item($post['post_title'], $post['post_name'], $post['post_date'], 'weekly', 0.75);
   }
 
   $query = '
@@ -77,9 +60,29 @@ function return_sitemap() {
     $sitemap[] = return_sitemap_item($post['name'], 'categories/' . $post['slug'], $last_updated_post_date, 'weekly', 0.5);
   }
 
-  $sitemap[] = return_sitemap_item('Home', '', $last_updated_post_date, 'daily', 1);
-  $sitemap[] = return_sitemap_item('Search', 'search', $last_updated_post_date, 'daily', 0.25);
   $sitemap[] = return_sitemap_item('Sitemap', 'sitemap', $last_updated, 'daily', 0.5);
+  $sitemap[] = return_sitemap_item('Search', 'search', $last_updated_post_date, 'daily', 0.25);
+
+  $query = '
+    SELECT * 
+    FROM  wp_posts
+    WHERE post_type =  "page"
+    AND post_status =  "publish"
+    ORDER BY post_title DESC
+  ';
+
+  // prepare and bind
+  $stmt = $db->prepare($query);
+  $stmt->execute();
+  $res = $stmt->get_result();
+  $posts = array();
+
+  while($post = $res->fetch_assoc()) {
+    // TODO: check for parent
+    $sitemap[] = return_sitemap_item($post['post_title'], $post['post_name'], $post['post_date'], 'weekly', 0.75);
+  }
+
+  $sitemap[] = return_sitemap_item('Home', '', $last_updated_post_date, 'daily', 1);
   $sitemap[] = return_sitemap_item('Posts', 'posts', $last_updated, 'daily', 0.5);
   $sitemap[] = return_sitemap_item('Categories', 'categories', $last_updated, 'daily', 0.5);
 
@@ -103,7 +106,7 @@ function sitemap_page() {
     }
   }
 
-  return $return;
+  return array_reverse($return);
 }
 
 function create_robots_file() {

@@ -10,13 +10,18 @@ $site_navigation = array(
        'id' => 'SiteNav-subNav--1',
       'items' => array(
         array(
-          'url' => '/about',
+          'url' => '/about-me',
           'title' => 'About',
           'internal' => true,
         ),
         array(
           'url' => '/contact',
           'title' => 'Contact',
+          'internal' => true,
+        ),
+        array(
+          'url' => '/sitemap',
+          'title' => 'Sitemap',
           'internal' => true,
         ),
       ),
