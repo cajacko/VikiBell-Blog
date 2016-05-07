@@ -75,15 +75,17 @@ $vars = array(
 $template_path = 'templates/';
 
 function set_prev_next() {
-  global $vars, $pagination;
+  global $vars, $config;
 
   $url = $_SERVER['REQUEST_URI'];
 
   $url = preg_replace('/\?.*/', '', $url);
+  $canonical = $config['environment']['url'] . $url;
 
   // Define which page of results we are getting
   if(isset($_GET['page']) && is_numeric($_GET['page'])) {
     $vars['next'] = $url . '?page=' .($_GET['page'] + 1);
+    $vars['canonical'] = $canonical;
 
     $prev = intval($_GET['page']) - 1;
 
