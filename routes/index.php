@@ -60,7 +60,7 @@ $vars = array(
   'bannerImage' => array(
     'classes' => 'Banner-image u-fitToParent',
     'alt' => 'Viki Bell Banner Image',
-    'src' => $static_public . '/media/banner.jpg',
+    'src' => $static_uploads . '/2016/05/banner.jpg',
     'height' => 400,
     'width' => 2500,
   ),
