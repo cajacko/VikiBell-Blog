@@ -93,6 +93,7 @@ $SiteNavMain--mobileTop: $SiteNav--fontSize + ($SiteNav-link--padding * 2);
 .SiteNav-link {
   color: $white;
   display: block;
+  fill: $white;
   padding: $SiteNav-link--padding 0;
   text-decoration: none;
 
@@ -140,7 +141,9 @@ $SiteNavMain--mobileTop: $SiteNav--fontSize + ($SiteNav-link--padding * 2);
 }
 
 .SiteNav-icon {
+  display: block;
   font-size: $SiteNav--fontSize;
+  margin: 0 auto;
 
   @include mq($until: $SiteNav--mobileBreakpoint) {
     display: $SiteNav-title-icon--mobileDisplay;

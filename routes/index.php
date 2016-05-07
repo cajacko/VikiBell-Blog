@@ -26,6 +26,7 @@ require_once('../helpers/bunting.php');
 
 // Setup the variables to pass to the view
 $vars = array(
+  'icons' => file_get_contents('../icons/icons.svg'),
   'staticPublic' => $static_public,
   'config' => $config,
   'nav' => $site_navigation,

@@ -42,13 +42,13 @@ $site_navigation = array(
   array(
     'url' => '/categories/travel',
     'title' => 'Travel',
-    'icon' => 'flight',
+    'icon' => 'plane',
     'internal' => true,
   ),
   array(
     'url' => '',
     'title' => 'Food',
-    'icon' => 'food',
+    'icon' => 'cutlery',
     'internal' => true,
     'subNav' => array(
       'id' => 'SiteNav-subNav--2',

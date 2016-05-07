@@ -21,13 +21,13 @@ var sassFiles = '.' + config.styles.dir + '/**/*';
 var jsFiles = '.' + config.javascripts.dir + '/**/*';
 var javascriptsExport = '.' + config.javascripts.export;
 
-// var svgstore = require('gulp-svgstore');
-// var svgmin = require('gulp-svgmin');
-// var replace = require('gulp-replace');
+var svgstore = require('gulp-svgstore');
+var svgmin = require('gulp-svgmin');
+var replace = require('gulp-replace');
 
 // Strip unnecessary tags from svgs
 gulp.task('svgCombine', function() {
-  return gulp.src('./media/icons/*.svg')
+  return gulp.src('./icons/illustrator/*.svg')
     .pipe(replace(/<\/*switch>/g, ''))
     .pipe(replace(/ id=".+?"/g, ''))
     .pipe(replace(/ class=".+?"/g, ''))
@@ -50,7 +50,8 @@ gulp.task('svgCombine', function() {
     .pipe(svgstore())
     .pipe(replace(/<\?xml.+?"\?>/g, ''))
     .pipe(replace(/<!.+?>/g, ''))
-    .pipe(gulp.dest('./media'));
+    .pipe(rename('icons.svg'))
+    .pipe(gulp.dest('./icons'));
 });
 
 /********************************************************
@@ -123,6 +124,7 @@ gulp.task('scripts-watch', ['scripts'], browserSync.reload);
 gulp.task('watch', function() {
   gulp.watch([sassFiles], ['sass']);
   gulp.watch([jsFiles], ['scripts-watch']);
+  gulp.watch('./icons/illustrator/**/*', ['svgCombine']);
   gulp.watch([
     '.' + config.dirs.models + '/**/*',
     '.' + config.dirs.views + '/**/*',
