@@ -4,7 +4,7 @@ $bunting = array();
     
 $count = 1;
 
-while($count < 100) {
+while($count < 50) {
   $bunting_item = array('colour' => '', 'dots' => array());
     
   if( $count % 5 == 0 ) {
