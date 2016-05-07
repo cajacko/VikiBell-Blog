@@ -49,8 +49,6 @@ $vars = array(
     'pinterest' => 'https://www.pinterest.com/vikiibell/',
     'linkedin' => 'https://www.linkedin.com/in/vikibell',
   ),
-  'next' => 'http://vikibell.com/page/2/',
-  'prev' => 'http://vikibell.com/',
   'breadcrumbs' => array(
     'Home' => '/',
     'Categories' => '/categories/',
@@ -76,6 +74,29 @@ $vars = array(
 
 $template_path = 'templates/';
 
+function set_prev_next() {
+  global $vars, $pagination;
+
+  $url = $_SERVER['REQUEST_URI'];
+
+  $url = preg_replace('/\?.*/', '', $url);
+
+  // Define which page of results we are getting
+  if(isset($_GET['page']) && is_numeric($_GET['page'])) {
+    $vars['next'] = $url . '?page=' .($_GET['page'] + 1);
+
+    $prev = intval($_GET['page']) - 1;
+
+    if($prev) {
+      $vars['prev'] = $url . '?page=' . $prev;
+    } else {
+      $vars['prev'] = $url;
+    }
+  } else {
+    $vars['next'] = $url . '?page=1';
+  }
+}
+
 // Define which page of results we are getting
 if(isset($_GET['page']) && is_numeric($_GET['page'])) {
   $pagination = $_GET['page'];
@@ -99,6 +120,7 @@ if(isset($request[0])) {
       break;
 
     case 'search':
+      set_prev_next();
       require_once('search.php');
       break;
 
@@ -111,6 +133,7 @@ if(isset($request[0])) {
       break;
   }
 } else {
+  set_prev_next();
   require_once('home.php');
 }
 

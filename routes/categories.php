@@ -19,6 +19,7 @@ if(!isset($request[1])) {
 } 
 // Otherwise show the category loop
 else {
+  set_prev_next();
   $category = get_category($request);
 
   // If the category exists then show the loop, otherwise route to 404

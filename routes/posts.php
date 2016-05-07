@@ -5,6 +5,7 @@
 
 // If no post slug is defined then route to 404
 if(!isset($request[1])) {
+  set_prev_next();
   require_once('../models/home.php');
 
   $vars['posts'] = get_default_posts($pagination);
