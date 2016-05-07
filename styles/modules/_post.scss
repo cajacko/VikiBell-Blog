@@ -33,8 +33,10 @@ $Post-content--h3--fontSize: 22px;
     width: 100%;
   }
 
-  img[data-src] {
-    opacity: 0;
+  img {
+    &[data-src] {
+      opacity: 0;
+    }
   }
 
   p {
@@ -161,7 +163,7 @@ $SharePost-link--padding: 10px;
 }
 
 .SharePost-shareIcon {
-  fill: rgba($white, .5);
+  fill: $SharePost-shareIcon--colour;
   position: absolute;
   right: $SharePost-link--padding;
   top: $SharePost-link--padding;
