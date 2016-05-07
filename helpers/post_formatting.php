@@ -57,11 +57,11 @@ function format_post_content($content) {
   $content = preg_replace_callback(
     '/<img.+?src="(.+?)".+?>/', 
     function($matches) {
-      global $image_template;
+      global $image_template, $static_public;
 
       $meta = get_image_by_url($matches[1]);
       $meta['classes'] = 'Post-image';
-      $image = $image_template->render(array('image' => $meta));
+      $image = $image_template->render(array('image' => $meta, 'vars' => array('staticPublic' => $static_public)));
       return $image;
     },
     $content
