@@ -366,7 +366,8 @@ html {
 
 a {
   color: #d75c37;
-  cursor: pointer; }
+  cursor: pointer;
+  text-decoration: none; }
   a:hover {
     color: #8c361c;
     text-decoration: underline; }
