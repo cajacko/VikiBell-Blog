@@ -19,8 +19,8 @@
         <li class="SiteNav-item SiteNav-item--mobile"><a class="SiteNav-link" href="{{ socialNavItem.url }}"><svg class="SiteNav-icon" viewBox="0 0 100 100"><use xlink:href="#{{ socialNavItem.icon }}"></use></svg></a></li>
       {% endfor %}
 
-      <li class="">
-        <div class="SiteNav-item SiteNav-item--mobile"><a id="MobileDropdownIcon" class="SiteNav-link" aria-controls="MobileNav" aria-expanded="true"><svg class="SiteNav-icon icon-menu" viewBox="0 0 100 100"><use xlink:href="#menu"></use></svg></a></div>
+      <li>
+        <div class="SiteNav-item SiteNav-item--mobile"><a id="MobileDropdownLink" class="SiteNav-link" aria-controls="MobileNav" aria-expanded="true"><svg class="SiteNav-icon icon-menu" viewBox="0 0 100 100"><use id="MobileDropdownIcon" xlink:href="#menu"></use></svg></a></div>
 
         <ul id="MobileNav" class="SiteNavMain SiteNav-list u-clearFix" aria-hidden="false" aria-expanded="true">
           {% for navItem in vars.nav %}

@@ -28,6 +28,8 @@ function fitToParent(element, load) {
     elementHeight = $(element).height();
   }
 
+  // console.log('elementWidth: ' + elementWidth + ' elementHeight: ' + elementHeight);
+
   // If the height and width are set then position the element, otherwise wait for it to load and try again
   if(elementWidth && elementHeight) {
     // Get the size of the parent, ad calculate aspect ratios
@@ -37,6 +39,8 @@ function fitToParent(element, load) {
     var parentHeight = $(parent).height();
     var parentWidth = $(parent).width();
     var parentAspectRatio = parentWidth / parentHeight;
+
+    // console.log('parentHeight: ' + parentHeight + ' parentWidth: ' + parentWidth);
 
     // Calculate the position
     var width, height, top, left;

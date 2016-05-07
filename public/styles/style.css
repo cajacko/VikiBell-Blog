@@ -730,6 +730,57 @@ h6 {
 .Post-content--h3 {
   font-size: 22px; }
 
+.SharePost-title {
+  background: gainsboro;
+  display: block;
+  padding: 5px;
+  text-align: center; }
+
+.SharePost-links {
+  display: table;
+  width: 100%; }
+
+.SharePost-list {
+  display: table-row;
+  list-style: none; }
+
+.SharePost-item {
+  display: table-cell; }
+
+.SharePost-link {
+  display: block;
+  padding: 10px 0;
+  position: relative; }
+
+.SharePost-Twitter {
+  background: #4099ff; }
+  .SharePost-Twitter:hover {
+    background: #0d7eff; }
+
+.SharePost-Facebook {
+  background: #3b5998; }
+  .SharePost-Facebook:hover {
+    background: #2d4373; }
+
+.SharePost-Email {
+  background: #c8232c; }
+  .SharePost-Email:hover {
+    background: #9d1b22; }
+
+.SharePost-icon {
+  display: block;
+  height: 24px;
+  margin: 0 auto; }
+
+.SharePost-socialIcon {
+  fill: #fff; }
+
+.SharePost-shareIcon {
+  fill: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  right: 10px;
+  top: 10px; }
+
 .Sidebar {
   box-sizing: border-box;
   padding-left: 20px;
@@ -770,17 +821,27 @@ h6 {
   max-width: 100%; }
 
 .Sidebar-social {
-  font-size: 24px;
+  display: table;
+  width: 100%; }
+  @media (max-width: 60.615em) {
+    .Sidebar-social {
+      display: block;
+      width: auto; } }
+
+.Sidebar-socialWrap {
+  display: table-row;
   line-height: 1;
-  list-style: none;
-  text-align: center; }
+  list-style: none; }
+  @media (max-width: 60.615em) {
+    .Sidebar-socialWrap {
+      display: block; } }
 
 .Sidebar-socialItem {
-  float: left;
-  width: 33.3333%; }
+  display: table-cell;
+  width: 500px; }
   @media (max-width: 60.615em) {
     .Sidebar-socialItem {
-      float: none;
+      display: block;
       width: auto; } }
 
 .Sidebar-socialLink {
@@ -801,6 +862,12 @@ h6 {
     background: #c8232c; }
     .Sidebar-socialItem--pinterest .Sidebar-socialLink:hover {
       background: #9d1b22; }
+
+.Sidebar-socialIcon {
+  display: block;
+  fill: #fff;
+  height: 24px;
+  margin: 0 auto; }
 
 .SearchForm {
   border-top: 2px solid gainsboro;
@@ -833,8 +900,12 @@ h6 {
   line-height: 1;
   padding: 20px;
   text-align: center; }
-  .TweetLoop-headerLink:hover {
-    color: #0d7eff; }
+
+.TweetLoop-headerIcon {
+  fill: #4099ff;
+  height: 24px; }
+  .TweetLoop-headerLink:hover .TweetLoop-headerIcon {
+    fill: #0d7eff; }
 
 .Tweet {
   border-bottom: 2px solid gainsboro;
@@ -930,6 +1001,11 @@ h6 {
   margin-top: 20px;
   padding: 10px;
   text-align: center; }
+
+.ToTop-icon {
+  display: block;
+  height: 24px;
+  margin: 0 auto; }
 
 .Breadcrumbs {
   background: #6991ac;

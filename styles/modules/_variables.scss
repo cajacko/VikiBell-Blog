@@ -18,11 +18,13 @@ $white--translucent: rgba($white, .2);
 $Twitter--colour: #4099ff;
 $Instagram--colour: #125688;
 $Pinterest--colour: #c8232c;
+$Facebook--colour: #3b5998;
 
 // Modified brand colours
 $Twitter--colour-dark: darken($Twitter--colour, 10%);
 $Instagram--colour-dark: darken($Instagram--colour, 10%);
 $Pinterest--colour-dark: darken($Pinterest--colour, 10%);
+$Facebook--colour-dark: darken($Facebook--colour, 10%);
 
 // Font sizes
 $baseFontSize: 16px;

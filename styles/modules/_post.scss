@@ -96,3 +96,73 @@ $Post-content--h3--fontSize: 22px;
 .Post-content--h3 {
   font-size: $Post-content--h3--fontSize;
 }
+
+.SharePost-title {
+  background: $gray;
+  display: block;
+  padding: 5px;
+  text-align: center;
+}
+
+.SharePost-links {
+  display: table;
+  width: 100%;
+}
+
+.SharePost-list {
+  display: table-row;
+  list-style: none;
+}
+
+.SharePost-item {
+  display: table-cell;
+}
+
+$SharePost-link--padding: 10px;
+
+.SharePost-link {
+  display: block;
+  padding: $SharePost-link--padding 0;
+  position: relative;
+}
+
+.SharePost-Twitter {
+  background: $Twitter--colour;
+
+  &:hover {
+    background: $Twitter--colour-dark;
+  }
+}
+
+.SharePost-Facebook {
+  background: $Facebook--colour;
+
+  &:hover {
+    background: $Facebook--colour-dark;
+  }
+}
+
+.SharePost-Email {
+  background: $Pinterest--colour;
+
+  &:hover {
+    background: $Pinterest--colour-dark;
+  }
+}
+
+.SharePost-icon {
+  display: block;
+  height: $iconFontSize;
+  margin: 0 auto;
+}
+
+.SharePost-socialIcon {
+  fill: $white;
+}
+
+.SharePost-shareIcon {
+  fill: rgba($white, .5);
+  position: absolute;
+  right: $SharePost-link--padding;
+  top: $SharePost-link--padding;
+}

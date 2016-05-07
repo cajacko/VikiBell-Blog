@@ -40,6 +40,8 @@ function fitToParent(element, load) {
     elementHeight = $(element).height();
   }
 
+  // console.log('elementWidth: ' + elementWidth + ' elementHeight: ' + elementHeight);
+
   // If the height and width are set then position the element, otherwise wait for it to load and try again
   if(elementWidth && elementHeight) {
     // Get the size of the parent, ad calculate aspect ratios
@@ -49,6 +51,8 @@ function fitToParent(element, load) {
     var parentHeight = $(parent).height();
     var parentWidth = $(parent).width();
     var parentAspectRatio = parentWidth / parentHeight;
+
+    // console.log('parentHeight: ' + parentHeight + ' parentWidth: ' + parentWidth);
 
     // Calculate the position
     var width, height, top, left;
@@ -186,7 +190,8 @@ function isElementInViewport (el) {
 
 var $ = require('jquery');
 
-var mobileNavButton = $('#MobileDropdownIcon');
+var mobileNavButton = $('#MobileDropdownLink');
+var mobileNavIcon = $('#MobileDropdownIcon');
 var mobileNav = $('#MobileNav');
 var animationSpeed = 350;
 
@@ -220,6 +225,8 @@ function toggleAriaMeta(control, target, show) {
 
 function toggleMobileNav(show, animate) {
   if(show) {
+    $(mobileNavIcon).attr('xlink:href', '#cancel');
+
     if(animate) {
       $(mobileNav).slideDown(animationSpeed, function() {
         toggleAriaMeta(mobileNavButton, mobileNav, show);
@@ -229,6 +236,8 @@ function toggleMobileNav(show, animate) {
       toggleAriaMeta(mobileNavButton, mobileNav, show);
     }
   } else {
+    $(mobileNavIcon).attr('xlink:href', '#menu');
+
     if(animate) {
       $(mobileNav).slideUp(animationSpeed, function () {
         toggleAriaMeta(mobileNavButton, mobileNav, show);

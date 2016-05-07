@@ -66,18 +66,31 @@ $Sidebar--border: 1px solid $gray;
 }
 
 .Sidebar-social {
-  font-size: $Sidebar-socialLink--fontSize;
+  display: table;
+  width: 100%;
+
+  @include mq($until: sidebarCollapse) {
+    display: block;
+    width: auto;
+  }
+}
+
+.Sidebar-socialWrap {
+  display: table-row;
   line-height: 1;
   list-style: none;
-  text-align: center;
+
+  @include mq($until: sidebarCollapse) {
+    display: block;
+  }
 }
 
 .Sidebar-socialItem {
-  float: left;
-  width: 33.3333%;
+  display: table-cell;
+  width: 500px;
 
   @include mq($until: sidebarCollapse) {
-    float: none;
+    display: block;
     width: auto;
   }
 }
@@ -116,6 +129,13 @@ $Sidebar--border: 1px solid $gray;
   }
 }
 
+.Sidebar-socialIcon {
+  display: block;
+  fill: $white;
+  height: $Sidebar-socialLink--fontSize;
+  margin: 0 auto;
+}
+
 .SearchForm {
   border-top: $Sidebar-sectionBorder;
   padding: $SearchForm--padding;
@@ -150,9 +170,14 @@ $Sidebar--border: 1px solid $gray;
   line-height: 1;
   padding: $TweetLoop-headerLink--padding;
   text-align: center;
+}
 
-  &:hover {
-    color: $Twitter--colour-dark;
+.TweetLoop-headerIcon {
+  fill: $Twitter--colour;
+  height: $Sidebar-socialLink--fontSize;
+
+  .TweetLoop-headerLink:hover & {
+    fill: $Twitter--colour-dark;
   }
 }
 
@@ -280,4 +305,10 @@ $Sidebar--border: 1px solid $gray;
   margin-top: 20px;
   padding: 10px;
   text-align: center;
+}
+
+.ToTop-icon {
+  display: block;
+  height: $iconFontSize;
+  margin: 0 auto;
 }

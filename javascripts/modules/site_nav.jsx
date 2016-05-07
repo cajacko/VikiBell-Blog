@@ -4,7 +4,8 @@
 
 var $ = require('jquery');
 
-var mobileNavButton = $('#MobileDropdownIcon');
+var mobileNavButton = $('#MobileDropdownLink');
+var mobileNavIcon = $('#MobileDropdownIcon');
 var mobileNav = $('#MobileNav');
 var animationSpeed = 350;
 
@@ -38,6 +39,8 @@ function toggleAriaMeta(control, target, show) {
 
 function toggleMobileNav(show, animate) {
   if(show) {
+    $(mobileNavIcon).attr('xlink:href', '#cancel');
+
     if(animate) {
       $(mobileNav).slideDown(animationSpeed, function() {
         toggleAriaMeta(mobileNavButton, mobileNav, show);
@@ -47,6 +50,8 @@ function toggleMobileNav(show, animate) {
       toggleAriaMeta(mobileNavButton, mobileNav, show);
     }
   } else {
+    $(mobileNavIcon).attr('xlink:href', '#menu');
+
     if(animate) {
       $(mobileNav).slideUp(animationSpeed, function () {
         toggleAriaMeta(mobileNavButton, mobileNav, show);

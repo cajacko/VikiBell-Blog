@@ -30,24 +30,29 @@
     <meta itemprop="description" content="{{ post.description }}">
 
     {% if vars.isSingle %}
-      <span>Share this post on:</span>
-      <ul>
-        <li>
-          <a href="https://twitter.com/intent/tweet?url={{ post.tweet.url }}&text={{ post.tweet.text }}&via={{ post.tweet.via }}" target="_blank">
-            <svg viewBox="0 0 100 100"><use xlink:href="#twitter"></use></svg><svg viewBox="0 0 100 100"><use xlink:href="#share"></use></svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.facebook.com/sharer/sharer.php?u={{ post.facebook.url }}" target="_blank">
-            <svg viewBox="0 0 100 100"><use xlink:href="#facebook"></use></svg><svg viewBox="0 0 100 100"><use xlink:href="#share"></use></svg>
-          </a>
-        </li>
-        <li>
-          <a href="mailto:?subject={{ post.email.subject }}&body={{ post.email.content }}">
-            <svg viewBox="0 0 100 100"><use xlink:href="#email"></use></svg><svg viewBox="0 0 100 100"><use xlink:href="#share"></use></svg>
-          </a>
-        </li>
-      </ul>
+      <div class="SharePost">
+        <span class="SharePost-title">Share this post on:</span>
+
+        <div class="SharePost-links">
+          <ul class="SharePost-list">
+            <li class="SharePost-item">
+              <a class="SharePost-Twitter SharePost-link" href="https://twitter.com/intent/tweet?url={{ post.tweet.url }}&text={{ post.tweet.text }}&via={{ post.tweet.via }}" target="_blank">
+                <svg class="SharePost-socialIcon SharePost-icon" viewBox="0 0 100 100"><use xlink:href="#twitter"></use></svg><svg class="SharePost-shareIcon SharePost-icon" viewBox="0 0 100 100"><use xlink:href="#share"></use></svg>
+              </a>
+            </li>
+            <li class="SharePost-item">
+              <a class="SharePost-Facebook SharePost-link" href="https://www.facebook.com/sharer/sharer.php?u={{ post.facebook.url }}" target="_blank">
+                <svg class="SharePost-socialIcon SharePost-icon" viewBox="0 0 100 100"><use xlink:href="#facebook"></use></svg><svg class="SharePost-shareIcon SharePost-icon" viewBox="0 0 100 100"><use xlink:href="#share"></use></svg>
+              </a>
+            </li>
+            <li class="SharePost-item">
+              <a class="SharePost-Email SharePost-link" href="mailto:?subject={{ post.email.subject }}&body={{ post.email.content }}">
+                <svg class="SharePost-socialIcon SharePost-icon" viewBox="0 0 100 100"><use xlink:href="#email"></use></svg><svg class="SharePost-shareIcon SharePost-icon" viewBox="0 0 100 100"><use xlink:href="#share"></use></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     {% endif %}
   </footer>
 </article>

@@ -7,11 +7,13 @@
         {% endfor %}
       </ul>
 
-      <ul class="Sidebar-social u-clearFix">
-        <li class="Sidebar-socialItem--twitter Sidebar-socialItem"><a class="Sidebar-socialLink" href="{{ vars.socialProfiles.twitter }}"><svg viewBox="0 0 100 100"><use xlink:href="#twitter"></use></svg><span class="u-hide">Twitter</span></a></li>
-        <li class="Sidebar-socialItem--instagram Sidebar-socialItem"><a class="Sidebar-socialLink" href="{{ vars.socialProfiles.instagram }}"><svg viewBox="0 0 100 100"><use xlink:href="#instagram"></use></svg><span class="u-hide">Instagram</span></a></li>
-        <li class="Sidebar-socialItem--pinterest Sidebar-socialItem"><a class="Sidebar-socialLink" href="{{ vars.socialProfiles.pinterest }}"><svg viewBox="0 0 100 100"><use xlink:href="#pinterest"></use></svg><span class="u-hide">Pinterest</span></a></li>
-      </ul>
+      <div class="Sidebar-social">
+        <ul class="Sidebar-socialWrap">
+          <li class="Sidebar-socialItem--twitter Sidebar-socialItem"><a class="Sidebar-socialLink" href="{{ vars.socialProfiles.twitter }}"><svg class="Sidebar-socialIcon" viewBox="0 0 100 100"><use xlink:href="#twitter"></use></svg><span class="u-hide">Twitter</span></a></li>
+          <li class="Sidebar-socialItem--instagram Sidebar-socialItem"><a class="Sidebar-socialLink" href="{{ vars.socialProfiles.instagram }}"><svg class="Sidebar-socialIcon" viewBox="0 0 100 100"><use xlink:href="#instagram"></use></svg><span class="u-hide">Instagram</span></a></li>
+          <li class="Sidebar-socialItem--pinterest Sidebar-socialItem"><a class="Sidebar-socialLink" href="{{ vars.socialProfiles.pinterest }}"><svg class="Sidebar-socialIcon" viewBox="0 0 100 100"><use xlink:href="#pinterest"></use></svg><span class="u-hide">Pinterest</span></a></li>
+        </ul>
+      </div>
 
       <div itemscope itemtype="http://schema.org/WebSite">
         <meta itemprop="url" content="{{ vars.config.environment.url }}"/>
@@ -26,6 +28,6 @@
       {% include 'sublayouts/twitter.twig' %}
     </div>
 
-    <a id="ToTop" class="ToTop" href="#SiteHeader"><svg viewBox="0 0 100 100"><use xlink:href="#up"></use></svg></a>
+    <a id="ToTop" class="ToTop" href="#SiteHeader"><svg class="ToTop-icon" viewBox="0 0 100 100"><use xlink:href="#up"></use></svg></a>
   </div>
 </aside>
