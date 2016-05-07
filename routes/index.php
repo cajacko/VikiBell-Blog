@@ -22,6 +22,7 @@ if(isset($_GET['url'])) {
 require_once('../models/site_navigation.php');
 require_once('../models/social_navigation.php');
 require_once('../models/sidebar.php');
+require_once('../models/twitter.php');
 require_once('../helpers/bunting.php');
 
 // Setup the variables to pass to the view
@@ -68,54 +69,7 @@ $vars = array(
     'width' => 600,
     'height' => 60
   ),
-  'tweets' => array(
-    array(
-      'date' => array('text' => '10 hours ago', 'dateTime' => '2016-01-01 12:12:12'),
-      'tweetLink' => 'http://twitter.com/Vikiibell',
-      'profile' => array(
-        'link' => 'http://twitter.com/Vikiibell',
-        'name' => 'Viki Bell',
-        'handle' => '@vikiibell',
-        'image' => array(
-          'src' => 'https://pbs.twimg.com/profile_images/661179331897593856/2zi234x8_normal.png',
-          'alt' => 'Viki bell twitter image',
-        )
-      ),
-      'content' => 'Being a rebel and walking up both sides of <a href="http://twitter.com/hashtag/Holborn" target="_blank">#Holborn</a> tube escalators! <a href="http://twitter.com/hashtag/dontstopmenow" target="_blank">#dontstopmenow</a>',
-      'featuredImage' => array(
-        'src' => 'https://pbs.twimg.com/tweet_video_thumb/ChhspmcWIAEhdpX.jpg',
-        'alt' => 'Featured image',
-      ),
-    ),
-    array(
-      'date' => array('text' => '10 hours ago', 'dateTime' => '2016-01-01 12:12:12'),
-      'tweetLink' => 'http://twitter.com/Vikiibell',
-      'profile' => array(
-        'link' => 'http://twitter.com/Vikiibell',
-        'name' => 'Viki Bell',
-        'handle' => '@vikiibell',
-        'image' => array(
-          'src' => 'https://pbs.twimg.com/profile_images/661179331897593856/2zi234x8_normal.png',
-          'alt' => 'Viki bell twitter image',
-        )
-      ),
-      'content' => 'Being a rebel and walking up both sides of <a href="http://twitter.com/hashtag/Holborn" target="_blank">#Holborn</a> tube escalators! <a href="http://twitter.com/hashtag/dontstopmenow" target="_blank">#dontstopmenow</a>',
-    ),
-    array(
-      'date' => array('text' => '10 hours ago', 'dateTime' => '2016-01-01 12:12:12'),
-      'tweetLink' => 'http://twitter.com/Vikiibell',
-      'profile' => array(
-        'link' => 'http://twitter.com/Vikiibell',
-        'name' => 'Viki Bell',
-        'handle' => '@vikiibell',
-        'image' => array(
-          'src' => 'https://pbs.twimg.com/profile_images/661179331897593856/2zi234x8_normal.png',
-          'alt' => 'Viki bell twitter image',
-        )
-      ),
-      'content' => 'Being a rebel and walking up both sides of <a href="http://twitter.com/hashtag/Holborn" target="_blank">#Holborn</a> tube escalators! <a href="http://twitter.com/hashtag/dontstopmenow" target="_blank">#dontstopmenow</a>',
-    ),
-  ),
+  'tweets' => $tweets,
 );
 
 

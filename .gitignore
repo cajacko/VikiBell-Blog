@@ -3,3 +3,4 @@ node_modules
 config.ini
 sitemap.xml
 robots.txt
+composer.lock
