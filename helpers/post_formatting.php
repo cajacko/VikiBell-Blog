@@ -25,11 +25,39 @@ function format_post_content($content) {
   global $vars, $twig;
 
   $content = normalize($content);
+  $content = preg_replace_callback(
+    '/<img.+?src="(.+?)".+?>/', 
+    function($matches) {
+      global $image_template, $static_public;
+
+      $meta = get_image_by_url($matches[1]);
+      $meta['classes'] = 'Post-image';
+      $image = $image_template->render(array('image' => $meta, 'vars' => array('staticPublic' => $static_public)));
+      return $image;
+    },
+    $content
+  );
+
   $content = preg_replace('/\n/', '</p><p>', $content);
   $content = '<p>'.$content.'</p>';
+
+  // Remove classes
+  $content = preg_replace('/ class=".+?"/', '', $content);
+
+  // Remove styles
+  $content = preg_replace('/ style=".+?"/', '', $content);
+
+  // Remove empty paragraph tags
   $content = str_replace('<p></p>', '', $content);
+
+  // Remove nested paragraph styles
   $content = str_replace('<p><p', '<p', $content);
   $content = str_replace('</p></p>', '</p>', $content);
+
+  // Remove spans in the content
+  $content = preg_replace('/<span.*?>/', '', $content);
+  $content = str_replace('</span>', '', $content);
+
   $content = preg_replace("/&#?[a-z0-9]+;/i","",$content);
 
   if($vars['isSingle']) {
@@ -56,18 +84,7 @@ function format_post_content($content) {
     $content = str_replace('</h1>', '</h3>', $content);
   }
 
-  $content = preg_replace_callback(
-    '/<img.+?src="(.+?)".+?>/', 
-    function($matches) {
-      global $image_template, $static_public;
-
-      $meta = get_image_by_url($matches[1]);
-      $meta['classes'] = 'Post-image';
-      $image = $image_template->render(array('image' => $meta, 'vars' => array('staticPublic' => $static_public)));
-      return $image;
-    },
-    $content
-  );
+  
 
   return $content;
 }

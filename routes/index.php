@@ -201,6 +201,10 @@ if(isset($_GET['json'])) {
 // Render the template
 $content = $template->render(array('vars' => $vars));
 
+// Remove empty paragraph tags
+$content = str_replace('<p></p>', '', $content);
+$content = str_replace('<p><p', '<p', $content);
+
 // require_once('../helpers/minify_classes.php');
 // $content = minify_html($content);
 
