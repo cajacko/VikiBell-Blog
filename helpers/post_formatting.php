@@ -101,6 +101,16 @@ function format_post_content($content) {
     $content = str_replace('</h1>', '</h3>', $content);
   }
 
+
+  $content = str_replace('<p><ol>', '<ol>', $content);
+  $content = str_replace('<ol></p>', '<ol>', $content);
+  $content = str_replace('<ol><p>', '<ol>', $content);
+  $content = str_replace('</ol></p>', '</ol>', $content);
+  $content = str_replace('<p></ol>', '</ol>', $content);
+  $content = str_replace('</li></p>', '</li>', $content);
+  $content = str_replace('<p><li>', '<li>', $content);
+  $content = str_replace('</li><p>', '</li>', $content);
+
   
 
   return $content;

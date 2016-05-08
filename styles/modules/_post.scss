@@ -45,6 +45,23 @@ $Post-content--h3--fontSize: 22px;
     }
   }
 
+  ol,
+  ul {
+    margin-left: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    img {
+      margin: $Post-p--margin 0;
+    }
+  }
+
   p,
   figure {
     margin: $Post-p--margin 0;
