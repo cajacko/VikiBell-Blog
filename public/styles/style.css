@@ -960,6 +960,9 @@ h6 {
   .Tweet-nameLink:hover {
     color: #000; }
 
+.Tweet-name {
+  font-size: inherit; }
+
 .Tweet-usernameLink {
   color: #8f8f8f;
   display: block;

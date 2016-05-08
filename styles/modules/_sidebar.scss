@@ -234,6 +234,10 @@ $Sidebar--border: 1px solid $gray;
   }
 }
 
+.Tweet-name {
+  font-size: inherit;
+}
+
 .Tweet-usernameLink {
   color: $gray--dark;
   display: block;

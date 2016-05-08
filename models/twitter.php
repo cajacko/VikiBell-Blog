@@ -23,7 +23,7 @@ foreach($tweet_response as $tweet) {
   $tweet_array = array(
     'date' => array(
       'text' => get_date_diff(strtotime($tweet->created_at)), 
-      'dateTime' => $tweet->created_at,
+      'dateTime' => date('Y-m-d H:i:s', strtotime($tweet->created_at)),
     ),
     'tweetLink' => 'http://twitter.com/Vikiibell',
     'profile' => array(
