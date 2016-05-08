@@ -3,6 +3,8 @@
 function get_image_by_url($url) {
   global $db;
 
+  $url = preg_replace('/-[0-9]*x[0-9]*(?=\.)/', '', $url);
+
   $query = '
     SELECT wp_postmeta.*
     FROM wp_posts
