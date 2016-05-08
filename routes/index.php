@@ -194,20 +194,14 @@ imagealt
 
 */
 
+if(isset($_GET['json'])) {
+  echo json_encode($vars['posts']); exit;
+}
 
 // Render the template
 $content = $template->render(array('vars' => $vars));
 
 // require_once('../helpers/minify_classes.php');
 // $content = minify_html($content);
-
-/*
-$content = preg_replace_callback(
-  '/<img.+?>/', 
-  function($matches) {
-    return '<div class="image"></div>';
-  }, $content
-);
-*/
 
 echo $content;

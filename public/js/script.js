@@ -6,10 +6,11 @@ require('./modules/google_tag_manager');
 require('./modules/lazy_load.jsx');
 
 $(document).ready(function() {
-    require('./modules/fit_to_parent.jsx');
-    require('./modules/site_nav.jsx');
+  require('./modules/fit_to_parent.jsx');
+  require('./modules/site_nav.jsx');
+  require('./modules/infinite_scroll.jsx');
 });
-},{"./modules/fit_to_parent.jsx":2,"./modules/google_tag_manager":3,"./modules/lazy_load.jsx":4,"./modules/modernizr":5,"./modules/site_nav.jsx":6,"jquery":7}],2:[function(require,module,exports){
+},{"./modules/fit_to_parent.jsx":2,"./modules/google_tag_manager":3,"./modules/infinite_scroll.jsx":4,"./modules/lazy_load.jsx":5,"./modules/modernizr":6,"./modules/site_nav.jsx":7,"jquery":8}],2:[function(require,module,exports){
 /**
  * Fit an element to its parent
  */
@@ -115,7 +116,7 @@ $(window).resize(function() {
   fitAllToParent(false);
 });
 
-},{"jquery":7}],3:[function(require,module,exports){
+},{"jquery":8}],3:[function(require,module,exports){
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -125,6 +126,104 @@ ga('create', 'UA-56806082-1', 'auto');
 ga('require', 'displayfeatures');
 ga('send', 'pageview');
 },{}],4:[function(require,module,exports){
+/**
+ *
+ */
+
+var $ = require('jquery');
+
+var postTemplate = $('.Post').first();
+var next = $('#next');
+var gettingPosts = false;
+
+function prependPosts(posts) {
+  $(posts).each(function() {
+    var postContent = $(this);
+    var post = $(postTemplate).clone();
+
+    var sizes = '';
+
+    for (var key in postContent[0].image.sizes) {
+      sizes += postContent[0].image.sizes[key]+ ' ' + key + 'w,';
+    }
+
+    $(post).find('.Post-content').html(postContent[0].content);
+    $(post).find('.Post-title').html(postContent[0].title);
+    $(post).find('.Post-date').html(postContent[0].date.title).attr('datetime', postContent[0].date.datetime);
+    $(post).find('.Post-headerLink').attr('href', postContent[0].url);
+    $(post).find('.Post-featuredImage')
+      .attr('alt', postContent[0].image.alt)
+      .attr('height', postContent[0].image.height)
+      .attr('width', postContent[0].image.width)
+      .attr('src', postContent[0].image.src)
+      .attr('srcset', sizes);
+
+    $(post).find('.Post-featuredImageUrl').attr('content', postContent[0].image.src);
+    $(post).find('.Post-featuredImageWidth').attr('content', postContent[0].image.width);
+    $(post).find('.Post-featuredImageHeight').attr('content', postContent[0].image.height);
+    $(post).find('.Post-dateModified').attr('content', postContent[0].dateModified);
+    $(post).find('.Post-description').attr('content', postContent[0].description);
+
+    $('.PostLoop').append(post);
+  });
+}
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function updateNextLink() {
+  var nextUrl = $(next).attr('href');
+  var page = getParameterByName('page', nextUrl);
+
+  if(page) {
+    page++;
+
+    nextUrl = nextUrl.replace(/[0-9].*/g, page);
+    $(next).attr('href', nextUrl);
+  }
+}
+
+function getNextPosts() {
+  if(next.length && !gettingPosts) {
+    gettingPosts = true;
+
+    var nextUrl = $(next).attr('href') + '&json';
+
+    $.ajax({
+      url: nextUrl,
+      dataType: 'json'
+    })
+    .done(function(data) {
+      updateNextLink();
+      prependPosts(data);
+    })
+    .fail(function() {
+    })
+    .always(function() {
+      gettingPosts = false;
+    }); 
+  }
+}
+
+$(window).scroll(function() {
+  var scrollBottom = $(window).scrollTop() + $(window).height();
+  var documentHeight = $(document).height();
+  var bottomGap = documentHeight - scrollBottom;
+
+  if(bottomGap < 20000) {
+    getNextPosts();
+  }
+});
+
+getNextPosts();
+},{"jquery":8}],5:[function(require,module,exports){
 var $ = require('jquery');
 
 function setImageHeight(element) {
@@ -179,11 +278,11 @@ function isElementInViewport (el) {
     );
 }
 
-},{"jquery":7}],5:[function(require,module,exports){
+},{"jquery":8}],6:[function(require,module,exports){
 /*! modernizr 3.3.1 (Custom Build) | MIT *
  * http://modernizr.com/download/?-setclasses !*/
 !function(n,e,s){function o(n,e){return typeof n===e}function a(){var n,e,s,a,i,l,r;for(var c in f)if(f.hasOwnProperty(c)){if(n=[],e=f[c],e.name&&(n.push(e.name.toLowerCase()),e.options&&e.options.aliases&&e.options.aliases.length))for(s=0;s<e.options.aliases.length;s++)n.push(e.options.aliases[s].toLowerCase());for(a=o(e.fn,"function")?e.fn():e.fn,i=0;i<n.length;i++)l=n[i],r=l.split("."),1===r.length?Modernizr[r[0]]=a:(!Modernizr[r[0]]||Modernizr[r[0]]instanceof Boolean||(Modernizr[r[0]]=new Boolean(Modernizr[r[0]])),Modernizr[r[0]][r[1]]=a),t.push((a?"":"no-")+r.join("-"))}}function i(n){var e=r.className,s=Modernizr._config.classPrefix||"";if(c&&(e=e.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+s+"no-js(\\s|$)");e=e.replace(o,"$1"+s+"js$2")}Modernizr._config.enableClasses&&(e+=" "+s+n.join(" "+s),c?r.className.baseVal=e:r.className=e)}var t=[],f=[],l={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(n,e){var s=this;setTimeout(function(){e(s[n])},0)},addTest:function(n,e,s){f.push({name:n,fn:e,options:s})},addAsyncTest:function(n){f.push({name:null,fn:n})}},Modernizr=function(){};Modernizr.prototype=l,Modernizr=new Modernizr;var r=e.documentElement,c="svg"===r.nodeName.toLowerCase();a(),i(t),delete l.addTest,delete l.addAsyncTest;for(var u=0;u<Modernizr._q.length;u++)Modernizr._q[u]();n.Modernizr=Modernizr}(window,document);
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /**
  *
  */
@@ -421,7 +520,7 @@ loadResizeMobileNav();
 $(window).resize(function() {
   setIfMobileNav();
 });
-},{"jquery":7}],7:[function(require,module,exports){
+},{"jquery":8}],8:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.3
  * http://jquery.com/

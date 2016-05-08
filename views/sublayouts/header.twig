@@ -35,7 +35,7 @@
     {% if vars.canonical %}
       <link rel="canonical" href="{{ vars.canonical }}" />
     {% endif %}
-    {% if vars.next %}<link rel="next" href="{{ vars.next }}" />{% endif %}
+    {% if vars.next %}<link id="next" rel="next" href="{{ vars.next }}" />{% endif %}
     {% if vars.prev %}<link rel="prev" href="{{ vars.prev }}" />{% endif %}
     <link rel="stylesheet" href="{{ vars.staticPublic }}{{ vars.config.styles.publicDir }}/{% if vars.config.environment.dev %}{{ vars.config.styles.main }}{% else %}{{ vars.config.styles.min }}{% endif %}">
     <script async src="{{ vars.staticPublic }}{{ vars.config.javascripts.publicDir }}/{% if vars.config.environment.dev %}{{ vars.config.javascripts.main }}{% else %}{{ vars.config.javascripts.min }}{% endif %}"></script>

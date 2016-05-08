@@ -6,9 +6,9 @@
       <a class="Post-headerLink" href="{{ post.url }}" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
         {% set image = post.image %}
         {% include 'sublayouts/image.twig' %}
-        <meta itemprop="url" content="{{ post.image.src }}">
-        <meta itemprop="width" content="{{ post.image.width }}">
-        <meta itemprop="height" content="{{ post.image.height }}">
+        <meta class="Post-featuredImageUrl" itemprop="url" content="{{ post.image.src }}">
+        <meta class="Post-featuredImageWidth" itemprop="width" content="{{ post.image.width }}">
+        <meta class="Post-featuredImageHeight" itemprop="height" content="{{ post.image.height }}">
       </a>
     {% endif %}
 
@@ -26,8 +26,8 @@
   </div>
 
   <footer>
-    <meta content="{{ post.dateModified }}" itemprop="dateModified">
-    <meta itemprop="description" content="{{ post.description }}">
+    <meta class="Post-dateModified" content="{{ post.dateModified }}" itemprop="dateModified">
+    <meta class="Post-description" itemprop="description" content="{{ post.description }}">
 
     {% if vars.isSingle %}
       <div class="SharePost">

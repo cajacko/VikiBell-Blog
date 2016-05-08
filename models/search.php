@@ -3,7 +3,7 @@
 require_once('../helpers/post_meta.php');
 
 function get_posts_by_search($search_query, $pagination) {
-  global $db, $config, $global_queries;
+  global $db, $config, $global_queries, $posts_per_page;
 
   $search_term = '%' . $search_query . '%';
 
@@ -17,7 +17,8 @@ function get_posts_by_search($search_query, $pagination) {
 
   // prepare and bind
   $stmt = $db->prepare($query);
-  $stmt->bind_param("ssi", $search_term, $search_term, $pagination);
+  $stmt->bind_param("ssi", $search_term, $search_term, $offset);
+  $offset = $pagination * $posts_per_page;
   $stmt->execute();
   $res = $stmt->get_result();
   $posts = post_meta($res);

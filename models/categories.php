@@ -50,7 +50,7 @@ function get_category($request) {
 }
 
 function get_posts_by_category($category_id, $pagination) {
-  global $db, $global_queries;
+  global $db, $global_queries, $posts_per_page;
 
   $query = '
     SELECT * 
@@ -64,7 +64,8 @@ function get_posts_by_category($category_id, $pagination) {
 
   // prepare and bind
   $stmt = $db->prepare($query);
-  $stmt->bind_param("ii", $category_id, $pagination);
+  $stmt->bind_param("ii", $category_id, $offset);
+  $offset = $pagination * $posts_per_page;
   $stmt->execute();
   $res = $stmt->get_result();
   $posts = post_meta($res);

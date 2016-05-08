@@ -3,7 +3,7 @@
 require_once('../helpers/post_meta.php');
 
 function get_default_posts($pagination) {
-  global $db, $config, $global_queries;
+  global $db, $config, $global_queries, $posts_per_page;
 
   $query = '
     SELECT *
@@ -15,7 +15,8 @@ function get_default_posts($pagination) {
 
   // prepare and bind
   $stmt = $db->prepare($query);
-  $stmt->bind_param("i", $pagination);
+  $stmt->bind_param("i", $offset);
+  $offset = $pagination * $posts_per_page;
   $stmt->execute();
   $res = $stmt->get_result();
   $posts = post_meta($res);
