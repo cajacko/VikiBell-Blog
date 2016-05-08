@@ -28,6 +28,8 @@ function format_post_content($content) {
   $content = preg_replace('/\n/', '</p><p>', $content);
   $content = '<p>'.$content.'</p>';
   $content = str_replace('<p></p>', '', $content);
+  $content = str_replace('<p><p', '<p', $content);
+  $content = str_replace('</p></p>', '</p>', $content);
   $content = preg_replace("/&#?[a-z0-9]+;/i","",$content);
 
   if($vars['isSingle']) {

@@ -372,6 +372,10 @@ a {
     color: #8c361c;
     text-decoration: underline; }
 
+strong,
+strong * {
+  font-weight: bold; }
+
 h1,
 h2,
 h3,
@@ -686,7 +690,7 @@ h6 {
   .Post img[data-src] {
     opacity: 0; }
   .Post p {
-    margin: 20px 0; }
+    margin: 30px 0; }
 
 .Post-date {
   background: #d75c37;
@@ -714,6 +718,7 @@ h6 {
 
 .Post-title {
   font-size: 28px;
+  font-weight: bold;
   margin: 0;
   padding: 20px; }
 
@@ -722,14 +727,22 @@ h6 {
   .Post-content > *:first-child {
     margin-top: 0; }
 
+.Post-content--h1,
+.Post-content--h2,
+.Post-content--h3 {
+  margin: 30px 0; }
+
 .Post-content--h1 {
-  font-size: 26px; }
+  font-size: 26px;
+  margin-top: 43px; }
 
 .Post-content--h2 {
-  font-size: 24px; }
+  font-size: 24px;
+  margin-top: 43px; }
 
 .Post-content--h3 {
-  font-size: 22px; }
+  font-size: 22px;
+  margin-top: 43px; }
 
 .SharePost-title {
   background: gainsboro;

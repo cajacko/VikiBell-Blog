@@ -10,7 +10,7 @@ $Post-date--zIndex: 2;
 $Post--marginBetween: -$Post-date--marginTop;
 $Post--marginBottom: -$Post-date--marginTop + $Post--marginBetween;
 $Post--padding: 20px;
-$Post-p--margin: 20px;
+$Post-p--margin: 30px;
 
 $Post-title--fontSize: 28px;
 $Post-content--h1--fontSize: 26px;
@@ -73,6 +73,7 @@ $Post-content--h3--fontSize: 22px;
 
 .Post-title {
   font-size: $Post-title--fontSize;
+  font-weight: bold;
   margin: 0;
   padding: $Post--padding;
 }
@@ -87,16 +88,26 @@ $Post-content--h3--fontSize: 22px;
   }
 }
 
+.Post-content--h1,
+.Post-content--h2,
+.Post-content--h3 {
+  margin: $Post-p--margin 0;
+}
+
 .Post-content--h1 {
   font-size: $Post-content--h1--fontSize;
+  margin-top: $Post-p--margin + ($Post-content--h1--fontSize / 2);
+
 }
 
 .Post-content--h2 {
   font-size: $Post-content--h2--fontSize;
+  margin-top: $Post-p--margin + ($Post-content--h1--fontSize / 2);
 }
 
 .Post-content--h3 {
   font-size: $Post-content--h3--fontSize;
+  margin-top: $Post-p--margin + ($Post-content--h1--fontSize / 2);
 }
 
 .SharePost-title {
