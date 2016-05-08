@@ -21,19 +21,36 @@ function normalize($content) {
 
 $image_template = $twig->loadTemplate('/sublayouts/image.twig');
 
+function parse_images($content, $classes) {
+  global $image_template, $static_public;
+
+  $meta = get_image_by_url($content);
+  $meta['classes'] = $classes;
+  $image = $image_template->render(array('image' => $meta, 'vars' => array('staticPublic' => $static_public)));
+  return $image;
+}
+
 function format_post_content($content) {
   global $vars, $twig;
 
   $content = normalize($content);
   $content = preg_replace_callback(
+    '/\[caption.+?\](<img.+?>)(.+?)\[\/caption\]/', 
+    function($matches) {
+      return '<figure>' . $matches[1] . '<figcaption> ' . $matches[2] . '</figcaption></figure>';
+    }, 
+    $content
+  );
+
+  $content = preg_replace_callback(
     '/<img.+?src="(.+?)".+?>/', 
     function($matches) {
-      global $image_template, $static_public;
+      // global $image_template, $static_public;
 
-      $meta = get_image_by_url($matches[1]);
-      $meta['classes'] = 'Post-image';
-      $image = $image_template->render(array('image' => $meta, 'vars' => array('staticPublic' => $static_public)));
-      return $image;
+      // $meta = get_image_by_url($matches[1]);
+      // $meta['classes'] = 'Post-image';
+      // $image = $image_template->render(array('image' => $meta, 'vars' => array('staticPublic' => $static_public)));
+      return parse_images($matches[1], 'Post-image');
     },
     $content
   );

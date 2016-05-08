@@ -33,13 +33,20 @@ $Post-content--h3--fontSize: 22px;
     width: 100%;
   }
 
+  figcaption {
+    font-style: italic;
+    margin-top: $Post-p--margin / 2;
+    text-align: center;
+  }
+
   img {
     &[data-src] {
       opacity: 0;
     }
   }
 
-  p {
+  p,
+  figure {
     margin: $Post-p--margin 0;
   }
 }
