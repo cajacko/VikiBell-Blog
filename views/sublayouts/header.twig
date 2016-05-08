@@ -71,7 +71,8 @@
                 {% endif %}
 
                 {% if vars.breadcrumbs %}
-                    <ul class="Breadcrumbs u-clearFix" role="navigation">
+                  <nav>
+                    <ul class="Breadcrumbs u-clearFix">
                       {% for title, url  in vars.breadcrumbs %}
                         <li class="Breadcrumbs-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                           <a class="Breadcrumbs-link" href="{{ url }}" itemprop="url">
@@ -80,4 +81,5 @@
                         </li>
                       {% endfor %}
                     </ul>
+                  </nav>
                 {% endif %}
