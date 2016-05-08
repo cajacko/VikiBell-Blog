@@ -26,6 +26,7 @@ $(window).on('DOMContentLoaded load resize scroll', function () {;
       initiateAttr(this, 'sizes');
       initiateAttr(this, 'srcset');
       initiateAttr(this, 'src');
+      $(this).attr('style', '');
     }
   })
   // if all the images are loaded, stop calling the handler
