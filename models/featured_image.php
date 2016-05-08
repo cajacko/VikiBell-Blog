@@ -1,9 +1,7 @@
 <?php
 
-function get_image_by_url($url) {
+function get_image_by_url($url, $try_again = true) {
   global $db;
-
-  $url = preg_replace('/-[0-9]*x[0-9]*(?=\.)/', '', $url);
 
   $query = '
     SELECT wp_postmeta.*
@@ -21,7 +19,15 @@ function get_image_by_url($url) {
 
   // TODO: error handling
 
-  return return_image_meta($res);
+  // If there are no images by that name then strip the size string from the name and try again
+  if(!$res->num_rows) {
+    $url = preg_replace('/-[0-9]*x[0-9]*(?=\.)/', '', $url);
+    $meta = get_image_by_url($url, false);
+
+    return $meta;
+  } else {
+    return return_image_meta($res);
+  }  
 }
 
 function get_featured_image($post_id) {
