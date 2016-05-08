@@ -29,11 +29,33 @@ function return_image_meta($res) {
 
     if(isset($meta['_wp_attachment_metadata'])) {
       if(isset($meta['_wp_attachment_metadata']['sizes'])) {
+        $srcset = '';
+        $count = 0;
+
         foreach($meta['_wp_attachment_metadata']['sizes'] as $name => $size) {
           if('width' == explode('-', $name)[0]) {
-            $array['sizes'][$size['width']] = $dir . $size['file'];
+            $count++;
           }
         }
+
+        $length = $count;
+        $count = 0;
+
+        foreach($meta['_wp_attachment_metadata']['sizes'] as $name => $size) {
+          if('width' == explode('-', $name)[0]) {
+            // $array['sizes'][$size['width']] = $dir . $size['file'];
+
+            $srcset .= $dir . $size['file'] . ' ' . $size['width'] . 'w';
+
+            $count++;
+
+            if($count < $length) {
+              $srcset .= ', ';
+            }
+          }
+        }
+
+        $array['sizes'] = $srcset;
       }
  
       $array['width'] = $meta['_wp_attachment_metadata']['width'];
