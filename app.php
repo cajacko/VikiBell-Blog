@@ -18,6 +18,7 @@ if($config['environment']['dev']) {
   ini_set('display_startup_errors', 1);
   error_reporting(E_ALL);
 } else {
+    print_r($_SERVER); exit;
     if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
         if(!headers_sent()) {
             header("Status: 301 Moved Permanently");
