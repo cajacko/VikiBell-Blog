@@ -2,11 +2,11 @@
 
 $social_navigation = array(
   array(
-    'url' => '/',
+    'url' => 'https://www.instagram.com/vikibell/',
     'icon' => 'instagram',
   ),
   array(
-    'url' => '/',
+    'url' => 'https://twitter.com/Vikiibell/',
     'icon' => 'twitter',
   ),
 );
