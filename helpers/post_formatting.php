@@ -33,7 +33,10 @@ function parse_images($content, $classes) {
 function format_post_content($content) {
   global $vars, $twig;
 
+  // Normalize line endings and blank spaces
   $content = normalize($content);
+
+  // Parse captions for images
   $content = preg_replace_callback(
     '/\[caption.+?\](<img.+?>)(.+?)\[\/caption\]/', 
     function($matches) {
@@ -42,6 +45,7 @@ function format_post_content($content) {
     $content
   );
 
+  // Parse images and add multiple sources
   $content = preg_replace_callback(
     '/<img.+?src="(.+?)".+?>/', 
     function($matches) {
@@ -50,11 +54,12 @@ function format_post_content($content) {
     $content
   );
 
+  // Replace new line with paragraphs
   $content = preg_replace('/\n/', '</p><p>', $content);
   $content = '<p>'.$content.'</p>';
 
-  // Remove classes
-  $content = preg_replace('/ class=".+?"/', '', $content);
+  // Remove classes, this buggers up twitter embeds
+  // $content = preg_replace('/ class=".+?"/', '', $content);
 
   // Remove styles
   $content = preg_replace('/ style=".+?"/', '', $content);
@@ -70,8 +75,10 @@ function format_post_content($content) {
   $content = preg_replace('/<span.*?>/', '', $content);
   $content = str_replace('</span>', '', $content);
 
+  // Remove those weird characters
   $content = preg_replace("/&#?[a-z0-9]+;/i","",$content);
 
+  // PArse headings
   if($vars['isSingle']) {
     $content = str_replace('<h5>', '<h4 class="Post-content--h3">', $content);
     $content = str_replace('</h5>', '</h4>', $content);
@@ -96,6 +103,7 @@ function format_post_content($content) {
     $content = str_replace('</h1>', '</h3>', $content);
   }
 
+  // Wrap iframes
   $content = preg_replace_callback(
     '/<iframe.+?src="(.+?)".+?<\/iframe>/', 
     function($matches) {
@@ -108,7 +116,7 @@ function format_post_content($content) {
     $content
   );
 
-
+  // Remove paragraphs wrapping around lists
   $content = str_replace('<p><ol>', '<ol>', $content);
   $content = str_replace('<ol></p>', '<ol>', $content);
   $content = str_replace('<ol><p>', '<ol>', $content);
