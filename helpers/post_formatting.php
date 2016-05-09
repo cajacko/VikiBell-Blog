@@ -45,11 +45,6 @@ function format_post_content($content) {
   $content = preg_replace_callback(
     '/<img.+?src="(.+?)".+?>/', 
     function($matches) {
-      // global $image_template, $static_public;
-
-      // $meta = get_image_by_url($matches[1]);
-      // $meta['classes'] = 'Post-image';
-      // $image = $image_template->render(array('image' => $meta, 'vars' => array('staticPublic' => $static_public)));
       return parse_images($matches[1], 'Post-image');
     },
     $content
@@ -100,6 +95,14 @@ function format_post_content($content) {
     $content = str_replace('<h1>', '<h3 class="Post-content--h1">', $content);
     $content = str_replace('</h1>', '</h3>', $content);
   }
+
+  $content = preg_replace_callback(
+    '/<iframe.+?src="(.+?)".+?<\/iframe>/', 
+    function($matches) {
+      return '<div class="Post-iframeWrap">' . $matches[0] . '</div>';
+    }, 
+    $content
+  );
 
 
   $content = str_replace('<p><ol>', '<ol>', $content);

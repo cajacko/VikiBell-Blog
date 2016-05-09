@@ -680,13 +680,20 @@ h6 {
   border: 1px solid gainsboro;
   border-radius: 3px;
   margin-bottom: 64px; }
-  .Post img,
-  .Post iframe {
+  .Post img {
     display: block;
     height: auto;
     max-width: 100%;
     opacity: 1;
     transition: opacity 2s;
+    width: 100%; }
+  .Post iframe {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
     width: 100%; }
   .Post figcaption {
     font-style: italic;
@@ -706,6 +713,10 @@ h6 {
   .Post p,
   .Post figure {
     margin: 30px 0; }
+
+.Post-iframeWrap {
+  padding-bottom: 60%;
+  position: relative; }
 
 .Post-date {
   background: #d75c37;
