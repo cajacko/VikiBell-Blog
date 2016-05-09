@@ -18,7 +18,6 @@ function page_meta($args) {
     set_meta_as($args['title'], array(
       'name="og:title"',
       'name="twitter:title"',
-      'itemprop="name"',
     ));
   }
 
@@ -30,17 +29,11 @@ function page_meta($args) {
     set_meta_as($args['twitter:title'], array('name="twitter:title"',));
   }
 
-  // Google title
-  if(isset($args['google:name'])) {
-    set_meta_as($args['google:name'], array('itemprop="name"',));
-  }
-
   if(isset($args['description'])) {
     set_meta_as($args['description'], array(
       'name="description"',
       'name="og:description"',
-      'name="twitter:description"',
-      'itemprop="description"',
+      'name="twitter:description"'
     ));
   }
 
@@ -48,15 +41,10 @@ function page_meta($args) {
     set_meta_as($args['twitter:description'], array('name="twitter:description"',));
   }
 
-  if(isset($args['google:description'])) {
-    set_meta_as($args['google:description'], array('itemprop="description"',));
-  }
-
   if(isset($args['image'])) {
     set_meta_as($args['image'], array(
       'name="og:image"',
       'name="twitter:image"',
-      'itemprop="image"',
     ));
   }
 
@@ -70,10 +58,6 @@ function page_meta($args) {
 
   if(isset($args['twitter:image:alt'])) {
     set_meta_as($args['twitter:image:alt'], array('name="twitter:image:alt"',));
-  }
-
-  if(isset($args['google:image'])) {
-    set_meta_as($args['google:image'], array('itemprop="image"',));
   }
 
   if(isset($args['og:image:type'])) {
