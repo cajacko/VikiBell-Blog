@@ -11,9 +11,10 @@ if($config['environment']['dev']) {
 }
 
 // Explode the query into an array
-if(isset($_GET['url'])) {
-  $request = explode('/', $_GET['url']);
+if(isset($_SERVER['REQUEST_URI'])) {
+  $request = explode('/', $_SERVER['REQUEST_URI']);
   $request = array_filter($request); // Nedded, as explode will create an array item for trailing slash, this removes it.
+  $request = array_values($request);
 } else {
   $request = array();
 }
@@ -70,8 +71,6 @@ $vars = array(
   'tweets' => $tweets,
 );
 
-
-
 $template_path = 'templates/';
 
 function set_prev_next() {
@@ -106,6 +105,8 @@ if(isset($_GET['page']) && is_numeric($_GET['page'])) {
   $pagination = 0;
 }
 
+$header_code = 200;
+
 // Route the request
 if(isset($request[0])) {
   switch ($request[0]) {
@@ -138,6 +139,8 @@ if(isset($request[0])) {
   set_prev_next();
   require_once('home.php');
 }
+
+http_response_code($header_code);
 
 // Get the template
 $template = $twig->loadTemplate($template_path . '.twig');

@@ -32,10 +32,10 @@ elseif(isset($request[2])) {
 // Query is good so get the post if it exists
 else {
   require_once('../models/post.php');
-  $post = get_single_post($request[1])[0]; // Get the post based on the slug
+  $post = get_single_post($request[1]); // Get the post based on the slug
 
   // If the post exists then show it, otherwise route to 404
-  if($post) {
+  if(isset($post[0])) {
     $vars['post'] = $post;
     $vars['relatedPosts'] = get_related_post($post['id']);
     $vars['isSingle'] = true;

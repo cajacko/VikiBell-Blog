@@ -10,9 +10,13 @@
   RewriteBase /
 
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+  RewriteRule ^/ index.html [NC,L]
+  RewriteRule ^([^\.]+)/$ $1.html [NC,L]
+  RewriteRule ^([^\.]+)$ $1.html [NC,L]
 </IfModule>
+
+ErrorDocument 404 /index.php
+ErrorDocument 403 /index.php
 
 <IfModule mod_expires.c> 
   ExpiresActive On
