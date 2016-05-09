@@ -2,7 +2,7 @@
 
 $site_navigation = array(
   array(
-    'url' => '',
+    'url' => '/about-me',
     'title' => 'About',
     'icon' => 'female',
     'internal' => true,
@@ -46,7 +46,7 @@ $site_navigation = array(
     'internal' => true,
   ),
   array(
-    'url' => '',
+    'url' => '/categories/food',
     'title' => 'Food',
     'icon' => 'cutlery',
     'internal' => true,
