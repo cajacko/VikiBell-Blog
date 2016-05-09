@@ -17,6 +17,18 @@ if($config['environment']['dev']) {
   ini_set('display_errors', 1);
   ini_set('display_startup_errors', 1);
   error_reporting(E_ALL);
+} else {
+    if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
+        if(!headers_sent()) {
+            header("Status: 301 Moved Permanently");
+            header(sprintf(
+                'Location: https://%s%s',
+                $_SERVER['HTTP_HOST'],
+                $_SERVER['REQUEST_URI']
+            ));
+            exit();
+        }
+    }
 }
 
 require_once('models/global.php'); 
