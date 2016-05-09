@@ -28,7 +28,7 @@ function post_meta($res) {
     $post_array['slug'] = $post['post_name'];
     $post_array['title'] = format_post_title($post['post_title']);
     $post_array['content'] = format_post_content($post['post_content']);
-    $post_array['url'] = $config['environment']['url'] . '/posts/' . $post['post_name'];
+    $post_array['url'] = '/posts/' . $post['post_name'];
     $post_array['description'] = 'Content to get from db';
     $post_array['dateModified'] = '2016-01-01 12:12:12';
 

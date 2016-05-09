@@ -36,6 +36,7 @@ else {
 
   // If the post exists then show it, otherwise route to 404
   if(isset($post[0])) {
+    $post = $post[0];
     $vars['post'] = $post;
     $vars['relatedPosts'] = get_related_post($post['id']);
     $vars['isSingle'] = true;

@@ -11,12 +11,11 @@ if($config['environment']['dev']) {
 }
 
 // Explode the query into an array
-if(isset($_SERVER['REQUEST_URI'])) {
-  $request = $_SERVER['REQUEST_URI'];
-  $request = preg_replace('/\?.*/', '', $request);
+if(isset($_GET['url'])) {
+  $request = $_GET['url'];
+  // $request = preg_replace('/\?.*/', '', $request);
   $request = explode('/', $request);
   $request = array_filter($request); // Nedded, as explode will create an array item for trailing slash, this removes it.
-  $request = array_values($request);
 } else {
   $request = array();
 }

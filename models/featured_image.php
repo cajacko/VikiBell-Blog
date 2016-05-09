@@ -20,14 +20,14 @@ function get_image_by_url($url, $try_again = true) {
   // TODO: error handling
 
   // If there are no images by that name then strip the size string from the name and try again
-  if(!$res->num_rows) {
+  if(!$res->num_rows && $try_again) {
     $url = preg_replace('/-[0-9]*x[0-9]*(?=\.)/', '', $url);
     $meta = get_image_by_url($url, false);
 
     return $meta;
   } else {
     return return_image_meta($res);
-  }  
+  } 
 }
 
 function get_featured_image($post_id) {
