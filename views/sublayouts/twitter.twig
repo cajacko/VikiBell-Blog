@@ -19,7 +19,7 @@
                 </a>
 
                 <a class="Tweet-nameLink" href="{{ tweet.profile.link }}" target="_blank">
-                    <{% if vars.isSingle %}h2{% else %}h3{% endif %} class="Tweet-name">{{ tweet.profile.name }}</h2>
+                    <{% if vars.isSingle %}h2{% else %}h3{% endif %} class="Tweet-name">{{ tweet.profile.name }}</{% if vars.isSingle %}h2{% else %}h3{% endif %}>
                 </a>
 
                 <a class="Tweet-usernameLink" href="{{ tweet.profile.link }}" target="_blank">

@@ -78,6 +78,28 @@ function format_post_content($content) {
   // Remove those weird characters
   $content = preg_replace("/&#?[a-z0-9]+;/i","",$content);
 
+
+  // Replace any empty headings
+  $content = preg_replace("/<h[1-6]><\/h[1-6]>/","", $content);
+
+  // Replace strong elements inside headings
+  $content = preg_replace_callback('/<\/strong>(<\/h[1-6]>)/', function($matches) {
+    return $matches[1];
+  }, $content);
+
+  $content = preg_replace_callback('/(<h[1-6]>)<strong>/', function($matches) {
+    return $matches[1];
+  }, $content);
+
+  // Replace any headings within paragraphs
+  $content = preg_replace_callback('/(<\/h[1-6]>)<\/p>/', function($matches) {
+    return $matches[1];
+  }, $content);
+
+  $content = preg_replace_callback('/<p>(<h[1-6]>)/', function($matches) {
+    return $matches[1];
+  }, $content);
+
   // PArse headings
   if($vars['isSingle']) {
     $content = str_replace('<h5>', '<h4 class="Post-content--h3">', $content);
