@@ -4,9 +4,6 @@
   RewriteCond %{HTTP_USER_AGENT} libwww-perl.* 
   RewriteRule .* ? [F,L]
 
-  RewriteCond %{HTTP_HOST} ^www\.dev\.vikibell\.com$
-  RewriteRule ^/?$ "http\:\/\/dev\.vikibell\.com\/" [R=301,L]
-
   RewriteBase /
 
   RewriteCond %{REQUEST_FILENAME} !-f
