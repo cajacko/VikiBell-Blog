@@ -80,6 +80,10 @@ $SiteNavMain--mobileTop: $SiteNav--fontSize + ($SiteNav-link--padding * 2);
   }
 }
 
+.SiteTitle-text {
+  font-size: inherit;
+}
+
 .SiteNav-item--mobile {
   display: none;
 

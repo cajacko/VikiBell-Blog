@@ -102,17 +102,8 @@ function format_post_content($content) {
 
   // PArse headings
   if($vars['isSingle']) {
-    $content = str_replace('<h5>', '<h4 class="Post-content--h3">', $content);
-    $content = str_replace('</h5>', '</h4>', $content);
-    $content = str_replace('<h4>', '<h4 class="Post-content--h3">', $content);
-    $content = str_replace('</h4>', '</h4>', $content);
-    $content = str_replace('<h3>', '<h4 class="Post-content--h3">', $content);
-    $content = str_replace('</h3>', '</h4>', $content);
-    $content = str_replace('<h2>', '<h3 class="Post-content--h2">', $content);
-    $content = str_replace('</h2>', '</h3>', $content);
-    $content = str_replace('<h1>', '<h2 class="Post-content--h1">', $content);
-    $content = str_replace('</h1>', '</h2>', $content);
-  } else {
+    $content = str_replace('<h6>', '<h5 class="Post-content--h3">', $content);
+    $content = str_replace('</h6>', '</h5>', $content);
     $content = str_replace('<h5>', '<h5 class="Post-content--h3">', $content);
     $content = str_replace('</h5>', '</h5>', $content);
     $content = str_replace('<h4>', '<h5 class="Post-content--h3">', $content);
@@ -123,6 +114,19 @@ function format_post_content($content) {
     $content = str_replace('</h2>', '</h4>', $content);
     $content = str_replace('<h1>', '<h3 class="Post-content--h1">', $content);
     $content = str_replace('</h1>', '</h3>', $content);
+  } else {
+    $content = str_replace('<h6>', '<h6 class="Post-content--h3">', $content);
+    $content = str_replace('</h6>', '</h6>', $content);
+    $content = str_replace('<h5>', '<h6 class="Post-content--h3">', $content);
+    $content = str_replace('</h5>', '</h6>', $content);
+    $content = str_replace('<h4>', '<h6 class="Post-content--h3">', $content);
+    $content = str_replace('</h4>', '</h6>', $content);
+    $content = str_replace('<h3>', '<h6 class="Post-content--h3">', $content);
+    $content = str_replace('</h3>', '</h6>', $content);
+    $content = str_replace('<h2>', '<h5 class="Post-content--h2">', $content);
+    $content = str_replace('</h2>', '</h5>', $content);
+    $content = str_replace('<h1>', '<h4 class="Post-content--h1">', $content);
+    $content = str_replace('</h1>', '</h4>', $content);
   }
 
   // Wrap iframes

@@ -504,6 +504,9 @@ h6 {
   .SiteTitle-link {
     display: inline-block; } }
 
+.SiteTitle-text {
+  font-size: inherit; }
+
 .SiteNav-item--mobile {
   display: none; }
   @media (max-width: 46.875em) {

@@ -141,12 +141,6 @@ function prependPosts(posts) {
     var postContent = $(this);
     var post = $(postTemplate).clone();
 
-    var sizes = '';
-
-    for (var key in postContent[0].image.sizes) {
-      sizes += postContent[0].image.sizes[key]+ ' ' + key + 'w,';
-    }
-
     $(post).find('.Post-content').html(postContent[0].content);
     $(post).find('.Post-title').html(postContent[0].title);
     $(post).find('.Post-date').html(postContent[0].date.title).attr('datetime', postContent[0].date.datetime);
@@ -156,7 +150,7 @@ function prependPosts(posts) {
       .attr('height', postContent[0].image.height)
       .attr('width', postContent[0].image.width)
       .attr('src', postContent[0].image.src)
-      .attr('srcset', sizes);
+      .attr('srcset', postContent[0].image.sizes);
 
     $(post).find('.Post-featuredImageUrl').attr('content', postContent[0].image.src);
     $(post).find('.Post-featuredImageWidth').attr('content', postContent[0].image.width);

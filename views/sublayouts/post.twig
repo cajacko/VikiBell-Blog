@@ -13,7 +13,7 @@
     {% endif %}
 
     <a class="Post-headerLink" href="{{ post.url }}" itemprop="mainEntityOfPage">
-      <{% if vars.title %}h2{% else %}h1{% endif %} class="Post-title" itemprop="headline">{{ post.title }}</h1>
+      <{% if vars.title %}h3{% else %}h2{% endif %} class="Post-title" itemprop="headline">{{ post.title }}</{% if vars.title %}h3{% else %}h2{% endif %}>
     </a>
   </header>
 
