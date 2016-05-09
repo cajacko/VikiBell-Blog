@@ -26,6 +26,26 @@ require_once('../models/social_navigation.php');
 require_once('../models/sidebar.php');
 require_once('../models/twitter.php');
 require_once('../helpers/bunting.php');
+require_once('../helpers/set_page_meta.php');
+
+// print_r($_SERVER); exit;
+
+function url_origin($s, $use_forwarded_host = false) {
+    $ssl = (!empty($s['HTTPS']) && $s['HTTPS'] == 'on');
+    $sp = strtolower($s['SERVER_PROTOCOL']);
+    $protocol = substr($sp, 0, strpos($sp, '/')) . (($ssl) ? 's' : '');
+    $port = $s['SERVER_PORT'];
+    $port = ((!$ssl && $port=='80') || ($ssl && $port=='443') ) ? '' : ':'.$port;
+    $host = ($use_forwarded_host && isset($s['HTTP_X_FORWARDED_HOST'])) ? $s['HTTP_X_FORWARDED_HOST'] : (isset($s['HTTP_HOST']) ? $s['HTTP_HOST'] : null);
+    $host = isset($host) ? $host : $s['SERVER_NAME'] . $port;
+    return $protocol . '://' . $host;
+}
+
+function full_url($s, $use_forwarded_host = false) {
+  return url_origin($s, $use_forwarded_host) . $s['REQUEST_URI'];
+}
+
+$absolute_url = full_url( $_SERVER );
 
 // Setup the variables to pass to the view
 $vars = array(
@@ -39,9 +59,8 @@ $vars = array(
   'sidebar' => $sidebar,
   // 'canonical' => 'http://address.com',
   'meta' => array(
-    'title' => 'Hello',
     'loop' => array(
-      'name="description"' => 'Hi there',
+      'name="og:url"' => $absolute_url,
     ),
   ),
   'pageTitle' => 'Page title',
@@ -150,55 +169,6 @@ $template = $twig->loadTemplate($template_path . '.twig');
 
 // gzip compress the content for optimization
 ob_start("ob_gzhandler");
-
-/*
-
-description
-title
-type
-image
-imagetype
-imagewidth
-imageheight
-modified
-published
-twittercard
-imagealt
-
-<meta name="description" content="Life on the planet Viki continues..."/>
-
-<meta name="og:title" content="Viki Bell - Life on the planet Viki continues..." />
-<meta name="og:description" content="Life on the planet Viki continues..." />
-<meta name="og:url" content="http://vikibell.com" />
-<meta name="og:site_name" content="Viki Bell" />
-<meta name="og:locale" content="en_GB" />
-<meta name="og:type" content="website/article" />
-<meta name="og:image" content="website" />
-<meta name="og:image:type" content="website" />
-<meta name="og:image:width" content="website" />
-<meta name="og:image:height" content="website" />
-<meta name="og:updated_time" content="website" />
-<meta name="og:article:author" content="website" />
-<meta name="og:article:modified_time" content="website" />
-<meta name="og:article:published_time" content="website" />
-<meta name="og:article:publisher" content="website" />
-
-<meta name="twitter:card" content="summary/summary_large_image"/>
-<meta name="twitter:site" content="@VikiiBell"/>
-<meta name="twitter:creator" content="@VikiiBell"/>
-<meta name="twitter:description" content="Life on the planet Viki continues..."/>
-<meta name="twitter:title" content="Viki Bell - Life on the planet Viki continues..."/>
-<meta name="twitter:image" content="VikiiBell"/>
-<meta name="twitter:image:alt" content="VikiiBell"/>
-
-<meta name="fb:admins" content="Facebook numeric ID" />
-
-{# Google apparently #}
-<meta itemprop="name" content="The Name or Title Here">
-<meta itemprop="description" content="This is the page description">
-<meta itemprop="image" content="http://www.example.com/image.jpg">
-
-*/
 
 if(isset($_GET['json'])) {
   echo json_encode($vars['posts']); exit;

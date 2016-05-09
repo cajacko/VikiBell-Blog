@@ -17,6 +17,11 @@ if(!isset($request[1])) {
   );
 
   $vars['pageTitle'] = 'Posts';
+
+  page_meta(array(
+    'title' => 'Posts | Viki Bell',
+    'description' => 'Check our my posts on life and stuff',
+  ));
 } 
 /** 
  * Otherwise, if there is any additional url parameters then redirect 
@@ -49,6 +54,11 @@ else {
     );
 
     unset($vars['pageTitle']);
+
+    page_meta(array(
+      'title' => $vars['post']['title'] . ' | Viki Bell',
+      'description' => $vars['post']['description'],
+    ));
 
   } else {
     require_once('404.php');

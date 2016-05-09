@@ -21,6 +21,11 @@ elseif($page) {
 
   unset($vars['breadcrumbs']);
   unset($vars['pageTitle']);
+
+  page_meta(array(
+    'title' => $vars['page']['title'] . ' | Viki Bell',
+    'description' => $vars['page']['description'],
+  ));
 } 
 // Otherwise route to 404
 else {

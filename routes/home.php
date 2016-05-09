@@ -7,3 +7,8 @@ $template_path .= 'loop';
 
 unset($vars['breadcrumbs']);
 unset($vars['pageTitle']);
+
+page_meta(array(
+  'title' => 'Viki Bell',
+  'description' => 'Life on the planet Viki continues...',
+));

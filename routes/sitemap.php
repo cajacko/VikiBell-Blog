@@ -24,4 +24,9 @@ else {
   );
 
   $vars['pageTitle'] = 'Sitemap';
+
+  page_meta(array(
+    'title' => 'Sitemap | Viki Bell',
+    'description' => 'Everything vikibell.com has to offer!',
+  ));
 }

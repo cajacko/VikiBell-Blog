@@ -39,6 +39,11 @@ else {
     $posts = false;
   }
 
+  page_meta(array(
+    'title' => 'Search | Viki Bell',
+    'description' => 'Search my posts for weird and wonderful things.',
+  ));
+
   $vars['posts'] = $posts;
   $vars['search'] = array('query' => $search_query);
   $template_path .= 'loop';

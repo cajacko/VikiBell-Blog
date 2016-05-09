@@ -16,6 +16,11 @@ if(!isset($request[1])) {
   );
 
   $vars['pageTitle'] = 'Categories';
+
+  page_meta(array(
+    'title' => 'Categories | Viki Bell',
+    'description' => 'Find a topic you\'re interested in.',
+  ));
 } 
 // Otherwise show the category loop
 else {
@@ -38,6 +43,10 @@ else {
     );
 
     $vars['pageTitle'] = 'Category: ' . $category['name'];
+
+    page_meta(array(
+      'title' => $category['name'] . ' | Viki Bell',
+    ));   
   } else {
     require_once('404.php');
   }
