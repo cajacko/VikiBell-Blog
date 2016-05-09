@@ -26,5 +26,5 @@ ErrorDocument 403 /index.php
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType text/css "access plus 1 seconds"
   ExpiresByType text/javascript "access plus 1 seconds"
-  ExpiresDefault "access plus 1 seconds"
+  ExpiresDefault "access plus 1 day"
 </IfModule>
