@@ -687,20 +687,12 @@ h6 {
     opacity: 1;
     transition: opacity 2s;
     width: 100%; }
-  .Post iframe {
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%; }
+    .Post img[data-src] {
+      opacity: 0; }
   .Post figcaption {
     font-style: italic;
     margin-top: 15px;
     text-align: center; }
-  .Post img[data-src] {
-    opacity: 0; }
   .Post ol,
   .Post ul {
     margin-left: 20px; }
@@ -717,6 +709,14 @@ h6 {
 .Post-iframeWrap {
   padding-bottom: 60%;
   position: relative; }
+  .Post-iframeWrap iframe {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%; }
 
 .Post-date {
   background: #d75c37;

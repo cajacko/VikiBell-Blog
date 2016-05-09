@@ -99,7 +99,11 @@ function format_post_content($content) {
   $content = preg_replace_callback(
     '/<iframe.+?src="(.+?)".+?<\/iframe>/', 
     function($matches) {
-      return '<div class="Post-iframeWrap">' . $matches[0] . '</div>';
+      if (strpos($matches[1], 'www.boombox.com/widget/quiz') !== false) {
+        return $matches[0];
+      } else {
+        return '<div class="Post-iframeWrap">' . $matches[0] . '</div>';
+      }   
     }, 
     $content
   );

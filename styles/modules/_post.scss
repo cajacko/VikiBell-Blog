@@ -30,28 +30,20 @@ $Post-content--h3--fontSize: 22px;
     opacity: 1;
     transition: opacity 2s;
     width: 100%;
+
+    &[data-src] {
+      opacity: 0;
+    }
   }
 
   iframe {
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
+
   }
 
   figcaption {
     font-style: italic;
     margin-top: $Post-p--margin / 2;
     text-align: center;
-  }
-
-  img {
-    &[data-src] {
-      opacity: 0;
-    }
   }
 
   ol,
@@ -80,6 +72,16 @@ $Post-content--h3--fontSize: 22px;
 .Post-iframeWrap {
   padding-bottom: 60%;
   position: relative;
+
+  iframe {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
 }
 
 .Post-date {
