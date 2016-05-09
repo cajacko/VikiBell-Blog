@@ -12,7 +12,9 @@ if($config['environment']['dev']) {
 
 // Explode the query into an array
 if(isset($_SERVER['REQUEST_URI'])) {
-  $request = explode('/', $_SERVER['REQUEST_URI']);
+  $request = $_SERVER['REQUEST_URI'];
+  $request = preg_replace('/\?.*/', '', $request);
+  $request = explode('/', $request);
   $request = array_filter($request); // Nedded, as explode will create an array item for trailing slash, this removes it.
   $request = array_values($request);
 } else {
@@ -97,6 +99,8 @@ function set_prev_next() {
     $vars['next'] = $url . '?page=1';
   }
 }
+
+// print_r($_GET);
 
 // Define which page of results we are getting
 if(isset($_GET['page']) && is_numeric($_GET['page'])) {

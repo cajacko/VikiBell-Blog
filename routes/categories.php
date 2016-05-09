@@ -22,6 +22,8 @@ else {
   set_prev_next();
   $category = get_category($request);
 
+  // var_dump($pagination);
+
   // If the category exists then show the loop, otherwise route to 404
   if($category) {
     $posts = get_posts_by_category($category['term_taxonomy_id'], $pagination);
