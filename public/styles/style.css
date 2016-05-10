@@ -434,6 +434,9 @@ h6 {
   font-size: 24px;
   padding: 20px; }
 
+.ErrorPage {
+  padding: 0 20px; }
+
 .Banner {
   background: #f07570;
   display: block;
