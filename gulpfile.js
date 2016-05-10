@@ -38,24 +38,25 @@ function logPageErrors(url) {
           throw err;
         }
 
-        data.url = url;
-
-        console.log(data);
+        if (data.messages.length) {
+          data.url = url;
+          console.log(data.url);
+        }
       });
     }
   });
 }
 
 gulp.task('validatePages', function() {
-  var sitemap = config.environment.url + '/sitemap.xml';
+  var sitemapVar = config.environment.url + '/sitemap.xml';
 
-  sitemap.getSites(sitemap, function(err, sites) {
+  sitemap.getSites(sitemapVar, function(err, sites) {
     if (!err) {
       for (var i = 0; i < sites.length; i++) {
         logPageErrors(sites[i]);
 
         if (i > 5) {
-          // break;
+          break;
         }
       }
     } else {
