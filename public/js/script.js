@@ -190,8 +190,6 @@ function getNextPosts() {
 
     var nextUrl = $(next).attr('href') + '&json';
 
-    console.log(nextUrl);
-
     $.ajax({
       url: nextUrl,
       dataType: 'json'
@@ -199,14 +197,11 @@ function getNextPosts() {
     .done(function(data) {
       updateNextLink();
       prependPosts(data);
-      console.log('Done', data);
     })
     .fail(function() {
-      console.log('fail');
     })
     .always(function() {
       gettingPosts = false;
-      console.log('always');
     }); 
   }
 }
