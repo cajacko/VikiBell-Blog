@@ -131,31 +131,42 @@ $header_code = 200;
 
 // Route the request
 if(isset($request[0])) {
-  switch ($request[0]) {
-    case 'categories':
-      require_once('categories.php');
-      break;
 
-    case 'posts':
-      require_once('posts.php');
-      break;
+  require_once('../helpers/redirects.php');
 
-    case 'action':
-      require_once('action.php');
-      break;
+  if(isset($redirects[$_SERVER['REQUEST_URI']])) {
+    header('Location: ' . $config['environment']['url'] . $redirects[$_SERVER['REQUEST_URI']]);
+    exit;
+  } elseif(isset($redirects[$_SERVER['REQUEST_URI'] . '/'])) {
+    header('Location: ' . $config['environment']['url'] . $redirects[$_SERVER['REQUEST_URI'] . '/']);
+    exit;
+  } else {
+    switch ($request[0]) {
+      case 'categories':
+        require_once('categories.php');
+        break;
 
-    case 'search':
-      set_prev_next();
-      require_once('search.php');
-      break;
+      case 'posts':
+        require_once('posts.php');
+        break;
 
-    case 'sitemap':
-      require_once('sitemap.php');
-      break;
-    
-    default:
-      require_once('page.php');
-      break;
+      case 'action':
+        require_once('action.php');
+        break;
+
+      case 'search':
+        set_prev_next();
+        require_once('search.php');
+        break;
+
+      case 'sitemap':
+        require_once('sitemap.php');
+        break;
+      
+      default:
+        require_once('page.php');
+        break;
+    }
   }
 } else {
   set_prev_next();

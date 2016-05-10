@@ -124,10 +124,10 @@
 	"buffers":
 	[
 		{
-			"file": "helpers/set_page_meta.php",
+			"file": "javascripts/modules/infinite_scroll.jsx",
 			"settings":
 			{
-				"buffer_size": 2456,
+				"buffer_size": 2564,
 				"line_ending": "Windows"
 			}
 		}
@@ -174,15 +174,23 @@
 	"expanded_folders":
 	[
 		"/C/Data/Personal/vikibell-blog",
-		"/C/Data/Personal/vikibell-blog/helpers",
-		"/C/Data/Personal/vikibell-blog/javascripts/modules",
-		"/C/Data/Personal/vikibell-blog/styles/modules"
+		"/C/Data/Personal/vikibell-blog/javascripts",
+		"/C/Data/Personal/vikibell-blog/javascripts/modules"
 	],
 	"file_history":
 	[
 		"/C/Data/Personal/vikibell-blog/public/.htaccess",
-		"/C/Data/Personal/vikibell-blog/routes/index.php",
+		"/C/Data/Personal/vikibell-blog/config.ini",
+		"/C/Data/Personal/vikibell-blog/app.php",
+		"/C/Data/Personal/vikibell-blog/views/sublayouts/post.twig",
+		"/C/Data/Personal/vikibell-blog/styles/modules/_site_navigation.scss",
+		"/C/Data/Personal/vikibell-blog/javascripts/modules/infinite_scroll.jsx",
 		"/C/Data/Personal/vikibell-blog/helpers/post_formatting.php",
+		"/C/Data/Personal/vikibell-blog/views/sublayouts/site_navigation.twig",
+		"/C/Data/Personal/vikibell-blog/views/sublayouts/header.twig",
+		"/C/Data/Personal/vikibell-blog/views/sublayouts/twitter.twig",
+		"/C/Data/Personal/vikibell-blog/routes/index.php",
+		"/C/Data/Personal/vikibell-blog/helpers/set_page_meta.php",
 		"/C/Data/Personal/vikibell-blog/models/post.php",
 		"/C/Data/Personal/vikibell-blog/helpers/post_meta.php",
 		"/C/Data/Personal/vikibell-blog/routes/categories.php",
@@ -191,18 +199,12 @@
 		"/C/Data/Personal/vikibell-blog/routes/posts.php",
 		"/C/Data/Personal/vikibell-blog/routes/page.php",
 		"/C/Data/Personal/vikibell-blog/routes/home.php",
-		"/C/Data/Personal/vikibell-blog/helpers/set_page_meta.php",
-		"/C/Data/Personal/vikibell-blog/views/sublayouts/header.twig",
 		"/C/Data/Personal/vikibell-blog/routes/404.php",
-		"/C/Data/Personal/vikibell-blog/javascripts/modules/infinite_scroll.jsx",
-		"/C/Data/Personal/vikibell-blog/config.ini",
-		"/C/Data/Personal/vikibell-blog/views/sublayouts/post.twig",
 		"/C/Data/Personal/vikibell-blog/styles/modules/_post.scss",
 		"/C/Data/Personal/vikibell-blog/javascripts/modules/site_nav.jsx",
 		"/C/Data/Personal/vikibell-blog/models/site_navigation.php",
 		"/C/Data/Personal/vikibell-blog/helpers/process_image_meta.php",
 		"/C/Data/Personal/vikibell-blog/models/featured_image.php",
-		"/C/Data/Personal/vikibell-blog/views/sublayouts/site_navigation.twig",
 		"/C/Data/Personal/vikibell-blog/models/social_navigation.php",
 		"/C/Data/Personal/vikibell-blog/models/sitemap.php",
 		"/C/Data/Personal/vikibell-blog/views/templates/sitemap.twig",
@@ -215,7 +217,6 @@
 		"/C/Data/Personal/vikibell-blog/helpers/breadcrumbs.php",
 		"/C/Data/Personal/vikibell-blog/models/temp.php",
 		"/C/Data/Personal/vikibell-blog/models/categories.php",
-		"/C/Data/Personal/vikibell-blog/app.php",
 		"/C/Users/charlie.jackson/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Data/Personal/vikibell-blog/views/templates/categories.twig",
 		"/C/Users/charlie.jackson/AppData/Roaming/Sublime Text 3/Packages/User/PHP.sublime-settings",
@@ -232,7 +233,6 @@
 		"/C/Data/Personal/vikibell-blog/views/sublayouts/image.twig",
 		"/C/Data/Personal/vikibell-blog/config-sample.ini",
 		"/C/Data/Personal/vikibell-blog/models/sidebar.php",
-		"/C/Data/Personal/vikibell-blog/views/sublayouts/twitter.twig",
 		"/C/Data/Personal/vikibell-blog/views/sublayouts/page.twig",
 		"/C/Data/Personal/vikibell-blog/views/sublayouts/banner.twig",
 		"/C/Data/Personal/vikibell-blog/views/sublayouts/post_loop.twig",
@@ -245,7 +245,6 @@
 		"/C/Data/Personal/vikibell-blog/public/fonts/test.svg",
 		"/C/Data/Personal/vikibell-blog/gulpfile.js",
 		"/C/Data/Personal/vikibell-blog/views/sublayouts/footer.twig",
-		"/C/Data/Personal/vikibell-blog/styles/modules/_site_navigation.scss",
 		"/C/Data/Personal/vikibell-blog/javascripts/import.jsx",
 		"/C/Data/Personal/vikibell-blog/javascripts/modules/lazy_load.jsx",
 		"/C/Data/Personal/vikibell-blog/javascripts/modules/fit_to_parent.jsx",
@@ -433,19 +432,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "helpers/set_page_meta.php",
+					"file": "javascripts/modules/infinite_scroll.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2456,
+						"buffer_size": 2564,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1139,
-								1139
+								2056,
+								2056
 							]
 						],
 						"settings":
@@ -509,7 +508,7 @@
 								"bh_tag_close",
 								"bh_tag_content"
 							],
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"syntax": "Packages/JSX/JSX.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
