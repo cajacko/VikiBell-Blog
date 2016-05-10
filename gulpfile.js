@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-
 var rename = require('gulp-rename');
 var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
@@ -15,15 +14,55 @@ var ini = require('ini');
 var fs = require('fs');
 var config = ini.parse(fs.readFileSync('./config.ini', 'utf-8'));
 var sassImportJson = require('gulp-sass-import-json');
+var svgstore = require('gulp-svgstore');
+var svgmin = require('gulp-svgmin');
+var replace = require('gulp-replace');
+var validator = require('html-validator');
+var request = require('request');
+var sitemap = require('sitemapper');
 
 // Module wide vars
 var sassFiles = '.' + config.styles.dir + '/**/*';
 var jsFiles = '.' + config.javascripts.dir + '/**/*';
 var javascriptsExport = '.' + config.javascripts.export;
 
-var svgstore = require('gulp-svgstore');
-var svgmin = require('gulp-svgmin');
-var replace = require('gulp-replace');
+function logPageErrors(url) {
+  var options = {format: 'json'};
+
+  request(url, function(error, response, body) {
+    if (!error && response.statusCode == 200) {
+      options.data = body;
+
+      validator(options, function(err, data) {
+        if (err) {
+          throw err;
+        }
+
+        data.url = url;
+
+        console.log(data);
+      });
+    }
+  });
+}
+
+gulp.task('validatePages', function() {
+  var sitemap = config.environment.url + '/sitemap.xml';
+
+  sitemap.getSites(sitemap, function(err, sites) {
+    if (!err) {
+      for (var i = 0; i < sites.length; i++) {
+        logPageErrors(sites[i]);
+
+        if (i > 5) {
+          // break;
+        }
+      }
+    } else {
+      console.log(err);
+    }
+  });
+});
 
 // Strip unnecessary tags from svgs
 gulp.task('svgCombine', function() {
