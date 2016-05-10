@@ -82,6 +82,7 @@ $SiteNavMain--mobileTop: $SiteNav--fontSize + ($SiteNav-link--padding * 2);
 
 .SiteTitle-text {
   font-size: inherit;
+  line-height: inherit;
 }
 
 .SiteNav-item--mobile {

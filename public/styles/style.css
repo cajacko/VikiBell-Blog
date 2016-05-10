@@ -508,7 +508,8 @@ h6 {
     display: inline-block; } }
 
 .SiteTitle-text {
-  font-size: inherit; }
+  font-size: inherit;
+  line-height: inherit; }
 
 .SiteNav-item--mobile {
   display: none; }
