@@ -10,12 +10,11 @@ function post_meta($res) {
 
   while($post = $res->fetch_assoc()) {
     $post_array = array();
-
     $post_array['id'] = $post['ID'];
 
     $featured_image = get_featured_image($post['ID']);
 
-    if($featured_image) {
+    if(count($featured_image)) {
       $post_array['image'] = $featured_image;
       $post_array['image']['classes'] = 'Post-featuredImage';
     }

@@ -65,15 +65,15 @@ function return_image_meta($res) {
     if(isset($meta['_wp_attachment_image_alt'])) {
       $array['alt'] = $meta['_wp_attachment_image_alt'];
     }
+
+    if($image_count > 5) {
+      $array['lazyLoad'] = true;
+    } else {
+      $array['lazyLoad'] = false;
+    }
+
+    $image_count++;
   }
 
-  if($image_count > 5) {
-    $array['lazyLoad'] = true;
-  } else {
-    $array['lazyLoad'] = false;
-  }
-
-  $image_count++;
-  
   return $array;
 }

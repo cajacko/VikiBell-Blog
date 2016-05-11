@@ -146,6 +146,10 @@ $Post-content--h3--fontSize: 22px;
   margin-top: $Post-p--margin + ($Post-content--h1--fontSize / 2);
 }
 
+.Post-image {
+  margin: $Post-p--margin 0;
+}
+
 .SharePost-title {
   background: $gray;
   display: block;
