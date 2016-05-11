@@ -58,7 +58,15 @@ function format_images(&$content) {
 
 function replace_new_lines_with_p(&$content) {
   // Replace new line with paragraphs
-  $content = preg_replace('/\n/', '</p><p>', $content);
+  $content = preg_replace_callback(
+    '/(<\/li>|<\/ul>|<ul>|<\/ol>)\n/', 
+    function($matches) {
+      return $matches[0];
+    }, 
+    $content
+  );
+
+  $content = str_replace('\n', '</p><p>', $content);
   $content = '<p>'.$content.'</p>';
 
   return $content;
