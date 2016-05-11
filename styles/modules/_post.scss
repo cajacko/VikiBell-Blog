@@ -63,6 +63,11 @@ $Post-content--h3--fontSize: 22px;
   figure {
     margin: $Post-p--margin 0;
   }
+
+  iframe {
+    border: none;
+    width: 100%;
+  }
 }
 
 .Post-iframeWrap {

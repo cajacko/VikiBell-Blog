@@ -712,6 +712,9 @@ h6 {
   .Post p,
   .Post figure {
     margin: 30px 0; }
+  .Post iframe {
+    border: none;
+    width: 100%; }
 
 .Post-iframeWrap {
   padding-bottom: 60%;

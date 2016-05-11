@@ -44,6 +44,15 @@ function format_captions(&$content) {
 }
 
 function format_images(&$content) {
+  // Remove links around images
+  $content = preg_replace_callback(
+    '/<a[^>]*>(<img.+?>)<\/a>/', 
+    function($matches) {
+      return $matches[1];
+    },
+    $content
+  );
+
   // Parse images and add multiple sources
   $content = preg_replace_callback(
     '/<img.+?src="(.+?)".+?>/', 
@@ -57,17 +66,40 @@ function format_images(&$content) {
 }
 
 function replace_new_lines_with_p(&$content) {
+  // echo $content; exit;
   // Replace new line with paragraphs
   $content = preg_replace_callback(
     '/(<\/li>|<\/ul>|<ul>|<\/ol>)\n/', 
     function($matches) {
-      return $matches[0];
+      // print_r($matches[1]); exit;
+      // return '<ul>';
+      return $matches[1];
     }, 
     $content
   );
 
-  $content = str_replace('\n', '</p><p>', $content);
-  $content = '<p>'.$content.'</p>';
+  // $content = str_replace("\n", '', $content);
+
+  $content = str_replace("\n", '</p><p>', $content);
+  $content = str_replace("<p><ul>", '<ul>', $content);
+  $content = str_replace("<p><ol>", '<ol>', $content);
+
+  // Replace new line with paragraphs
+  $content = preg_replace_callback(
+    '/^([^<])/', 
+    function($matches) {
+      return '<p>' . $matches[0];
+    }, 
+    $content
+  );
+
+  $content = preg_replace_callback(
+    '/.*(?<!>)$/', 
+    function($matches) {
+      return $matches[0] . '</p>';
+    }, 
+    $content
+  );
 
   return $content;
 }
@@ -188,10 +220,17 @@ function wrap_iframes(&$content) {
   $content = preg_replace_callback(
     '/<iframe.+?src="(.+?)".+?<\/iframe>/', 
     function($matches) {
+      $string = $matches[0];
+      $string = str_replace('frameborder="0"', '', $string);
+      $string = str_replace('scrolling="no"', '', $string);
+      $string = str_replace('webkitAllowFullScreen', '', $string);
+      $string = str_replace('mozallowfullscreen', '', $string);
+      $string = str_replace('allowFullScreen', '', $string);
+
       if (strpos($matches[1], 'www.boombox.com/widget/quiz') !== false) {
-        return $matches[0];
+        return $string;
       } else {
-        return '<div class="Post-iframeWrap">' . $matches[0] . '</div>';
+        return '<div class="Post-iframeWrap">' . $string . '</div>';
       }   
     }, 
     $content
@@ -213,11 +252,40 @@ function remove_p_in_lists(&$content) {
   return $content;
 }
 
+function strip_new_lines(&$content) {
+  $content = preg_replace_callback('/<blockquote class="twitter-tweet".+?<\/script>|<ul>.+?<\/ul>|<ol>.+?<\/ol>/s', function($matches) {
+    $string = $matches[0];
+    $string = str_replace("\n", '', $string);
+    $string = trim(preg_replace('/\t+/', '', $string));
+    $string = $string;
+    return $string;
+  }, $content);
+
+  return $content;
+}
+
+function remove_p_around_blockquote(&$content) {
+  $content = str_replace('<p><blockquote', '<blockquote', $content);
+  $content = str_replace('</script></p>', '</script>', $content);
+  return $content;
+}
+
+function remove_blank_headings(&$content) {
+  $content = preg_replace_callback('/<h[1-6].+?<\/h[1-6]>/', function($matches) {
+    return '';
+  }, $content);
+
+  return $content;
+}
+
 function format_post_content($content) {
   normalize_line_endings($content); // Normalize line endings and blank spaces
+  strip_new_lines($content);
   format_captions($content);
   format_images($content);
   replace_new_lines_with_p($content);
+  remove_p_around_blockquote($content);
+
   // remove_classes($content); // Remove classes, this buggers up twitter embeds
   // remove_blank_div($content)
   remove_styles($content);
@@ -227,6 +295,8 @@ function format_post_content($content) {
   remove_abstract($content);
   // remove_empty_headings($content);
   replace_strong_inside_headings($content);
+
+  remove_blank_headings($content);
   strip_headings_inside_p($content);
   use_correct_headings($content);
   wrap_iframes($content);

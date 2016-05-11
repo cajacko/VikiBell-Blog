@@ -55,7 +55,7 @@ gulp.task('validatePages', function() {
       for (var i = 0; i < sites.length; i++) {
         logPageErrors(sites[i]);
 
-        if (i > 5) {
+        if (i > 20) {
           break;
         }
       }
