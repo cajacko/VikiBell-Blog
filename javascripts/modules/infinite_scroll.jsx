@@ -3,10 +3,23 @@
  */
 
 var $ = require('jquery');
+var config = require('../../config.json');
 
 var postTemplate = $('.Post').first();
 var next = $('#next');
 var gettingPosts = false;
+var twitterScriptLoaded = false;
+var staticPublic;
+
+if(config.cdn.enabled) {
+  staticPublic = config.cdn.staticContent + config.cdn.staticPublic;
+} else {
+  staticPublic = '';
+}
+
+if($('#' + config.twitterScriptId).length) {
+  twitterScriptLoaded = true;
+}
 
 function prependPosts(posts) {
   $(posts).each(function() {
@@ -68,7 +81,14 @@ function getNextPosts() {
     })
     .done(function(data) {
       updateNextLink();
-      prependPosts(data);
+      prependPosts(data.posts);
+
+      if(data.hasTwitterWidget && !twitterScriptLoaded) {
+        var twitterScript = staticPublic + config.javascripts.publicDir + '/' + config.javascripts.twitterMin;
+
+        $.getScript(twitterScript);
+        twitterScriptLoaded = true;
+      }
     })
     .fail(function() {
     })

@@ -182,7 +182,12 @@ $template = $twig->loadTemplate($template_path . '.twig');
 ob_start("ob_gzhandler");
 
 if(isset($_GET['json'])) {
-  echo json_encode($vars['posts']); exit;
+  $json = array('posts' => $vars['posts']);
+
+  if(isset($vars['hasTwitterWidget'])) {
+      $json['hasTwitterWidget'] = $vars['hasTwitterWidget'];
+  }
+  echo json_encode($json); exit;
 }
 
 // Render the template

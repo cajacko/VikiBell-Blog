@@ -12,7 +12,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var ini = require('ini');
 var fs = require('fs');
-var config = ini.parse(fs.readFileSync('./config.ini', 'utf-8'));
+var config = require('./config.json');
 var sassImportJson = require('gulp-sass-import-json');
 var svgstore = require('gulp-svgstore');
 var svgmin = require('gulp-svgmin');
@@ -133,6 +133,11 @@ gulp.task('sass', function() {
 * SCRIPTS                                               *
 ********************************************************/
 gulp.task('scripts', function() {
+  gulp.src('.' + config.javascripts.twitterImport)
+    .pipe(rename(config.javascripts.twitterMin)) // Rename the minified version
+    .pipe(uglify()) // Minify the file
+    .pipe(gulp.dest(javascriptsExport)); // Output the minified file
+
   return browserify('.' + config.javascripts.import)
     .bundle()
     .on('error', function(err) {

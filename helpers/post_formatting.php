@@ -298,7 +298,8 @@ function remove_blank_headings(&$content) {
 function remove_fixed_elements(&$content) {
   // $content = preg_replace_callback('/<blockquote class="twitter-tweet".+?<\/script>|<ul>.+?<\/ul>|<ol>.+?<\/ol>/s', function($matches) {
   $content = preg_replace_callback('/<blockquote class="twitter-tweet".+?<\/blockquote>/s', function($matches) {
-    global $elements, $element_id;
+    global $elements, $element_id, $vars;
+    $vars['hasTwitterWidget'] = true;
     $id = '{#' . $element_id . '}';
     $elements[$id] = $matches[0];
     $element_id++;

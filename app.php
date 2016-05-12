@@ -4,6 +4,13 @@ date_default_timezone_set('Europe/London');
 // Setup config
 $config = parse_ini_file('config.ini', true);
 
+$json_config = file_get_contents('../config.json');
+$json_config = json_decode($json_config, true);
+
+foreach($json_config as $key => $value) {
+    $config[$key] = $value;
+}
+
 $project_root = __DIR__; // Get the root dir
 
 // For each directory in the config replace it with it's absolute path

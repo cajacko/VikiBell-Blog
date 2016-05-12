@@ -43,6 +43,7 @@
     {% if vars.prev %}<link rel="prev" href="{{ vars.prev }}" />{% endif %}
     <link rel="stylesheet" href="{{ vars.staticPublic }}{{ vars.config.styles.publicDir }}/{% if vars.config.environment.dev %}{{ vars.config.styles.main }}{% else %}{{ vars.config.styles.min }}{% endif %}">
     <script async src="{{ vars.staticPublic }}{{ vars.config.javascripts.publicDir }}/{% if vars.config.environment.dev %}{{ vars.config.javascripts.main }}{% else %}{{ vars.config.javascripts.min }}{% endif %}"></script>
+    {% if vars.hasTwitterWidget %}<script id="{{ vars.config.twitterScriptId }}" src="{{ vars.staticPublic }}{{ vars.config.javascripts.publicDir }}/{{ vars.config.javascripts.twitterMin }}"></script>{% endif %}
   </head>
 
   <body itemscope itemtype="http://schema.org/WebPage">

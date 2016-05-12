@@ -1,25 +1,48 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+module.exports={
+  "twitterScriptId": "TwitterScript",
+  "environment": {
+    "dev": true,
+    "url": "http://vikibell-blog.local.com",
+    "localUploads": "http://vikibell.com/wp-content/uploads"
+  },
+  "cdn": {
+    "enabled": false,
+    "staticContent": "http://cdn.vikibell.com",
+    "staticPublic": "/public",
+    "staticUploads": "/uploads"
+  },
+  "styles": {
+    "export": "/public/styles",
+    "import": "/styles/import.scss",
+    "dir": "/styles",
+    "publicDir": "/styles",
+    "main": "style.css",
+    "min": "style.min.css"
+  },
+  "javascripts": {
+    "export": "/public/js",
+    "import": "/javascripts/import.jsx",
+    "twitterImport": "/javascripts/twitter.js",
+    "dir": "/javascripts",
+    "publicDir": "/js",
+    "main": "script.js",
+    "min": "script.min.js",
+    "twitterMin": "twitter.min.js"
+  },
+  "dirs": {
+    "public": "/public",
+    "models": "/models",
+    "helpers": "/helpers",
+    "routes": "/routes",
+    "views": "/views",
+    "media": "/public/media"
+  }
+}
+},{}],2:[function(require,module,exports){
 var $ = require('jquery');
 
 require('./modules/modernizr');
-
-window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
- 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
- 
-  return t;
-}(document, "script", "twitter-wjs"));
-
 require('./modules/google_tag_manager');
 require('./modules/lazy_load.jsx');
 
@@ -28,7 +51,7 @@ $(document).ready(function() {
   require('./modules/site_nav.jsx');
   require('./modules/infinite_scroll.jsx');
 });
-},{"./modules/fit_to_parent.jsx":2,"./modules/google_tag_manager":3,"./modules/infinite_scroll.jsx":4,"./modules/lazy_load.jsx":5,"./modules/modernizr":6,"./modules/site_nav.jsx":7,"jquery":8}],2:[function(require,module,exports){
+},{"./modules/fit_to_parent.jsx":3,"./modules/google_tag_manager":4,"./modules/infinite_scroll.jsx":5,"./modules/lazy_load.jsx":6,"./modules/modernizr":7,"./modules/site_nav.jsx":8,"jquery":9}],3:[function(require,module,exports){
 /**
  * Fit an element to its parent
  */
@@ -134,7 +157,7 @@ $(window).resize(function() {
   fitAllToParent(false);
 });
 
-},{"jquery":8}],3:[function(require,module,exports){
+},{"jquery":9}],4:[function(require,module,exports){
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -143,16 +166,29 @@ ga('create', 'UA-56806082-1', 'auto');
 
 ga('require', 'displayfeatures');
 ga('send', 'pageview');
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 /**
  *
  */
 
 var $ = require('jquery');
+var config = require('../../config.json');
 
 var postTemplate = $('.Post').first();
 var next = $('#next');
 var gettingPosts = false;
+var twitterScriptLoaded = false;
+var staticPublic;
+
+if(config.cdn.enabled) {
+  staticPublic = config.cdn.staticContent + config.cdn.staticPublic;
+} else {
+  staticPublic = '';
+}
+
+if($('#' + config.twitterScriptId).length) {
+  twitterScriptLoaded = true;
+}
 
 function prependPosts(posts) {
   $(posts).each(function() {
@@ -214,7 +250,14 @@ function getNextPosts() {
     })
     .done(function(data) {
       updateNextLink();
-      prependPosts(data);
+      prependPosts(data.posts);
+
+      if(data.hasTwitterWidget && !twitterScriptLoaded) {
+        var twitterScript = staticPublic + config.javascripts.publicDir + '/' + config.javascripts.twitterMin;
+
+        $.getScript(twitterScript);
+        twitterScriptLoaded = true;
+      }
     })
     .fail(function() {
     })
@@ -235,7 +278,7 @@ $(window).scroll(function() {
 });
 
 getNextPosts();
-},{"jquery":8}],5:[function(require,module,exports){
+},{"../../config.json":1,"jquery":9}],6:[function(require,module,exports){
 var $ = require('jquery');
 
 function setImageHeight(element) {
@@ -291,11 +334,11 @@ function isElementInViewport (el) {
     );
 }
 
-},{"jquery":8}],6:[function(require,module,exports){
+},{"jquery":9}],7:[function(require,module,exports){
 /*! modernizr 3.3.1 (Custom Build) | MIT *
  * http://modernizr.com/download/?-setclasses !*/
 !function(n,e,s){function o(n,e){return typeof n===e}function a(){var n,e,s,a,i,l,r;for(var c in f)if(f.hasOwnProperty(c)){if(n=[],e=f[c],e.name&&(n.push(e.name.toLowerCase()),e.options&&e.options.aliases&&e.options.aliases.length))for(s=0;s<e.options.aliases.length;s++)n.push(e.options.aliases[s].toLowerCase());for(a=o(e.fn,"function")?e.fn():e.fn,i=0;i<n.length;i++)l=n[i],r=l.split("."),1===r.length?Modernizr[r[0]]=a:(!Modernizr[r[0]]||Modernizr[r[0]]instanceof Boolean||(Modernizr[r[0]]=new Boolean(Modernizr[r[0]])),Modernizr[r[0]][r[1]]=a),t.push((a?"":"no-")+r.join("-"))}}function i(n){var e=r.className,s=Modernizr._config.classPrefix||"";if(c&&(e=e.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+s+"no-js(\\s|$)");e=e.replace(o,"$1"+s+"js$2")}Modernizr._config.enableClasses&&(e+=" "+s+n.join(" "+s),c?r.className.baseVal=e:r.className=e)}var t=[],f=[],l={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(n,e){var s=this;setTimeout(function(){e(s[n])},0)},addTest:function(n,e,s){f.push({name:n,fn:e,options:s})},addAsyncTest:function(n){f.push({name:null,fn:n})}},Modernizr=function(){};Modernizr.prototype=l,Modernizr=new Modernizr;var r=e.documentElement,c="svg"===r.nodeName.toLowerCase();a(),i(t),delete l.addTest,delete l.addAsyncTest;for(var u=0;u<Modernizr._q.length;u++)Modernizr._q[u]();n.Modernizr=Modernizr}(window,document);
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 /**
  *
  */
@@ -533,7 +576,7 @@ loadResizeMobileNav();
 $(window).resize(function() {
   setIfMobileNav();
 });
-},{"jquery":8}],8:[function(require,module,exports){
+},{"jquery":9}],9:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.3
  * http://jquery.com/
@@ -10377,4 +10420,4 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}]},{},[1]);
+},{}]},{},[2]);
