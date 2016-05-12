@@ -102,7 +102,11 @@ function sitemap_page() {
       $return[$explode[3]]['subLevel'][] = array('link' => '/' . $explode[3] . '/' . $explode[4] . '/', 'title' => $item['title']);
     } else {
       $return[$explode[3]]['title'] = $item['title'];
-      $return[$explode[3]]['link'] = '/' . $explode[3] . '/';
+      if($explode[3]) {
+        $return[$explode[3]]['link'] = '/' . $explode[3] . '/';
+      } else {
+        $return[$explode[3]]['link'] = '/';
+      }
     }
   }
 
