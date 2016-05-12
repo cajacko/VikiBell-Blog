@@ -4,7 +4,7 @@ module.exports={
   "environment": {
     "dev": true,
     "url": "http://vikibell-blog.local.com",
-    "localUploads": "http://vikibell.com/wp-content/uploads"
+    "localUploads": "https://cdn.vikibell.com/uploads"
   },
   "cdn": {
     "enabled": false,
@@ -43,7 +43,6 @@ module.exports={
 var $ = require('jquery');
 
 require('./modules/modernizr');
-require('./modules/google_tag_manager');
 require('./modules/lazy_load.jsx');
 
 $(document).ready(function() {
@@ -51,7 +50,7 @@ $(document).ready(function() {
   require('./modules/site_nav.jsx');
   require('./modules/infinite_scroll.jsx');
 });
-},{"./modules/fit_to_parent.jsx":3,"./modules/google_tag_manager":4,"./modules/infinite_scroll.jsx":5,"./modules/lazy_load.jsx":6,"./modules/modernizr":7,"./modules/site_nav.jsx":8,"jquery":9}],3:[function(require,module,exports){
+},{"./modules/fit_to_parent.jsx":3,"./modules/infinite_scroll.jsx":4,"./modules/lazy_load.jsx":5,"./modules/modernizr":6,"./modules/site_nav.jsx":7,"jquery":8}],3:[function(require,module,exports){
 /**
  * Fit an element to its parent
  */
@@ -158,16 +157,7 @@ $(window).resize(function() {
   fitAllToParent(false);
 });
 
-},{"jquery":9}],4:[function(require,module,exports){
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-56806082-1', 'auto');
-
-ga('require', 'displayfeatures');
-ga('send', 'pageview');
-},{}],5:[function(require,module,exports){
+},{"jquery":8}],4:[function(require,module,exports){
 /**
  *
  */
@@ -279,7 +269,7 @@ $(window).scroll(function() {
 });
 
 getNextPosts();
-},{"../../config.json":1,"jquery":9}],6:[function(require,module,exports){
+},{"../../config.json":1,"jquery":8}],5:[function(require,module,exports){
 var $ = require('jquery');
 
 function setImageHeight(element) {
@@ -335,11 +325,11 @@ function isElementInViewport (el) {
     );
 }
 
-},{"jquery":9}],7:[function(require,module,exports){
+},{"jquery":8}],6:[function(require,module,exports){
 /*! modernizr 3.3.1 (Custom Build) | MIT *
  * http://modernizr.com/download/?-setclasses !*/
 !function(n,e,s){function o(n,e){return typeof n===e}function a(){var n,e,s,a,i,l,r;for(var c in f)if(f.hasOwnProperty(c)){if(n=[],e=f[c],e.name&&(n.push(e.name.toLowerCase()),e.options&&e.options.aliases&&e.options.aliases.length))for(s=0;s<e.options.aliases.length;s++)n.push(e.options.aliases[s].toLowerCase());for(a=o(e.fn,"function")?e.fn():e.fn,i=0;i<n.length;i++)l=n[i],r=l.split("."),1===r.length?Modernizr[r[0]]=a:(!Modernizr[r[0]]||Modernizr[r[0]]instanceof Boolean||(Modernizr[r[0]]=new Boolean(Modernizr[r[0]])),Modernizr[r[0]][r[1]]=a),t.push((a?"":"no-")+r.join("-"))}}function i(n){var e=r.className,s=Modernizr._config.classPrefix||"";if(c&&(e=e.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+s+"no-js(\\s|$)");e=e.replace(o,"$1"+s+"js$2")}Modernizr._config.enableClasses&&(e+=" "+s+n.join(" "+s),c?r.className.baseVal=e:r.className=e)}var t=[],f=[],l={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(n,e){var s=this;setTimeout(function(){e(s[n])},0)},addTest:function(n,e,s){f.push({name:n,fn:e,options:s})},addAsyncTest:function(n){f.push({name:null,fn:n})}},Modernizr=function(){};Modernizr.prototype=l,Modernizr=new Modernizr;var r=e.documentElement,c="svg"===r.nodeName.toLowerCase();a(),i(t),delete l.addTest,delete l.addAsyncTest;for(var u=0;u<Modernizr._q.length;u++)Modernizr._q[u]();n.Modernizr=Modernizr}(window,document);
-},{}],8:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /**
  *
  */
@@ -577,7 +567,7 @@ loadResizeMobileNav();
 $(window).resize(function() {
   setIfMobileNav();
 });
-},{"jquery":9}],9:[function(require,module,exports){
+},{"jquery":8}],8:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.3
  * http://jquery.com/
