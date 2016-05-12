@@ -1,6 +1,7 @@
 vendor
 node_modules
 config.ini
+config.json
 sitemap.xml
 robots.txt
 /cache/*
