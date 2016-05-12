@@ -27,7 +27,10 @@ var jsFiles = '.' + config.javascripts.dir + '/**/*';
 var javascriptsExport = '.' + config.javascripts.export;
 
 function logPageErrors(url) {
-  var options = {format: 'json'};
+  var options = {
+    format: 'json',
+    validator: 'http://html5.validator.nu',
+  };
 
   request(url, function(error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -56,7 +59,7 @@ gulp.task('validatePages', function() {
         logPageErrors(sites[i]);
 
         if (i > 20) {
-          break;
+          // break;
         }
       }
     } else {

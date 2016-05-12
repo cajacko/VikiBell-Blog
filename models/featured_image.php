@@ -23,11 +23,12 @@ function get_image_by_url($url, $try_again = true) {
   if(!$res->num_rows && $try_again) {
     $url = preg_replace('/-[0-9]*x[0-9]*(?=\.)/', '', $url);
     $meta = get_image_by_url($url, false);
-
     return $meta;
-  } else {
+  } elseif($res->num_rows) {
     return return_image_meta($res);
-  } 
+  } else {
+    return false;
+  }
 }
 
 function get_featured_image($post_id) {

@@ -15,7 +15,7 @@ function normalize_line_endings(&$content) {
     $content = str_replace("\r\n", "\n", $content);
     $content = str_replace("\r", "\n", $content);
     // Don't allow out-of-control blank lines
-    $content = preg_replace("/\n{2,}/", "\n\n", $content);
+    $content = preg_replace("/\n{2,}/", "\n", $content);
     return $content;
 }
 
@@ -25,9 +25,13 @@ function parse_images($content, $classes) {
   global $image_template, $static_public;
 
   $meta = get_image_by_url($content);
-  $meta['classes'] = $classes;
-  $image = $image_template->render(array('image' => $meta, 'vars' => array('staticPublic' => $static_public)));
-  return $image;
+  if($meta) {
+    $meta['classes'] = $classes;
+    $image = $image_template->render(array('image' => $meta, 'vars' => array('staticPublic' => $static_public)));
+    return $image;
+  } else {
+    return false;
+  }
 }
 
 function format_captions(&$content) {
@@ -35,7 +39,7 @@ function format_captions(&$content) {
   $content = preg_replace_callback(
     '/\[caption.+?\](<img.+?>)(.+?)\[\/caption\]/', 
     function($matches) {
-      return '<figure>' . $matches[1] . '<figcaption> ' . $matches[2] . '</figcaption></figure>';
+      return "\n<figure>" . $matches[1] . '<figcaption> ' . $matches[2] . "</figcaption></figure>\n";
     }, 
     $content
   );
@@ -57,7 +61,13 @@ function format_images(&$content) {
   $content = preg_replace_callback(
     '/<img.+?src="(.+?)".+?>/', 
     function($matches) {
-      return parse_images($matches[1], 'Post-image');
+      $meta = parse_images($matches[1], 'Post-image');
+
+      if($meta) {
+        return $meta;
+      } else {
+        return $matches[0];
+      }
     },
     $content
   );
@@ -66,33 +76,52 @@ function format_images(&$content) {
 }
 
 function replace_new_lines_with_p(&$content) {
-  // echo $content; exit;
-  // Replace new line with paragraphs
+  $explode = explode("\n", $content);
+  $string = '';
+
+  foreach($explode as $item) {
+    $string .= '<p>' . $item . '</p>';
+  }
+
+  $content = $string;
+  return $content;
+
+
+  // Remove new lines between lists
   $content = preg_replace_callback(
     '/(<\/li>|<\/ul>|<ul>|<\/ol>)\n/', 
     function($matches) {
-      // print_r($matches[1]); exit;
-      // return '<ul>';
       return $matches[1];
     }, 
     $content
   );
 
-  // $content = str_replace("\n", '', $content);
-
+  // Replace new lines with paragraphs
   $content = str_replace("\n", '</p><p>', $content);
+
+  // Dont wrap lists in paragraphs
   $content = str_replace("<p><ul>", '<ul>', $content);
   $content = str_replace("<p><ol>", '<ol>', $content);
+  $content = str_replace("</ul></p>", '</ul>', $content);
+  $content = str_replace("</ol></p>", '</ol>', $content);
 
-  // Replace new line with paragraphs
-  $content = preg_replace_callback(
-    '/^([^<])/', 
-    function($matches) {
-      return '<p>' . $matches[0];
+  $first_p = true;
+
+  // Add am opening p at the start of the content
+  preg_replace_callback(
+    '/^(<(ul|ol))/', 
+    function() {
+      global $first_p;
+      $first_p = false;
     }, 
     $content
   );
 
+  if($first_p) {
+    $content = '<p>' . $content;
+  }
+
+  // Add a closing p at the end of the content
   $content = preg_replace_callback(
     '/.*(?<!>)$/', 
     function($matches) {
@@ -105,7 +134,7 @@ function replace_new_lines_with_p(&$content) {
 }
 
 function remove_classes(&$content) {
-  $content = preg_replace('/ class=".+?"/', '', $content);
+  $content = preg_replace('/ class=".+?"/s', '', $content);
   return $content;
 }
 
@@ -252,18 +281,6 @@ function remove_p_in_lists(&$content) {
   return $content;
 }
 
-function strip_new_lines(&$content) {
-  $content = preg_replace_callback('/<blockquote class="twitter-tweet".+?<\/script>|<ul>.+?<\/ul>|<ol>.+?<\/ol>/s', function($matches) {
-    $string = $matches[0];
-    $string = str_replace("\n", '', $string);
-    $string = trim(preg_replace('/\t+/', '', $string));
-    $string = $string;
-    return $string;
-  }, $content);
-
-  return $content;
-}
-
 function remove_p_around_blockquote(&$content) {
   $content = str_replace('<p><blockquote', '<blockquote', $content);
   $content = str_replace('</script></p>', '</script>', $content);
@@ -278,22 +295,87 @@ function remove_blank_headings(&$content) {
   return $content;
 }
 
+function remove_fixed_elements(&$content) {
+  // $content = preg_replace_callback('/<blockquote class="twitter-tweet".+?<\/script>|<ul>.+?<\/ul>|<ol>.+?<\/ol>/s', function($matches) {
+  $content = preg_replace_callback('/<blockquote class="twitter-tweet".+?<\/blockquote>/s', function($matches) {
+    global $elements, $element_id;
+    $id = '{#' . $element_id . '}';
+    $elements[$id] = $matches[0];
+    $element_id++;
+    return "\n" . $id . "\n";
+  }, $content);
+
+  return $content;
+}
+
+function return_fixed_elements(&$content) {
+  $content = preg_replace_callback('/{#[0-9]+}/', function($matches) {
+    global $elements;
+    return $elements[$matches[0]];
+  }, $content);
+
+  return $content;
+}
+
+$element_id = 0;
+$elements = array();
+
+function remove_p(&$content) {
+  $content = preg_replace('/<p.*?>/', '', $content);
+  $content = str_replace('</p>', '', $content);
+  return $content;
+}
+
+function remove_p_from_lists(&$content) {
+  $lists = array('ul', 'li', 'ol', '/ul', '/li', '/ol', 'div', '/div', 'figure', '/figure', 'blockquote', '/blockquote');
+
+  foreach($lists as $list) {
+    if($list != '/ul' && $list != '/ol' && $list != '/div' && $list != '/figure' && $list != '/blockquote') {
+      $content = str_replace('<' . $list . '><p>', '<' . $list . '>', $content);
+    }
+
+    $content = str_replace('<' . $list . '></p>', '<' . $list . '>', $content);
+    $content = str_replace('<p><' . $list . '>', '<' . $list . '>', $content);
+    $content = str_replace('</p><' . $list . '>', '<' . $list . '>', $content);
+  }
+
+  return $content;
+}
+
+function remove_scripts(&$content) {
+  $content = preg_replace('/<script.+?<\/script>/', '', $content);
+
+  return $content;
+}
+
 function format_post_content($content) {
-  normalize_line_endings($content); // Normalize line endings and blank spaces
-  strip_new_lines($content);
+  remove_scripts($content);
+
+  remove_fixed_elements($content);
+  $content = trim($content);
+  
+  remove_abstract($content);
+  remove_classes($content);
+
   format_captions($content);
   format_images($content);
-  replace_new_lines_with_p($content);
-  remove_p_around_blockquote($content);
-
-  // remove_classes($content); // Remove classes, this buggers up twitter embeds
-  // remove_blank_div($content)
-  remove_styles($content);
-  // remove_empty_p($content);
-  remove_nested_p($content);
   remove_span($content);
-  remove_abstract($content);
-  // remove_empty_headings($content);
+  remove_p($content);
+  remove_styles($content);
+  
+  // print_r($content) ; exit;
+  // remove_p_around_blockquote($content);
+
+
+
+  
+  remove_blank_div($content);
+  
+  // remove_empty_p($content);
+  // remove_nested_p($content);
+  
+  
+  remove_empty_headings($content);
   replace_strong_inside_headings($content);
 
   remove_blank_headings($content);
@@ -301,6 +383,15 @@ function format_post_content($content) {
   use_correct_headings($content);
   wrap_iframes($content);
   // remove_p_in_lists($content);
+
+
+  normalize_line_endings($content); // Normalize line endings and blank spaces
+  replace_new_lines_with_p($content);
+
+  return_fixed_elements($content);
+
+  remove_p_from_lists($content);
+  remove_p_from_lists($content);
 
   return $content;
 }
