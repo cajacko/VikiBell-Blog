@@ -61,12 +61,16 @@ function format_images(&$content) {
   $content = preg_replace_callback(
     '/<img.+?src="(.+?)".+?>/', 
     function($matches) {
+      global $config;
+
       $meta = parse_images($matches[1], 'Post-image');
 
       if($meta) {
         return $meta;
       } else {
-        return $matches[0];
+        $string = $matches[0];
+        $string = str_replace('http://vikibell.com/wp-content/uploads', $config['cdn']['staticContent'] . $config['cdn']['staticUploads'], $string);
+        return $string;
       }
     },
     $content
