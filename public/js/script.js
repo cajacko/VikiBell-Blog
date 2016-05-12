@@ -300,7 +300,7 @@ $(document).ready(function() {
   });
 });
 
-$(window).on('DOMContentLoaded load resize scroll', function () {;
+$(window).on('DOMContentLoaded scroll', function () {;
   var images = $("img[data-src]");
   // load images that have entered the viewport
   $(images).each(function () {
@@ -315,7 +315,7 @@ $(window).on('DOMContentLoaded load resize scroll', function () {;
   if (images.length == 0) {
     $(window).off('DOMContentLoaded load resize scroll')
   }
-})
+});
 
 function initiateAttr(element, attr) {
   $(element).attr(attr, $(element).attr("data-" + attr));
