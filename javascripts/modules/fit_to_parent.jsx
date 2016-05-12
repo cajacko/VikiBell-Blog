@@ -81,8 +81,9 @@ function fitToParent(element, load) {
     // Remove the background image on the header
     $(parent).removeClass('Banner--backgroundImage');
   } 
+  
   // If we are to wait for the element to load, then position the element when it has loaded
-  else if(load) {
+  if(load) {
     $(element).load(function() {
       fitToParent(element, false);
     });
