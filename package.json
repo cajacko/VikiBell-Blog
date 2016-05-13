@@ -1,6 +1,6 @@
 {
   "name": "vikibell_blog",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "SEO optimised blog website for Viki Bell. Uses Wordpress as a CMS, but the website calls the database directly to increase speed and flexibility.",
   "main": "./public/index.php",
   "repository": {
