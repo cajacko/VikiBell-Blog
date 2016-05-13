@@ -1,3 +1,0 @@
-Sitemap: http://vikibell-blog.local.com/sitemap.xml
-User-agent: *
-Disallow:
