@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"json",
+				"json_variables"
+			],
+			[
+				"document",
+				"documentHeight"
+			],
+			[
+				"array_re",
+				"array_reverse"
+			],
+			[
+				"gray",
+				"gray--dark"
+			],
+			[
+				"font-",
+				"font-style"
+			],
+			[
+				"i",
+				"iconFontSize"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
 				"padd",
 				"padding"
 			],
@@ -60,10 +96,6 @@
 				"labelMargin"
 			],
 			[
-				"font-",
-				"font-size"
-			],
-			[
 				"hea",
 				"header	Tag"
 			],
@@ -108,10 +140,50 @@
 	"buffers":
 	[
 		{
-			"file": "vikibell-blog-frontend.sublime-project",
+			"file": "helpers/post_formatting.php",
 			"settings":
 			{
-				"buffer_size": 45,
+				"buffer_size": 11432,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config.json",
+			"settings":
+			{
+				"buffer_size": 971,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/sublayouts/header.twig",
+			"settings":
+			{
+				"buffer_size": 5766,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config.ini",
+			"settings":
+			{
+				"buffer_size": 384,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config-sample.ini",
+			"settings":
+			{
+				"buffer_size": 223,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "javascripts/import.jsx",
+			"settings":
+			{
+				"buffer_size": 254,
 				"line_ending": "Unix"
 			}
 		}
@@ -157,141 +229,148 @@
 	},
 	"expanded_folders":
 	[
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts/modules",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/js",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/modules",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/vendor/abraham/twitteroauth",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts"
 	],
 	"file_history":
 	[
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts/modules/google_tag_manager.js",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts/modules/fit_to_parent.jsx",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts/modules/lazy_load.jsx",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts/import.jsx",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/header.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/.gitignore",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/gulpfile.js",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/config-sample.json",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/config.json",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts/modules/infinite_scroll.jsx",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/config-sample.ini",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/js/twitter.min.js",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/config.ini",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/app.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/routes/index.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/helpers/post_formatting.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts/twitter.js",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/modules/_post.scss",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/helpers/process_image_meta.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/featured_image.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/categories.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/routes/categories.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/posts/wedding-tips.html",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/.htaccess",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/routes/404.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/routes/posts.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/index.html",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/helpers/post_meta.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/post.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/image.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/site_navigation.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/twitter.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/twitter.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/modules/_sidebar.scss",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/modules/_banner.scss",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/modules/_general.scss",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/temp.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/search.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/home.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/global.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/post.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/templates/sitemap.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/templates/categories.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/sidebar.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/routes/search.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/banner.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/sidebar.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/helpers/get_date_diff.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/modules/_variables.scss",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/helpers/bunting.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/modules/_site_navigation.scss",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts/modules/site_nav.jsx",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/site_navigation.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/import.scss",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/icons/illustrator/cancel.svg",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/fonts/fontello.svg",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/fonts/test.svg",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/sitemap.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/modules/_sitemap.scss",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/speed-test.html",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/footer.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/modules/_bunting.scss",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/modules/_breadcrumbs.scss",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/robots.txt",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/modules/_fonts.scss",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/js/script.js",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/node_modules/gulp-sass-import-json/lib/json-to-sass.js",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/package.json",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/node_modules/gulp-sass-import-json/index.js",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/fonts/fontawesome-webfont.svg",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/helpers/minify_classes.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/bunting.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/scripts/minify_classes.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/js/script.min.js",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/styles/style.min.css",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/styles/style.css",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Live/wp-config.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/styles/modules/_mixins.scss",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/.sass-lint.yml",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/js/modernizr.js",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/routes/post.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/routes/tag.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/routes/category.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/routes/page.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/routes/tags.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/tags.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/404.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/tag.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/category.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/tags.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/categories.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/templates/tags.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/routes/home.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/templates/404.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/page.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/no_posts.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/no_more_posts.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/routes/loop.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/templates/home.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/loop.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/social_navigation.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/post_loop.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/page.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/templates/page.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/templates/single_post.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/pagination.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/templates/404.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/templates/loop.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/sublayouts/related_posts.twig",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/views/templates/loop.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/models/database.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts/import.js",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts/modules/general.js",
+		"/Users/charlie/Library/Application Support/Sublime Text 3/Packages/User/JavaScript.sublime-settings",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/.jscsrc",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/index.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/config.php",
+		"/Users/charlie/Library/Application Support/Sublime Text 3/Packages/User/SCSS.sublime-settings",
+		"/Users/charlie/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/.jshintrc",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/.csscomb.json",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/composer.json",
 		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Live/wp-content/themes/vikibell/post-formats/content.php",
 		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Live/wp-content/themes/vikibell/functions/general.php",
 		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Live/wp-content/themes/vikibell/post-formats/content-video.php",
 		"/Users/charlie/Documents/Code/Projects/Improv Stories/helpers/emails.js",
 		"/Users/charlie/Documents/Code/Projects/Improv Stories/config.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/index.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/models/user.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/config-sample.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/models/story.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/next_story.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/story.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/save_entry.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/client_javascripts/modules/story.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/views/pages/story.jade",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/sass/_story.scss",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/views/sublayouts/layout.jade",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/sass/_page.scss",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/sass/_global_variables.scss",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/helpers/general.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/app.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/bin/www",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/sass/_dashboard.scss",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/.jscsrc",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/client_javascripts/test.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/gulpfile.js",
-		"/Users/charlie/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/client_javascripts/import.js",
-		"/Users/charlie/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/package.json",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/sass/import.scss",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/sass/_forms.scss",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/sass/_general.scss",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/sass/_site_header.scss",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/sass/_text_elements.scss",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/sass/_global_mixins.scss",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/sass/_site_footer.scss",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/views/pages/login.jade",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/views/pages/dashboard.jade",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/views/pages/add_story.jade",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/login/facebook.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/javascripts/_story.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/javascripts/_general.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/add_story.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/models/db.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/login/facebook/index.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/login/facebook/return.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/views/pages/error.jade",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/views/login.jade",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/views/layout.jade",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/views/add_story.jade",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/views/dashboard.jade",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/views/story.jade",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/invite.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/users.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/user.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/notifications.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/profile.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/login.js",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/temp_actions/process_blacklist.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/functions/general.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/temp_actions/process_time_relevance.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/actions/process_ratings.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/actions/update_media.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/page_types/action.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/final_actions/update_media.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/final_actions/update_ratings.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/actions/get_new_media.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/includes/general.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/functions/facebook.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/page_types/home.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/page_types/like.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/gulpfile.js",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/public/index.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/public/test.php",
-		"/Users/charlie/Downloads/sweetdreams/sweet.txt",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/page_types/img.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/functions/slideshow.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/README.md",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/scripts/_slideshow.js",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/actions/google_correct_image_size_for_rotation.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/functions/google.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/functions/clarifai.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/actions/get_photo_tags.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/functions/import.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/functions/action.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/functions/mysql.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/functions/login-register.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/frame/page_types/img.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/scripts/_facebook.js",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/styles/_general.scss",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/styles/_login-register.scss",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/styles/_navigation.scss",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/sublayouts/functions/site_nav.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/page_types/register.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/page_types/login.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/sublayouts/functions/login-register.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/styles/_variables.scss",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/includes/_page_info.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/sublayouts/header.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/sublayouts/functions/import.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/sublayouts/login-register.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/styles/import.scss",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/functions/media_info.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/.gitignore",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/styles/_breakpoints.scss",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/styles/_gradients.scss",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/global/styles/_gradients.scss",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/styles/_fonts.scss",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/global/styles/_fonts.scss",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/scripts/import.json",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/global/scripts/_facebook.js",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/sublayouts/functions/slideshow.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/sublayouts/login.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Photine/combined/website/functions/session.php",
-		"/Users/charlie/Documents/Code/Projects/Charlie Jackson/Personal Blog/Live/wp-content/themes/charliejackson/404.php",
-		"/Users/charlie/Documents/Code/Projects/Charlie Jackson/Personal Blog/Live/wp-content/themes/charliejackson/index.php",
-		"/Users/charlie/Documents/Code/Projects/Charlie Jackson/Personal Blog/Live/wp-content/themes/charliejackson/.gitignore",
-		"/Users/charlie/Documents/Code/Projects/Charlie Jackson/Personal Blog/Live/wp-content/themes/charliejackson/package.json",
-		"/Users/charlie/Documents/Code/Projects/Charlie Jackson/Personal Blog/Live/wp-content/themes/charliejackson/gulpfile.js",
-		"/Users/charlie/Documents/Code/Projects/Charlie Jackson/Personal Blog/Live/wp-content/themes/charliejackson/style.css",
-		"/Users/charlie/Documents/Code/Projects/Charlie Jackson/Personal Blog/Live/wp-content/themes/charliejackson/functions.php",
-		"/Users/charlie/Documents/Code/Projects/Charlie Jackson/Personal Blog/Live/wp-content/themes/charliejackson/sublayouts/footer.php",
-		"/Users/charlie/Documents/Code/Projects/Charlie Jackson/Personal Blog/Live/wp-content/themes/charliejackson/js/modjs/import.json",
-		"/Users/charlie/Documents/Code/Projects/Charlie Jackson/Personal Blog/Live/wp-content/themes/charliejackson/functions/general.php",
-		"/Users/charlie/Documents/Code/Projects/Charlie Jackson/Personal Blog/Live/wp-content/themes/charliejackson/css/sass/import.scss",
-		"/Users/charlie/Documents/Code/Projects/Charlie Jackson/Personal Blog/Live/wp-content/themes/charliejackson/page-portfolio.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Magnus/projects/nine_studios/functions/post_functions.php",
-		"/Users/charlie/Documents/Code/Projects/Nine Studios/Magnus/projects/nine_studios/classes/_post.php"
+		"/Users/charlie/Documents/Code/Projects/Improv Stories/routes/index.js"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -306,6 +385,48 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"variables",
+			"]",
+			"[",
+			"\"\n    \"",
+			"\n        \"",
+			"=",
+			"        ",
+			"]",
+			"[",
+			"</span>",
+			" </span>",
+			"<span class=\"s1\">",
+			"</p>",
+			"<p class=\"p1\">",
+			"role",
+			" )",
+			"( ",
+			"toggleSubNavMobile",
+			"icon",
+			"<glyph",
+			"tweet-text",
+			"tweet-date",
+			"clearfix",
+			" style=\"opacity: 1;\"",
+			"\"tweet\"",
+			"fa fa-",
+			"f0f5",
+			"Sitenav",
+			"hoverFunction",
+			".dot-",
+			"dot-",
+			"@brand-color-",
+			"global",
+			"config.",
+			"\n            ",
+			"\n              ",
+			" class=\".+?\"",
+			"@",
+			"' ); ?>",
+			"<?php echo home_url( '",
+			"<?php echo home_url(); ?>",
+			"media_fb_pic_id",
 			"sync",
 			"site",
 			"cross",
@@ -367,6 +488,35 @@
 		"regex": false,
 		"replace_history":
 		[
+			"}",
+			"{",
+			"\",\n    \"",
+			"\"\n        \"",
+			"\": \"",
+			"        \"",
+			"\": [",
+			"\"",
+			"",
+			"\n",
+			"",
+			")",
+			"(",
+			"<path",
+			"Tweet-content",
+			"Tweet-date",
+			"u-clearFix",
+			"",
+			"\"Tweet\"",
+			"icon",
+			".Bunting-dot--",
+			"Bunting-dot--",
+			"$Bunting-item--colour",
+			"vars",
+			"global.config.",
+			"",
+			"$",
+			"",
+			"/",
 			"'",
 			"// echo",
 			"projectPath",
@@ -383,24 +533,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "vikibell-blog-frontend.sublime-project",
-					"semi_transient": true,
+					"file": "helpers/post_formatting.php",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 45,
+						"buffer_size": 11432,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1782,
+								1782
 							]
 						],
 						"settings":
@@ -408,63 +558,330 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
-								"bh_double_quote_content"
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
 							],
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 452.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "config.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 971,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								147,
+								147
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "views/sublayouts/header.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5766,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3884,
+								3884
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 421.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "config.ini",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 384,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								384
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/EditorConfig/INI.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -472,13 +889,187 @@
 					},
 					"stack_index": 0,
 					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "config-sample.ini",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 223,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								223,
+								223
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/EditorConfig/INI.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "javascripts/import.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								59,
+								59
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/JSX/JSX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 22.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -515,7 +1106,7 @@
 	"project": "vikibell-blog-frontend.sublime-project",
 	"replace":
 	{
-		"height": 40.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -561,7 +1152,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 304.0,
+	"side_bar_width": 334.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

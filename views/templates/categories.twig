@@ -1,0 +1,9 @@
+{% spaceless %}
+  {% include 'sublayouts/header.twig' %}
+  <ul class="Sitemap Post">
+    {% for category in vars.categories %}
+      <li class="Sitemap-topItem Sitemap-item"><a class="Sitemap-link" href="/categories/{{ category.slug }}">{{ category.name }}</a></li>
+    {% endfor %}
+  </ul>
+  {% include 'sublayouts/footer.twig' %}
+{% endspaceless %}

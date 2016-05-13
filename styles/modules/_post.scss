@@ -1,0 +1,226 @@
+$Post-date--size: 4 * $baseFontSize;
+$Post-date--borderWidth: $Post-date--size / 25;
+$Post-date--marginBottom: $Post-date--size / 4;
+$Post-date--marginTop: -$Post-date--size / 2;
+$Post-date--shadowColour: #989898;
+$Post-date--shadowSize: $Post-date--size / 15;
+$Post-date--fontSize: $baseFontSize;
+$Post-date--zIndex: 2;
+
+$Post--marginBetween: -$Post-date--marginTop;
+$Post--marginBottom: -$Post-date--marginTop + $Post--marginBetween;
+$Post--padding: 20px;
+$Post-p--margin: 30px;
+
+$Post-title--fontSize: 28px;
+$Post-content--h1--fontSize: 26px;
+$Post-content--h2--fontSize: 24px;
+$Post-content--h3--fontSize: 22px;
+
+.Post {
+  background: $white;
+  border: 1px solid $gray;
+  border-radius: 3px;
+  margin-bottom: $Post--marginBottom;
+
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    opacity: 1;
+    transition: opacity 2s;
+    width: 100%;
+
+    &[data-src] {
+      opacity: 0;
+    }
+  }
+
+  figcaption {
+    font-style: italic;
+    margin-top: $Post-p--margin / 2;
+    text-align: center;
+  }
+
+  ol,
+  ul {
+    margin-left: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    img {
+      margin: $Post-p--margin 0;
+    }
+  }
+
+  p,
+  figure {
+    margin: $Post-p--margin 0;
+  }
+
+  iframe {
+    border: none;
+    width: 100%;
+  }
+}
+
+.Post-iframeWrap {
+  padding-bottom: 60%;
+  position: relative;
+
+  iframe {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.Post-date {
+  background: $orange; 
+  border: $Post-date--borderWidth solid $white;
+  border-radius: 50%;
+  box-shadow: 0 0 $Post-date--shadowSize $Post-date--shadowColour;
+  box-sizing: border-box;
+  color: $white;
+  display: block;
+  font-size: $Post-date--fontSize;
+  height: $Post-date--size;
+  line-height: 1;
+  margin: $Post-date--marginTop auto $Post-date--marginBottom;
+  padding-top: (($Post-date--size - $Post-date--fontSize) / 2) - $Post-date--borderWidth;
+  position: relative;
+  text-align: center;
+  width: $Post-date--size;
+  z-index: $Post-date--zIndex;
+}
+
+.Post-headerLink {
+  display: block;
+}
+
+.Post-featuredImage {
+  margin-top: $Post-date--marginTop - $Post-date--marginBottom;
+}
+
+.Post-title {
+  font-size: $Post-title--fontSize;
+  font-weight: bold;
+  margin: 0;
+  padding: $Post--padding;
+}
+
+.Post-content {
+  padding: 0 $Post--padding;
+
+  > * {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.Post-content--h1,
+.Post-content--h2,
+.Post-content--h3 {
+  margin: $Post-p--margin 0;
+}
+
+.Post-content--h1 {
+  font-size: $Post-content--h1--fontSize;
+  margin-top: $Post-p--margin + ($Post-content--h1--fontSize / 2);
+
+}
+
+.Post-content--h2 {
+  font-size: $Post-content--h2--fontSize;
+  margin-top: $Post-p--margin + ($Post-content--h1--fontSize / 2);
+}
+
+.Post-content--h3 {
+  font-size: $Post-content--h3--fontSize;
+  margin-top: $Post-p--margin + ($Post-content--h1--fontSize / 2);
+}
+
+.Post-image {
+  margin: $Post-p--margin 0;
+}
+
+.SharePost-title {
+  background: $gray;
+  display: block;
+  padding: 5px;
+  text-align: center;
+}
+
+.SharePost-links {
+  display: table;
+  width: 100%;
+}
+
+.SharePost-list {
+  display: table-row;
+  list-style: none;
+}
+
+.SharePost-item {
+  display: table-cell;
+}
+
+$SharePost-link--padding: 10px;
+
+.SharePost-link {
+  display: block;
+  padding: $SharePost-link--padding 0;
+  position: relative;
+}
+
+.SharePost-Twitter {
+  background: $Twitter--colour;
+
+  &:hover {
+    background: $Twitter--colour-dark;
+  }
+}
+
+.SharePost-Facebook {
+  background: $Facebook--colour;
+
+  &:hover {
+    background: $Facebook--colour-dark;
+  }
+}
+
+.SharePost-Email {
+  background: $Pinterest--colour;
+
+  &:hover {
+    background: $Pinterest--colour-dark;
+  }
+}
+
+.SharePost-icon {
+  display: block;
+  height: $iconFontSize;
+  margin: 0 auto;
+}
+
+.SharePost-socialIcon {
+  fill: $white;
+}
+
+.SharePost-shareIcon {
+  fill: $SharePost-shareIcon--colour;
+  position: absolute;
+  right: $SharePost-link--padding;
+  top: $SharePost-link--padding;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="no-js{% if vars.config.environment.dev %} dev{% endif %}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ vars.staticPublic }}/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ vars.staticPublic }}/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ vars.staticPublic }}/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ vars.staticPublic }}/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ vars.staticPublic }}/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ vars.staticPublic }}/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ vars.staticPublic }}/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ vars.staticPublic }}/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ vars.staticPublic }}/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="{{ vars.staticPublic }}/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ vars.staticPublic }}/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="{{ vars.staticPublic }}/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{ vars.staticPublic }}/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="{{ vars.staticPublic }}/manifest.json">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="{{ vars.staticPublic }}/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="author" content="Viki Bell">
+    <link rel="author" href="{{ vars.config.environment.url }}">
+    <meta name="og:site_name" content="Viki Bell" />
+    <meta name="og:locale" content="en_GB" />
+    <meta name="twitter:site" content="@VikiiBell"/>
+    <meta name="twitter:creator" content="@VikiiBell"/>
+    <meta name="twitter:card" content="summary"/>
+    <title>{{ vars.meta.title }}</title>
+
+    {% for name, content in vars.meta.loop %}
+      <meta {{ name|raw }} content="{{ content }}" />
+    {% endfor %}
+
+    {% if vars.canonical %}
+      <link rel="canonical" href="{{ vars.canonical }}" />
+    {% endif %}
+    {% if vars.next %}<link id="next" rel="next" href="{{ vars.next }}" />{% endif %}
+    {% if vars.prev %}<link rel="prev" href="{{ vars.prev }}" />{% endif %}
+    <link rel="stylesheet" href="{{ vars.staticPublic }}{{ vars.config.styles.publicDir }}/{% if vars.config.environment.dev %}{{ vars.config.styles.main }}{% else %}{{ vars.config.styles.min }}{% endif %}">
+    <script async src="{{ vars.staticPublic }}{{ vars.config.javascripts.publicDir }}/{% if vars.config.environment.dev %}{{ vars.config.javascripts.main }}{% else %}{{ vars.config.javascripts.min }}{% endif %}"></script>
+    {% if vars.hasTwitterWidget %}<script id="{{ vars.config.twitterScriptId }}" src="{{ vars.staticPublic }}{{ vars.config.javascripts.publicDir }}/{{ vars.config.javascripts.twitterMin }}"></script>{% endif %}
+  </head>
+
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5X2ZMF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','{{ vars.config.googleTag.id }}');</script>
+    <div class="u-hide">{{ vars.icons|raw }}</div>
+    <div id="MicroData-organization" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Viki Bell">
+      <meta itemprop="url" content="{{ vars.config.environment.url }}">
+
+      {% for socialLink in vars.socialProfiles %}
+        <link itemprop="sameAs" href="{{ socialLink }}" />
+      {% endfor %}
+
+      <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+        <meta itemprop="url" content="{{ vars.organizationLogo.src }}">
+        <meta itemprop="width" content="{{ vars.organizationLogo.width }}">
+        <meta itemprop="height" content="{{ vars.organizationLogo.height }}">
+      </div>
+    </div>
+
+    <header id="SiteHeader" class="SiteHeader">
+      {% include 'sublayouts/banner.twig' %}
+      {% include 'sublayouts/site_navigation.twig' %}
+    </header>
+    
+    <div class="Content u-wrap">
+        <div class="Content--wrap">
+            <main class="Main">
+                {% if vars.pageTitle %}
+                    <h2 class="Title">{{ vars.pageTitle }}</h2>
+                {% endif %}
+
+                {% if vars.breadcrumbs %}
+                  <nav>
+                    <ul class="Breadcrumbs u-clearFix">
+                      {% for title, url  in vars.breadcrumbs %}
+                        <li class="Breadcrumbs-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                          <a class="Breadcrumbs-link" href="{{ url }}" itemprop="url">
+                            <span class="Breadcrumbs-title" itemprop="title">{{ title }}</span>
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </nav>
+                {% endif %}

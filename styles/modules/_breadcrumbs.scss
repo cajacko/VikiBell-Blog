@@ -1,0 +1,36 @@
+$Breadcrumbs-item-deliminator--color: rgba($white, .5);
+
+.Breadcrumbs {
+  background: $blue;
+  font-size: 14px;
+  line-height: 1;
+  list-style: none;
+  margin-bottom: 50px;
+  padding: 10px 20px;
+}
+
+.Breadcrumbs-item {
+  display: inline-block;
+
+  &:after {
+    color: $Breadcrumbs-item-deliminator--color;
+    content: '>';
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.Breadcrumbs-link {
+  color: $white;
+  text-decoration: none;
+
+  &:hover {
+    color: $white;
+  }
+}

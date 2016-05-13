@@ -1,0 +1,90 @@
+* {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: $gray--light; 
+  color: $black;
+  font-size: $baseFontSize;
+  line-height: 1.5;
+}
+
+a {
+  color: $orange;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: $orange--dark;
+    text-decoration: underline;
+  }
+}
+
+strong,
+strong * {
+  font-weight: bold;
+}
+
+h1, 
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $blue-light;
+  font-size: $baseFontSize;
+  line-height: 1.25;
+  margin: 0;
+  padding: 0;
+
+  a & {
+    color: inherit;
+  }
+}
+
+.u-clearFix {
+  @include clearfix;
+}
+
+.u-wrap {
+  @include wrap;
+}
+
+.u-hide {
+  display: none;
+}
+
+.Content {
+  margin-top: 50px;
+
+  @include mq($until: sidebarCollapse) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.Content--wrap {
+  position: relative;
+}
+
+.Main {
+  max-width: 600px;
+
+  @include mq($until: sidebarCollapse) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.Title {
+  background: $white;
+  font-size: 24px;
+  // margin-bottom: 20px;
+  padding: 20px;
+}
+
+.ErrorPage {
+  padding: 0 20px;
+}

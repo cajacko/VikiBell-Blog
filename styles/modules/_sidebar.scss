@@ -1,0 +1,318 @@
+$Sidebar--width: calc(100% - #{$Main--maxWidth});
+$Sidebar--padding: $padding;
+$Sidebar-socialLink--padding: 20px;
+$Sidebar-socialLink--fontSize: $iconFontSize;
+$SearchForm--padding: $Sidebar--padding;
+$SearchForm-input--borderRadius: 5px;
+$SearchForm-input--padding: 5px;
+$Sidebar-sectionBorder: 2px solid $gray;
+$TweetLoop-headerLink--fontSize: $Sidebar-socialLink--fontSize * 1.25;
+$TweetLoop-headerLink--padding: $Sidebar-socialLink--padding;
+$Tweet--margin: $SearchForm--padding;
+$Tweet-imageLink--marginRight: 10px;
+$Tweet-content--marginTop: $Tweet-imageLink--marginRight;
+$Tweet-image--opacity--hover: .9;
+$TweetLoop-follow--marginHorizontal: $Tweet--margin;
+$Sidebar--border: 1px solid $gray;
+
+.Sidebar {
+  box-sizing: border-box;
+  padding-left: $Sidebar--padding; 
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $Sidebar--width;
+
+  @include mq($until: sidebarCollapse) {
+    width: auto;
+  }
+
+  @include mq($until: sidebarHide) {
+    display: none;
+  }
+}
+
+.Sidebar--fixedToBottom {
+  bottom: 0;
+  position: fixed;
+  top: auto;
+}
+
+.Sidebar-main {
+  background: $white;
+  border: $Sidebar--border;
+}
+
+.Profile {
+  list-style: none;
+
+  @include mq($until: sidebarCollapse) {
+    display: none;
+  }
+}
+
+.Profile-item {
+  display: none;
+
+  &:first-child {
+    display: block;
+  }
+}
+
+.Profile-image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.Sidebar-social {
+  display: table;
+  width: 100%;
+
+  @include mq($until: sidebarCollapse) {
+    display: block;
+    width: auto;
+  }
+}
+
+.Sidebar-socialWrap {
+  display: table-row;
+  line-height: 1;
+  list-style: none;
+
+  @include mq($until: sidebarCollapse) {
+    display: block;
+  }
+}
+
+.Sidebar-socialItem {
+  display: table-cell;
+  width: 500px;
+
+  @include mq($until: sidebarCollapse) {
+    display: block;
+    width: auto;
+  }
+}
+
+.Sidebar-socialLink {
+  color: $white;
+  display: block;
+  padding: $Sidebar-socialLink--padding;
+
+  &:hover {
+    color: $white;
+  }
+
+  .Sidebar-socialItem--twitter & {
+    background: $Twitter--colour;
+
+    &:hover {
+      background: $Twitter--colour-dark;
+    }
+  }
+
+  .Sidebar-socialItem--instagram & {
+    background: $Instagram--colour;
+
+    &:hover {
+      background: $Instagram--colour-dark;
+    }
+  }
+
+  .Sidebar-socialItem--pinterest & {
+    background: $Pinterest--colour;
+
+    &:hover {
+      background: $Pinterest--colour-dark;
+    }
+  }
+}
+
+.Sidebar-socialIcon {
+  display: block;
+  fill: $white;
+  height: $Sidebar-socialLink--fontSize;
+  margin: 0 auto;
+}
+
+.SearchForm {
+  border-top: $Sidebar-sectionBorder;
+  padding: $SearchForm--padding;
+
+  @include mq($until: sidebarCollapse) {
+    display: none;
+  }
+}
+
+.SearchForm-input {
+  appearance: none;
+  border: 1px solid $gray;
+  border-radius: $SearchForm-input--borderRadius;
+  box-sizing: border-box;
+  display: block;
+  padding: $SearchForm-input--padding;
+  width: 100%;
+}
+
+.TweetLoop {
+  border-top: $Sidebar-sectionBorder;
+
+  @include mq($until: sidebarCollapse) {
+    display: none;
+  }
+}
+
+.TweetLoop-headerLink {
+  color: $Twitter--colour;
+  display: block;
+  font-size: $TweetLoop-headerLink--fontSize;
+  line-height: 1;
+  padding: $TweetLoop-headerLink--padding;
+  text-align: center;
+}
+
+.TweetLoop-headerIcon {
+  fill: $Twitter--colour;
+  height: $Sidebar-socialLink--fontSize;
+
+  .TweetLoop-headerLink:hover & {
+    fill: $Twitter--colour-dark;
+  }
+}
+
+.Tweet {
+  border-bottom: $Sidebar-sectionBorder;
+  margin: $Tweet--margin;
+  padding-bottom: $Tweet--margin;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+.Tweet-dateLink {
+  color: $gray--dark;
+  float: right;
+  font-size: 12px;
+  text-decoration: none;
+
+  &:hover {
+    color: $gray--dark;
+  }
+}
+
+.Tweet-imageLink {
+  border-radius: 5px;
+  float: left;
+  margin-right: $Tweet-imageLink--marginRight;
+  overflow: hidden;
+
+  &:hover {
+    opacity: $Tweet-image--opacity--hover;
+  }
+}
+
+.Tweet-image {
+  display: block;
+}
+
+.Tweet-nameLink {
+  color: $black;
+  display: block;
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none;
+
+  &:hover {
+    color: $black;
+  }
+}
+
+.Tweet-name {
+  font-size: inherit;
+}
+
+.Tweet-usernameLink {
+  color: $gray--dark;
+  display: block;
+  font-size: 12px;
+  line-height: 1;
+  margin-top: 5px;
+  text-decoration: none;
+
+  &:hover {
+    color: $gray--dark;
+  }
+}
+
+.Tweet-content {
+  font-size: 14px;
+  font-style: italic;
+  margin-top: $Tweet-content--marginTop;
+
+  a {
+    color: $Twitter--colour;
+    text-decoration: none;
+
+    &:hover {
+      color: $Twitter--colour-dark;
+    }
+  }
+}
+
+.Tweet-contentImageLink {
+  display: block;
+  margin-top: $Tweet-content--marginTop;
+
+  &:hover {
+    opacity: $Tweet-image--opacity--hover;
+  }
+}
+
+.Tweet-contentImage {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.TweetLoop-follow {
+  background: $Twitter--colour;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: $white;
+  display: block;
+  margin: 0 $TweetLoop-follow--marginHorizontal $TweetLoop-follow--marginHorizontal;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background: $Twitter--colour-dark;
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+.ToTop {
+  background: $white;
+  border: $Sidebar--border;
+  border-radius: 5px; 
+  display: block;
+  font-size: 24px;
+  line-height: 1;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.ToTop-icon {
+  display: block;
+  height: $iconFontSize;
+  margin: 0 auto;
+}

@@ -1,0 +1,200 @@
+// Module specific vars and overrides
+$SiteNav--fontSize: $iconFontSize;
+$SiteNav--mobileBreakpoint: 750px;
+$SiteNav--mobilePadding: 20px;
+$SiteNav-item--mobile--count: 3;
+$SiteNav-item--mobile--width: 55px;
+$SiteNav-item--width: 16.6666666%;
+$SiteNav-link--padding: 18px;
+$SiteNav-title--fontSize: 18px; 
+$SiteNav-zIndex: 3;
+$SiteNavMain--mobileBackgroundColour: $blue--dark;
+$SiteNavMain--mobileBackgroundColour--hover: $blue--darker;
+$SiteNavMain--modileBorderColour: $white--translucent;
+$SiteNav-title-icon--mobileDisplay: inline-block;
+$SiteNav-item--mobileBorderWidth: 1px;
+
+// Calculated module specific vars
+$SiteNavMain--zIndex: $SiteNav-zIndex + 1;
+$SiteNav-subNav--zIndex: $SiteNavMain--zIndex + 1;
+$SiteNavMain--mobileTop: $SiteNav--fontSize + ($SiteNav-link--padding * 2);
+
+.SiteNav {
+  background: $blue;
+  line-height: 1;
+  position: relative;
+  text-align: center;
+  z-index: $SiteNav-zIndex;
+
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    padding-left: $SiteNav--mobilePadding;
+    padding-right: $SiteNav--mobilePadding;
+  }
+}
+
+.SiteNav-list {
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.SiteNavMain {
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    background: $blue;
+    display: none;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: $SiteNavMain--mobileTop;
+    z-index: $SiteNavMain--zIndex;
+  }
+}
+
+.SiteNav-item {
+  float: left;
+  position: relative;
+  width: $SiteNav-item--width;
+}
+
+.SiteNavMain-item {
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    border-top: $SiteNavMain--modileBorderColour $SiteNav-item--mobileBorderWidth solid;
+    float: none;
+    width: 100%;
+  }
+}
+
+.SiteTitle {
+  font-size: $SiteNav--fontSize;
+
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    text-align: left;
+    width: calc(100% - (#{$SiteNav-item--mobile--width} * #{$SiteNav-item--mobile--count}));
+  }
+}
+
+.SiteTitle-link {
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    display: inline-block;
+  }
+}
+
+.SiteTitle-text {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.SiteNav-item--mobile {
+  display: none;
+
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    display: block;
+    text-align: right;
+    width: $SiteNav-item--mobile--width;
+  }
+}
+
+.SiteNav-link {
+  color: $white;
+  display: block;
+  fill: $white;
+  padding: $SiteNav-link--padding 0;
+  text-decoration: none;
+
+  &:hover {
+    color: $white;
+    text-decoration: underline;
+
+    @include mq($until: $SiteNav--mobileBreakpoint) {
+      text-decoration: none;
+    }
+
+    .SiteNav-title {
+      display: block;
+
+      @include mq($until: $SiteNav--mobileBreakpoint) {
+        display: $SiteNav-title-icon--mobileDisplay;
+      }
+    }
+
+    .SiteNav-icon {
+      display: none;
+
+      @include mq($until: $SiteNav--mobileBreakpoint) {
+        display: $SiteNav-title-icon--mobileDisplay;
+      }
+    }
+  }
+}
+
+.SiteNavMain-link {
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    padding: $SiteNav--mobilePadding;
+
+    &:hover {
+      background: $SiteNavMain--mobileBackgroundColour;
+    }
+  }
+}
+
+.SiteNav-icon,
+.SiteNav-title {
+  box-sizing: border-box;
+  display: block;
+  height: $SiteNav--fontSize;
+}
+
+.SiteNav-icon {
+  display: block;
+  font-size: $SiteNav--fontSize;
+  margin: 0 auto;
+
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    display: $SiteNav-title-icon--mobileDisplay;
+  }
+}
+
+.SiteNav-title {
+  display: none;
+  font-size: $SiteNav-title--fontSize;
+  padding: (($SiteNav--fontSize - $SiteNav-title--fontSize) / 2) 0;
+
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    display: $SiteNav-title-icon--mobileDisplay;
+    margin-left: $SiteNav--mobilePadding;
+  }
+}
+
+.SiteNav-subNav {
+  @include SiteNav--borderProps;
+
+  background: $blue;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  display: none;
+  position: absolute;
+  width: 100%;
+  z-index: $SiteNav-subNav--zIndex;
+
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    background: $SiteNavMain--mobileBackgroundColour;
+    border: 0;
+    position: relative;
+  }
+}
+
+.SiteNav-subItem {
+  @include mq($until: $SiteNav--mobileBreakpoint) {
+    border-top: $SiteNavMain--modileBorderColour $SiteNav-item--mobileBorderWidth solid;
+  }
+}
+
+.SiteNav-sublink {
+  &:hover {
+    @include mq($until: $SiteNav--mobileBreakpoint) {
+      background: $SiteNavMain--mobileBackgroundColour--hover;
+    }
+  }
+}

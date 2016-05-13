@@ -1,0 +1,12 @@
+<!-- Make as svg -->
+<div class="Bunting">
+  <div class="Bunting-wrap">
+    {% for buntingItem in vars.bunting %}
+      <div class="Bunting-item Bunting-item--colour{{ buntingItem.colour }}">
+        {% for buntingDot in buntingItem.dots %}
+          <div class="Bunting-dot Bunting-dot--{{ buntingDot }}"></div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</div>

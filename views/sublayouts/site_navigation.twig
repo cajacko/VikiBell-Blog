@@ -1,0 +1,50 @@
+<div>
+  <nav class="SiteNav">
+    <ul class="SiteNav-list u-clearFix u-wrap">
+      <li class="SiteTitle SiteNav-item">
+        <a id="MicroData-person" class="SiteTitle-link SiteNav-link" href="/" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <h1 class="SiteTitle-text" itemprop="name">Viki Bell</h1>
+          <meta itemprop="familyName" content="Bell">
+          <meta itemprop="givenName" content="Viki">
+          <meta itemprop="gender" content="Female">
+          <meta itemprop="nationality" content="British">
+          <link itemprop="url" href="{{ vars.config.environment.url }}">
+          {% for socialLink in vars.socialProfiles %}
+            <link itemprop="sameAs" href="{{ socialLink }}" />
+          {% endfor %}
+        </a>
+      </li>
+      
+      {% for socialNavItem in vars.socialNav %}
+        <li class="SiteNav-item SiteNav-item--mobile"><a class="SiteNav-link" href="{{ socialNavItem.url }}"><svg class="SiteNav-icon" viewBox="0 0 100 100"><use xlink:href="#{{ socialNavItem.icon }}"></use></svg></a></li>
+      {% endfor %}
+
+      <li>
+        <div class="SiteNav-item SiteNav-item--mobile"><a id="MobileDropdownLink" class="SiteNav-link" aria-controls="MobileNav" aria-expanded="true"><svg class="SiteNav-icon icon-menu" viewBox="0 0 100 100"><use id="MobileDropdownIcon" xlink:href="#menu"></use></svg></a></div>
+
+        <ul id="MobileNav" class="SiteNavMain SiteNav-list u-clearFix" aria-hidden="false" aria-expanded="true">
+          {% for navItem in vars.nav %}
+            <li class="SiteNav-item SiteNavMain-item {% if navItem.subNav %}u-hasDropDown{% endif %}">
+              <a class="SiteNavMain-link SiteNav-link {% if navItem.subNav %}u-controlsDropdown{% endif %} u-clearFix" href="{{ navItem.url }}" {% if navItem.subNav %}aria-controls="{{ navItem.subNav.id }}" aria-expanded="false"{% endif %}>
+                {% if navItem.icon %}
+                  <svg class="SiteNav-icon" viewBox="0 0 100 100"><use xlink:href="#{{ navItem.icon }}"></use></svg>
+                {% endif %}
+                <span class="SiteNav-title">{{ navItem.title }}</span>
+              </a>
+
+              {% if navItem.subNav %}
+                <ul id="{{ navItem.subNav.id }}" class="SiteNav-subNav SiteNav-list" aria-hidden="true" aria-expanded="false">
+                  {% for subNavItem in navItem.subNav.items %}
+                    <li class="SiteNav-subItem"><a class="SiteNavMain-link SiteNav-link SiteNav-sublink" href="{{ subNavItem.url }}">{{ subNavItem.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>   
+  </nav>
+
+  {% include 'sublayouts/bunting.twig' %}
+</div>

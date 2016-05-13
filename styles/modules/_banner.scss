@@ -1,0 +1,26 @@
+.Banner {  
+  background: #f07570;
+  display: block;
+  max-height: 350px;
+  min-height: 200px;
+  overflow: hidden;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: 18%;
+  }
+}
+
+.Banner-image {
+  height: auto;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  .Banner--backgroundImage & {
+    display: none;
+  }
+}

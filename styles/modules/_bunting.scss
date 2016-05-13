@@ -1,0 +1,112 @@
+$Bunting--height: 2.45em;
+$Bunting-dot--size: .1em;
+$Bunting-item--colour1: #ff4c65;
+$Bunting-item--colour2: #fbe2b4;
+$Bunting-item--colour3: #ffc33c;
+$Bunting-item--colour4: #59c4c5;
+$Bunting-item--colour5: #00c8f8;
+$Bunting-item--width: 1.4em;
+
+.Bunting {
+  @include SiteNav--borderProps
+
+  border-top-style: solid;
+  height: $Bunting--height;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.Bunting-wrap {
+  display: inline-block;
+  left: -9999px;
+  position: absolute;
+  right: -9999px;
+  white-space: nowrap;
+}
+
+.Bunting-item {
+  border-left: $Bunting-item--width solid transparent;
+  border-right: $Bunting-item--width solid transparent;
+  border-top-style: solid;
+  border-top-width: $Bunting--height;
+  display: inline-block;
+  height: 0;
+  margin-left: 1.5em;
+  position: relative;
+  width: 0;
+}
+
+.Bunting-item--colour1 {
+  border-top-color: $Bunting-item--colour1;
+}
+
+.Bunting-item--colour2 {
+  border-top-color: $Bunting-item--colour2;
+}
+
+.Bunting-item--colour3 {
+  border-top-color: $Bunting-item--colour3;
+}
+
+.Bunting-item--colour4 {
+  border-top-color: $Bunting-item--colour4;
+}
+
+.Bunting-item--colour5 {
+  border-top-color: $Bunting-item--colour5;
+}
+
+.Bunting-dot {
+  background-color: $white;
+  border-radius: 50%;
+  height: $Bunting-dot--size;
+  position: absolute;
+  width: $Bunting-dot--size;
+}
+
+.Bunting-dot--1 {
+  left: -1em;
+  top: -2em;
+}
+
+.Bunting-dot--2 {
+  left: 0;
+  top: -1em;
+}
+
+.Bunting-dot--3 {
+  left: .8em;
+  top: -2.2em;
+}
+
+.Bunting-dot--4 {
+  left: -.2em;
+  top: -1.7em;
+}
+
+.Bunting-dot--5 {
+  left: .1em;
+  top: -2.3em;
+}
+
+.Bunting-dot--6 {
+  left: .4em;
+  top: -1.5em;
+}
+
+.Bunting-dot--7 {
+  left: -.5em;
+  top: -2.4em;
+}
+
+.Bunting-dot--8 {
+  left: -.4em;
+  top: -1.25em;
+}
+
+.Bunting-dot--9 {
+  left: -.1em;
+  top: -.5em;
+}

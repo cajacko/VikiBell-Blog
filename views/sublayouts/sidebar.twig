@@ -1,0 +1,33 @@
+<aside class="Sidebar">
+  <div class="Sidebar-wrap">
+    <div class="Sidebar-main u-clearFix">
+      <ul class="Profile">
+        {% for profile in vars.sidebar.profile %}
+          <li class="Profile-item"><img class="Profile-image" src="{{ profile.src }}" alt="{{ profile.alt }}"></li>
+        {% endfor %}
+      </ul>
+
+      <div class="Sidebar-social">
+        <ul class="Sidebar-socialWrap">
+          <li class="Sidebar-socialItem--twitter Sidebar-socialItem"><a class="Sidebar-socialLink" href="{{ vars.socialProfiles.twitter }}"><svg class="Sidebar-socialIcon" viewBox="0 0 100 100"><use xlink:href="#twitter"></use></svg><span class="u-hide">Twitter</span></a></li>
+          <li class="Sidebar-socialItem--instagram Sidebar-socialItem"><a class="Sidebar-socialLink" href="{{ vars.socialProfiles.instagram }}"><svg class="Sidebar-socialIcon" viewBox="0 0 100 100"><use xlink:href="#instagram"></use></svg><span class="u-hide">Instagram</span></a></li>
+          <li class="Sidebar-socialItem--pinterest Sidebar-socialItem"><a class="Sidebar-socialLink" href="{{ vars.socialProfiles.pinterest }}"><svg class="Sidebar-socialIcon" viewBox="0 0 100 100"><use xlink:href="#pinterest"></use></svg><span class="u-hide">Pinterest</span></a></li>
+        </ul>
+      </div>
+
+      <div itemscope itemtype="http://schema.org/WebSite">
+        <meta itemprop="url" content="{{ vars.config.environment.url }}"/>
+        <form class="SearchForm" action="/search" method="GET" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
+          <meta itemprop="target" content="{{ vars.config.environment.url }}/search?s={s}"/>
+          <label class="u-hide" for="SearchInput">Search</label>
+          <input id="SearchInput" class="SearchForm-input" type="text" placeholder="Search" itemprop="query-input" name="s" required />
+          <input class="u-hide" type="submit"/>
+        </form>
+      </div>
+
+      {% include 'sublayouts/twitter.twig' %}
+    </div>
+
+    <a id="ToTop" class="ToTop" href="#SiteHeader"><svg class="ToTop-icon" viewBox="0 0 100 100"><use xlink:href="#up"></use></svg></a>
+  </div>
+</aside>

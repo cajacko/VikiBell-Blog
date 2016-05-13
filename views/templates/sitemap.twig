@@ -1,0 +1,18 @@
+{% spaceless %}
+  {% include 'sublayouts/header.twig' %}
+  <ul class="Sitemap Post">
+    {% for topLevel in vars.sitemap %}
+      <li class="Sitemap-topItem Sitemap-item">
+        <a class="Sitemap-link" href="{{ topLevel.link }}">{{ topLevel.title }}</a>
+        {% if topLevel.subLevel %}
+          <ul class="Sitemap-subList">
+            {% for subLevel in topLevel.subLevel %}
+              <li class="Sitemap-subItem Sitemap-item"><a class="Sitemap-link" href="{{ subLevel.link }}">{{ subLevel.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  {% include 'sublayouts/footer.twig' %}
+{% endspaceless %}

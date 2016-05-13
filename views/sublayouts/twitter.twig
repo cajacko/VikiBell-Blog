@@ -1,0 +1,38 @@
+<div class="TweetLoop">
+    <header>
+        <a class="TweetLoop-headerLink" target="_blank" href="http://twitter.com/Vikiibell">
+            <svg class="TweetLoop-headerIcon" viewBox="0 0 100 100"><use xlink:href="#twitter"></use></svg>
+            <span class="u-hide">Twitter</span>
+        </a>
+    </header>
+
+    <div>
+    {% for tweet in  vars.tweets %}
+        <article class="Tweet">
+            <header class="u-clearFix">             
+                <a class="Tweet-dateLink" href="{{ tweet.tweetLink }}" target="_blank">
+                    <time class="Tweet-date" datetime="{{ tweet.date.dateTime }}">{{ tweet.date.text }} ago</time>
+                </a>
+
+                <a class="Tweet-imageLink" href="{{ tweet.profile.link }}" target="_blank">
+                    <img class="Tweet-image" src="{{ tweet.profile.image.src }}" alt="{{ tweet.profile.image.alt }}">
+                </a>
+
+                <a class="Tweet-nameLink" href="{{ tweet.profile.link }}" target="_blank">
+                    <{% if vars.isSingle %}h2{% else %}h3{% endif %} class="Tweet-name">{{ tweet.profile.name }}</{% if vars.isSingle %}h2{% else %}h3{% endif %}>
+                </a>
+
+                <a class="Tweet-usernameLink" href="{{ tweet.profile.link }}" target="_blank">
+                    <span class="Tweet-username">{{ tweet.profile.handle }}</span>
+                </a>
+            </header>
+
+            <div class="Tweet-content">{{ tweet.content|raw }}</div>
+
+            {% if tweet.featuredImage %}<a class="Tweet-contentImageLink" href=""><img class="Tweet-contentImage" src="{{ tweet.featuredImage.src }}" alt="{{ tweet.featuredImage.alt }}"></a>{% endif %}
+        </article>
+    {% endfor %}
+    </div>
+
+    <footer><a class="TweetLoop-follow" href="http://twitter.com/Vikiibell" target="_blank">Follow @vikibell</a></footer>
+</div>
