@@ -135,5 +135,9 @@ function create_xml_sitemap() {
   $content .= '</urlset> ';
 
   file_put_contents('../public/sitemap.xml', $content);
+
+  $response = array('sitemap' => $content, 'response' => true);
   create_robots_file();
+
+  return json_encode($response);
 }

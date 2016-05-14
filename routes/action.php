@@ -13,7 +13,8 @@ else {
   switch($request[1]) {
     case 'build-sitemap':
       require_once('../models/sitemap.php');
-      create_xml_sitemap();
+      $response = create_xml_sitemap();
+      echo $response;
       exit;
 
     default:
