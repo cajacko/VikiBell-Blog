@@ -55,26 +55,16 @@ else {
 
     unset($vars['pageTitle']);
 
-    page_meta(array(
+    $page_meta = array(
       'title' => $vars['post']['title'] . ' | Viki Bell',
       'description' => $vars['post']['description'],
-    ));
-
-    if(isset($post['image']['src'])) {
-      $page_meta['image'] = $post['image']['src'];
-
-      if(isset($post['image']['width'])) {
-        $page_meta['og:image:width'] = $post['image']['width'];
-      }
-
-      if(isset($post['image']['height'])) {
-        $page_meta['og:image:height'] = $post['image']['height'];
-      }
-
-      if(isset($post['image']['alt'])) {
-        $page_meta['twitter:image:alt'] = $post['image']['alt'];
-      }
+    );
+  
+    if(isset($post['image'])) {
+      set_image_meta($post['image'], $page_meta);
     }
+
+    page_meta($page_meta);
   } else {
     require_once('404.php');
   }

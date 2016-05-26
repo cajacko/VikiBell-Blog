@@ -44,9 +44,12 @@ else {
 
     $vars['pageTitle'] = 'Category: ' . $category['name'];
 
-    page_meta(array(
+    $page_meta = array(
       'title' => $category['name'] . ' | Viki Bell',
-    ));   
+    );
+
+    set_loop_image_meta($vars['posts'], $page_meta);
+    page_meta($page_meta);
   } else {
     require_once('404.php');
   }
