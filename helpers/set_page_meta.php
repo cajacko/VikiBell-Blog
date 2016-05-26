@@ -9,6 +9,33 @@ function set_meta_as($val, $keys) {
   }
 }
 
+function set_image_meta($image, &$page_meta) {
+  if(isset($image['src'])) {
+    $page_meta['image'] = $image['src'];
+
+    if(isset($image['width'])) {
+      $page_meta['og:image:width'] = $image['width'];
+    }
+
+    if(isset($image['height'])) {
+      $page_meta['og:image:height'] = $image['height'];
+    }
+
+    if(isset($image['alt'])) {
+      $page_meta['twitter:image:alt'] = $image['alt'];
+    }
+  }
+}
+
+function set_loop_image_meta($posts, &$page_meta) {
+  foreach($posts as $post) {
+    if(isset($post['image'])) {
+      set_image_meta($post['image'], $page_meta);
+      break;
+    }
+  }
+}
+
 function page_meta($args) {
   global $vars;
 
