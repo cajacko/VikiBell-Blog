@@ -55,11 +55,16 @@ else {
 
     unset($vars['pageTitle']);
 
-    page_meta(array(
+    $page_meta = array(
       'title' => $vars['post']['title'] . ' | Viki Bell',
       'description' => $vars['post']['description'],
-    ));
+    );
+  
+    if(isset($post['image'])) {
+      set_image_meta($post['image'], $page_meta);
+    }
 
+    page_meta($page_meta);
   } else {
     require_once('404.php');
   }
