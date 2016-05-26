@@ -60,6 +60,21 @@ else {
       'description' => $vars['post']['description'],
     ));
 
+    if(isset($post['image']['src'])) {
+      $page_meta['image'] = $post['image']['src'];
+
+      if(isset($post['image']['width'])) {
+        $page_meta['og:image:width'] = $post['image']['width'];
+      }
+
+      if(isset($post['image']['height'])) {
+        $page_meta['og:image:height'] = $post['image']['height'];
+      }
+
+      if(isset($post['image']['alt'])) {
+        $page_meta['twitter:image:alt'] = $post['image']['alt'];
+      }
+    }
   } else {
     require_once('404.php');
   }
