@@ -20,7 +20,7 @@ if(!isset($request[1])) {
 
   page_meta(array(
     'title' => 'Posts | Viki Bell',
-    'description' => 'Check our my posts on life and stuff',
+    'description' => 'Check out my posts on life and stuff',
   ));
 } 
 /** 
