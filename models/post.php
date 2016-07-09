@@ -2,16 +2,24 @@
 
 require_once('../helpers/post_meta.php');
 
-function get_single_post($slug) {
+function get_single_post($slug, $draft = false) {
   global $db, $config, $global_queries;
+
+  if($draft) {
+    $where = 'wp_posts.ID = ?';
+  } else {
+    $where = $global_queries['post_where'] . ' AND wp_posts.post_name = ?';
+  }
 
   $query = '
     SELECT *
     FROM wp_posts
-    WHERE ' . $global_queries['post_where'] . ' AND wp_posts.post_name = ?
+    WHERE ' . $where . '
     ' . $global_queries['post_order'] . '
     ' . $global_queries['post_limit'] . '
   ;';
+
+  // print_r($query); exit;
 
   // prepare and bind
   $stmt = $db->prepare($query);
