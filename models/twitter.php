@@ -13,7 +13,7 @@ function get_tweets() {
     $tweets = json_decode($tweets, true);
 
     if(isset($tweets['date'])) {
-      $expiration_date = strtotime('-1 day');
+      $expiration_date = strtotime('-10 minutes');
 
       if($tweets['date'] > $expiration_date) {
         return $tweets['tweets'];
