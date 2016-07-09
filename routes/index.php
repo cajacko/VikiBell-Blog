@@ -162,6 +162,10 @@ if(isset($request[0])) {
       case 'sitemap':
         require_once('sitemap.php');
         break;
+
+      case 'drafts':
+        require_once('drafts.php');
+        break;
       
       default:
         require_once('page.php');

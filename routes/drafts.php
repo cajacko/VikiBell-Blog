@@ -37,7 +37,7 @@ elseif(isset($request[2])) {
 // Query is good so get the post if it exists
 else {
   require_once('../models/post.php');
-  $post = get_single_post($request[1]); // Get the post based on the slug
+  $post = get_single_post($request[1], true); // Get the post based on the slug
 
   // If the post exists then show it, otherwise route to 404
   if(isset($post[0])) {
